@@ -1,4 +1,3 @@
-#hay que intalar en driver de sql , para que cargue sql server
 import asyncio
 from contextlib import asynccontextmanager
 from datetime import date, datetime, time, timedelta
@@ -7,14 +6,12 @@ import logging
 from logging.handlers import RotatingFileHandler
 import multiprocessing
 import os
-import subprocess
 import sys
 from typing import Any, Optional
 import urllib.parse
 from fastapi import Depends, FastAPI, HTTPException, Request, Response, Security
 from fastapi.security.api_key import APIKeyHeader
 import httpx
-import pyodbc
 from sqlalchemy import create_engine, text
 from sqlalchemy.engine import Engine
 import uvicorn
@@ -48,11 +45,9 @@ archivo_log = os.path.join(dir_logs, "api_hikvision.log")
 
 log_formatter = logging.Formatter("%(asctime)s | %(levelname)s | %(message)s")
 
-# Handler para Consola
 console_handler = logging.StreamHandler()
 console_handler.setFormatter(log_formatter)
 
-# Handler para Archivo (Rotativo: Máximo 5MB por archivo, conserva 3 respaldos)
 file_handler = RotatingFileHandler(archivo_log, maxBytes=5*1024*1024, backupCount=3, encoding="utf-8")
 file_handler.setFormatter(log_formatter)
 
@@ -90,16 +85,17 @@ ENABLE_HARDWARE = CFG.get("ENABLE_HARDWARE", "0") == "1"
 BIOMETRIC_IP = CFG.get("BIOMETRIC_IP", "192.168.20.215")
 BIOMETRIC_USER = CFG.get("BIOMETRIC_USER", "admin")
 BIOMETRIC_PASS = CFG.get("BIOMETRIC_PASS", "admin123")
+
+# Configuración PostgreSQL
 DB_HOST = CFG.get("DB_HOST", "192.168.50.19")
-DB_NAME = CFG.get("DB_NAME", "BIHR")
-DB_USER = CFG.get("DB_USER", "sa")
+DB_PORT = CFG.get("DB_PORT", "5432")
+DB_NAME = CFG.get("DB_NAME", "bihr")
+DB_USER = CFG.get("DB_USER", "postgres")
 DB_PASS = CFG.get("DB_PASS", "")
 
-# Nuevo parámetro: ID de la tienda (por defecto "001" si no se define en config.txt)
-STORE_ID = CFG.get("STORE_ID", "001")
-
-RAW_TABLE_NAME = CFG.get("TABLE_NAME", "dbo.marcaje")
-TABLE_NAME = ".".join([f"[{part}]" for part in RAW_TABLE_NAME.replace("[", "").replace("]", "").split(".")])
+RAW_TABLE_NAME = CFG.get("TABLE_NAME", "public.marcaje")
+# Formateo de identificadores para PostgreSQL ("esquema"."tabla")
+TABLE_NAME = ".".join([f'"{part}"' for part in RAW_TABLE_NAME.replace('"', '').replace("[", "").replace("]", "").split(".")])
 
 DUPLICATE_MINUTES = int(CFG.get("DUPLICATE_MINUTES", "2"))
 API_SECRET_KEY = CFG.get("API_SECRET_KEY", "cambiar_este_token_por_uno_seguro")
@@ -108,54 +104,25 @@ file_lock = asyncio.Lock()
 DB_ENGINE: Optional[Engine] = None
 
 # ============================================================
-# INSTALACIÓN AUTOMÁTICA DEL DRIVER ODBC
-# ============================================================
-def verificar_e_instalar_odbc():
-    drivers_instalados = pyodbc.drivers()
-    logger.info(f"Drivers ODBC detectados: {drivers_instalados}")
-
-    driver_18 = "ODBC Driver 18 for SQL Server"
-    driver_17 = "ODBC Driver 17 for SQL Server"
-
-    if driver_18 in drivers_instalados or driver_17 in drivers_instalados:
-        logger.info("Driver ODBC para SQL Server detectado correctamente.")
-        return
-
-    logger.warning("No se detectó un driver ODBC válido. Iniciando instalación silenciosa...")
-
-    base_path = obtener_directorio_base()
-    msi_path = os.path.join(base_path, "msodbcsql18_x64.msi")
-    if not os.path.exists(msi_path):
-        msi_path = os.path.join(base_path, "msodbcsql17_x64.msi")
-
-    if os.path.exists(msi_path):
-        try:
-            logger.info(f"Ejecutando MSI desde: {msi_path}")
-            comando = f'msiexec /i "{msi_path}" /qn IACCEPTMSODBCSQLLICENSERTERMS=YES'
-            subprocess.run(comando, shell=True, check=True, capture_output=True, text=True)
-            logger.info("Instalación del driver ODBC finalizada.")
-        except subprocess.CalledProcessError as e:
-            logger.error(f"Error al instalar driver ODBC (Código {e.returncode}): {e.stderr}")
-        except Exception as e:
-            logger.error(f"Excepción instalando driver ODBC: {e}")
-    else:
-        logger.error(f"No se encontró el archivo instalador MSI en {msi_path}.")
-
-# ============================================================
-# RESPALDO LOCAL TXT (Actualizado con ID de Tienda)
+# RESPALDO LOCAL TXT
 # ============================================================
 def _escribir_archivo(ruta: str, linea: str):
     with open(ruta, "a", encoding="utf-8") as f:
         f.write(linea)
 
-async def guardar_respaldo_local_txt(id_empleado: str, fecha_hora: datetime, ip_dispositivo: str, origen: str, id_tienda: str):
+async def guardar_respaldo_local_txt(id_empleado: str, fecha_hora: datetime, ip_dispositivo: str, origen: str):
     archivo_respaldo = obtener_ruta_respaldo()
-    linea = f"{datetime.now().strftime('%Y-%m-%d %H:%M:%S')} | TIENDA: {id_tienda} | EMP: {id_empleado} | FECHA_HORA: {fecha_hora.strftime('%Y-%m-%d %H:%M:%S')} | IP: {ip_dispositivo} | ORIGEN: {origen}\n"
+    
+    timestamp = datetime.now().isoformat()
+    id_tienda = CFG.get("ID_TIENDA", "GENERAL")
+    ip = ip_dispositivo
+    
+    linea_respaldo = f"{timestamp} | EMP: {id_empleado} | TIENDA: {id_tienda} | FECHA_HORA: {fecha_hora} | IP: {ip} | ORIGEN: {origen}\n"
 
     async with file_lock:
         try:
-            await asyncio.to_thread(_escribir_archivo, archivo_respaldo, linea)
-            logger.info(f"Respaldo TXT guardado para Tienda: {id_tienda} | Emp: {id_empleado}")
+            await asyncio.to_thread(_escribir_archivo, archivo_respaldo, linea_respaldo)
+            logger.info(f"Respaldo TXT guardado para {id_empleado}")
         except Exception as e:
             logger.error(f"Error escribiendo respaldo TXT: {e}")
 
@@ -188,13 +155,45 @@ def parsear_fecha_hora(valor: Any) -> Optional[datetime]:
         return None
 
 # ============================================================
-# LÓGICA DE BASE DE DATOS SQL SERVER (Actualizado con id_tienda)
+# LÓGICA DE BASE DE DATOS POSTGRESQL Y MODO OFFLINE
 # ============================================================
-def _operacion_db_sync(id_empleado: str, fecha_hora: datetime, ip_dispositivo: str, origen: str, id_tienda: str) -> bool:
+def _operacion_db_sync(id_empleado: str, fecha_hora: datetime, ip_dispositivo: str, origen: str) -> bool:
+    limite_tiempo = fecha_hora - timedelta(minutes=DUPLICATE_MINUTES)
+    
+    # ==========================================
+    # 1. MODO OFFLINE (Verificación en archivo TXT)
+    # ==========================================
     if not DB_ENGINE:
-        logger.info(f"Modo Offline o sin conexión a SQL Server. Procesando respaldo de marcaje para Tienda: {id_tienda} | Emp: {id_empleado}")
+        archivo_respaldo = obtener_ruta_respaldo()
+        if os.path.exists(archivo_respaldo):
+            try:
+                with open(archivo_respaldo, "r", encoding="utf-8") as f:
+                    lineas = f.readlines()
+                
+                # Revisar las líneas de atrás hacia adelante (más reciente primero)
+                for linea in reversed(lineas):
+                    if f"EMP: {id_empleado}" in linea:
+                        partes = linea.split("|")
+                        for p in partes:
+                            if "FECHA_HORA:" in p:
+                                str_fh = p.replace("FECHA_HORA:", "").strip()
+                                try:
+                                    dt_existente = datetime.fromisoformat(str_fh)
+                                    # Si el marcaje anterior está dentro del rango de duplicados
+                                    if limite_tiempo <= dt_existente <= fecha_hora:
+                                        logger.warning(f"Marcaje duplicado omitido (Modo Offline) -> Emp: {id_empleado} | Hora: {fecha_hora}")
+                                        return False
+                                except ValueError:
+                                    continue
+            except Exception as e:
+                logger.error(f"Error leyendo respaldo TXT para duplicados: {e}")
+
+        logger.info(f"Modo Offline: Procesando nuevo marcaje para emp: {id_empleado}")
         return True
 
+    # ==========================================
+    # 2. MODO ONLINE (Verificación en PostgreSQL)
+    # ==========================================
     fecha_solo = fecha_hora.date()
     hora_solo = fecha_hora.strftime("%H:%M:%S")
 
@@ -202,33 +201,29 @@ def _operacion_db_sync(id_empleado: str, fecha_hora: datetime, ip_dispositivo: s
         fecha_solo -= timedelta(days=1)
     dia_anterior_valor = 1 if fecha_solo < date.today() else 0
 
-    limite_tiempo = fecha_hora - timedelta(minutes=DUPLICATE_MINUTES)
-
     try:
         with DB_ENGINE.begin() as conn:
-            # Opcional: filtrar también por id_tienda si una misma BD recopila varias sucursales
             query_dup = text(f"""
-                SELECT TOP 1 1 
+                SELECT 1 
                 FROM {TABLE_NAME} 
                 WHERE id_empleado = :id_empleado 
-                  AND id_tienda = :id_tienda
                   AND fecha_hora >= :limite_tiempo
                   AND fecha_hora <= :fecha_hora
+                LIMIT 1
             """)
             duplicado = conn.execute(query_dup, {
                 "id_empleado": id_empleado,
-                "id_tienda": id_tienda,
                 "limite_tiempo": limite_tiempo,
                 "fecha_hora": fecha_hora
             }).fetchone()
 
             if duplicado:
-                logger.warning(f"Marcaje duplicado omitido -> Tienda: {id_tienda} | Emp: {id_empleado} | Hora: {fecha_hora}")
+                logger.warning(f"Marcaje duplicado omitido -> Emp: {id_empleado} | Hora: {fecha_hora}")
                 return False
 
             query_insert = text(f"""
-                INSERT INTO {TABLE_NAME} (id_empleado, fecha_hora, fecha, hora, ip_dispositivo, origen, dia_anterior, id_tienda)
-                VALUES (:id_empleado, :fecha_hora, :fecha, :hora, :ip_dispositivo, :origen, :dia_anterior, :id_tienda)
+                INSERT INTO {TABLE_NAME} (id_empleado, fecha_hora, fecha, hora, ip_dispositivo, origen, dia_anterior)
+                VALUES (:id_empleado, :fecha_hora, :fecha, :hora, :ip_dispositivo, :origen, :dia_anterior)
             """)
             conn.execute(query_insert, {
                 "id_empleado": id_empleado,
@@ -237,14 +232,13 @@ def _operacion_db_sync(id_empleado: str, fecha_hora: datetime, ip_dispositivo: s
                 "hora": hora_solo,
                 "ip_dispositivo": ip_dispositivo,
                 "origen": origen,
-                "dia_anterior": dia_anterior_valor,
-                "id_tienda": id_tienda
+                "dia_anterior": dia_anterior_valor
             })
 
-        logger.info(f"Marcaje registrado en SQL Server -> Tienda: {id_tienda} | Emp: {id_empleado} | {fecha_solo} {hora_solo} | Origen: {origen}")
+        logger.info(f"Marcaje registrado en PostgreSQL -> Emp: {id_empleado} | {fecha_solo} {hora_solo} | Origen: {origen}")
         return True
     except Exception as e:
-        logger.error(f"Error procesando transacción en SQL Server: {e}. Se mantendrá respaldo local.")
+        logger.error(f"Error procesando transacción en PostgreSQL: {e}. Se mantendrá respaldo local.")
         return True
 
 async def procesar_y_guardar_evento(body_data: dict, origen="PULL") -> bool:
@@ -254,14 +248,11 @@ async def procesar_y_guardar_evento(body_data: dict, origen="PULL") -> bool:
 
     fecha_hora = parsear_fecha_hora(buscar_en_datos(body_data, ["dateTime", "time"])) or datetime.now()
     ip_dispositivo = body_data.get("ipAddress") or BIOMETRIC_IP
-    
-    # Extraer id_tienda si viene en el payload (ej. Webhook personalizado), sino usa el general de config.txt
-    id_tienda = body_data.get("id_tienda") or STORE_ID
 
-    procesado = await asyncio.to_thread(_operacion_db_sync, id_empleado, fecha_hora, ip_dispositivo, origen, id_tienda)
+    procesado = await asyncio.to_thread(_operacion_db_sync, id_empleado, fecha_hora, ip_dispositivo, origen)
 
     if procesado:
-        await guardar_respaldo_local_txt(id_empleado, fecha_hora, ip_dispositivo, origen, id_tienda)
+        await guardar_respaldo_local_txt(id_empleado, fecha_hora, ip_dispositivo, origen)
 
     return procesado
 
@@ -329,7 +320,7 @@ async def sincronizar_marcajes_biometrico():
                         "major": 5, "minor": 0,
                         "startTime": (ahora - timedelta(minutes=10)).strftime("%Y-%m-%dT%H:%M:%S"),
                         "endTime": (ahora + timedelta(seconds=5)).strftime("%Y-%m-%dT%H:%M:%S")
-                    }
+                    }                    
                 }
 
                 response = await client.post(url, json=payload, auth=auth, timeout=10)
@@ -360,31 +351,29 @@ async def lifespan(app: FastAPI):
         user_encoded = urllib.parse.quote_plus(DB_USER)
         pass_encoded = urllib.parse.quote_plus(DB_PASS)
 
-        db_url = f"mssql+pyodbc://{user_encoded}:{pass_encoded}@{DB_HOST}/{DB_NAME}?driver=ODBC+Driver+18+for+SQL+Server&TrustServerCertificate=yes"
+        db_url = f"postgresql+psycopg2://{user_encoded}:{pass_encoded}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
 
         try:
-            DB_ENGINE = create_engine(db_url, pool_size=10, max_overflow=20, pool_pre_ping=True, pool_recycle=3600)
+            DB_ENGINE = create_engine(
+                db_url,
+                pool_size=10,
+                max_overflow=20,
+                pool_pre_ping=True,
+                pool_recycle=3600
+            )
             with DB_ENGINE.connect() as conn:
                 conn.execute(text("SELECT 1"))
-            logger.info("Conexión con SQL Server (ODBC 18) verificada con éxito.")
+            logger.info("Conexión con PostgreSQL verificada con éxito.")
         except Exception as e:
-            logger.warning(f"Error conectando con ODBC 18: {e}. Intentando con ODBC 17...")
-            try:
-                db_url_17 = f"mssql+pyodbc://{user_encoded}:{pass_encoded}@{DB_HOST}/{DB_NAME}?driver=ODBC+Driver+17+for+SQL+Server"
-                DB_ENGINE = create_engine(db_url_17, pool_size=10, max_overflow=20, pool_pre_ping=True, pool_recycle=3600)
-                with DB_ENGINE.connect() as conn:
-                    conn.execute(text("SELECT 1"))
-                logger.info("Conexión con SQL Server (ODBC 17) verificada.")
-            except Exception as ex:
-                logger.error(f"Error crítico al conectar a SQL Server: {ex}")
+            logger.error(f"Error crítico al conectar a PostgreSQL: {e}")
 
         task_pull = asyncio.create_task(sincronizar_marcajes_biometrico())
         task_stream = asyncio.create_task(escuchar_stream_en_vivo())
-        logger.info(f"Servicios de monitoreo activados para la Tienda ID: {STORE_ID}")
+        logger.info("Servicios de monitoreo activados.")
     else:
         logger.info("--------------------------------------------------")
         logger.info(" MODO OFFLINE ACTIVADO (ENABLE_HARDWARE=0)")
-        logger.info(" Omitiendo conexión a SQL Server y tareas de biométrico.")
+        logger.info(" Omitiendo conexión a PostgreSQL y tareas de biométrico.")
         logger.info("--------------------------------------------------")
 
     yield
@@ -409,7 +398,7 @@ def verificar_api_key(api_key: str = Security(api_key_header)):
 
 @app.get("/")
 async def raiz():
-    return {"message": "API de Hikvision funcionando correctamente", "store_id": STORE_ID, "status": "online"}
+    return {"message": "API de Hikvision funcionando correctamente", "status": "online"}
 
 @app.post("/api/v1/hikvision/webhook")
 async def recibir_webhook(request: Request, _=Depends(verificar_api_key)):
@@ -444,18 +433,15 @@ async def simular_marcaje(id_empleado: str, _=Depends(verificar_api_key)):
     payload_simulado = {
         "employeeNoString": id_empleado,
         "dateTime": datetime.now().isoformat(),
-        "ipAddress": BIOMETRIC_IP,
-        "id_tienda": STORE_ID
+        "ipAddress": BIOMETRIC_IP
     }
     resultado = await procesar_y_guardar_evento(payload_simulado, origen="PRUEBA_MANUAL")
     return {
         "status": "procesado" if resultado else "ignorado (duplicado o error BD)",
         "empleado": id_empleado,
-        "id_tienda": STORE_ID,
         "fecha_hora": datetime.now().isoformat()
     }
 
 if __name__ == "__main__":
     multiprocessing.freeze_support()
-    verificar_e_instalar_odbc()
     uvicorn.run(app, host="0.0.0.0", port=SERVER_PORT, reload=False)

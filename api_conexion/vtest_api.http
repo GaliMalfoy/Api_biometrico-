@@ -1,17 +1,20 @@
 @baseUrl = http://localhost:8000
-@apiKey = cambiar_este_token_por_uno_seguro
 
-### 1. Simular Marcaje Empleado 101
+### 1. Salud (Pública)
+GET {{baseUrl}}/
+Accept: application/json
+
+### 2. Simular Marcaje
 POST {{baseUrl}}/api/v1/hikvision/simular-marcaje?id_empleado=101
-X-API-Key: {{apiKey}}
+X-API-Key: 12345
 
-### 2. Simular Marcaje Duplicado (Ejecutar de inmediato)
+### 3. Simular Marcaje Duplicado
 POST {{baseUrl}}/api/v1/hikvision/simular-marcaje?id_empleado=101
-X-API-Key: {{apiKey}}
+X-API-Key: 12345
 
-### 3. Webhook ISAPI Event
+### 4. Webhook
 POST {{baseUrl}}/api/v1/hikvision/webhook
-X-API-Key: {{apiKey}}
+X-API-Key: 12345
 Content-Type: application/json
 
 {
@@ -22,10 +25,10 @@ Content-Type: application/json
   }
 }
 
-### 4. Consultar Reporte TXT
+### 5. Reporte TXT
 GET {{baseUrl}}/api/v1/hikvision/reporte-respaldo
-X-API-Key: {{apiKey}}
+X-API-Key: 12345
 
-### 5. Prueba de Seguridad (Debe retornar 403)
+### 6. Prueba de Seguridad (Debe dar 403)
 GET {{baseUrl}}/api/v1/hikvision/reporte-respaldo
 X-API-Key: clave_incorrecta

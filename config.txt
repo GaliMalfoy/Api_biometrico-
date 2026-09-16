@@ -16,13 +16,14 @@ BIOMETRIC_IP=192.168.20.210
 BIOMETRIC_USER=admin
 BIOMETRIC_PASS=BiHr2428
 
-# Configuración del Servidor SQL Server
+# Configuración Base de Datos (PostgreSQL)
+DB_TYPE=postgres
 DB_HOST=192.168.50.19
-DB_PORT=1433
-DB_NAME=BIHR
-DB_USER=sa
-DB_PASS=tu_contraseña_real_de_sql_server
-ATTENDANCE_TABLE=marcaje
+DB_PORT=5432
+DB_NAME=bihr
+DB_USER=postgres
+DB_PASS=tu_contraseña_real_de_postgresql
+TABLE_NAME=public.marcaje
 
 # Tiempos de control
 DUPLICATE_MINUTES=2
@@ -31,3 +32,15 @@ POLL_INTERVAL_SECONDS=2
 # Identificadores de tienda
 IP=1
 ID_TIENDA=1
+
+# ==========================================
+# CONFIGURACIÓN DEL SERVIDOR SQL SERVER (INACTIVO / REFERENCIA)
+# ==========================================
+# DB_HOST=192.168.50.19
+# DB_PORT=1433
+# DB_NAME=BIHR
+# DB_USER=sa
+# DB_PASS=tu_contraseña_real_de_sql_server
+# ATTENDANCE_TABLE=marcaje
+
+

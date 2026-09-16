@@ -1,0 +1,5 @@
+2026-09-15 10:15:56,924 | WARNING | No se encontró 'config.txt' en C:\Users\USUARIO\Documents\API PARA CAPTADOR\api_conexion\config.txt. Se usarán los valores por defecto.
+2026-09-15 10:15:57,083 | INFO | --------------------------------------------------
+2026-09-15 10:15:57,084 | INFO |  MODO OFFLINE ACTIVADO (ENABLE_HARDWARE=0)
+2026-09-15 10:15:57,084 | INFO |  Omitiendo conexión a PostgreSQL y tareas de biométrico.
+2026-09-15 10:15:57,084 | INFO | --------------------------------------------------

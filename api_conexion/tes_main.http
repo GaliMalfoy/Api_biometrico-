@@ -1,0 +1,56 @@
+@baseUrl = http://localhost:8000
+@apiKey = 12345
+
+### 1. Probar Raíz (Público - Sin Auth)
+GET {{baseUrl}}/
+
+### 2. Probar Fallo de Autenticación (Debe dar 403)
+POST {{baseUrl}}/api/v1/hikvision/simular-marcaje?id_empleado=999
+X-API-Key: token_incorrecto
+
+### 3. Simular Marcaje (Modo Query Param)
+POST {{baseUrl}}/api/v1/hikvision/simular-marcaje?id_empleado=EMP001
+X-API-Key: {{apiKey}}
+
+### 4. Enviar Webhook Simulado (Formato Hikvision)
+POST {{baseUrl}}/api/v1/hikvision/webhook
+X-API-Key: {{apiKey}}
+Content-Type: application/json
+
+{
+  "AccessControllerEvent": {
+    "employeeNoString": "EMP002",
+    "dateTime": "2026-09-16T10:30:00",
+    "ipAddress": "192.168.20.215"
+  }
+}
+
+### 5. Obtener Reporte de Respaldo Local (TXT)
+GET {{baseUrl}}/api/v1/hikvision/reporte-respaldo
+X-API-Key: {{apiKey}}
+
+### 6. Prueba Duplicados: Enviar Marcaje Original (Debe registrarse)
+POST {{baseUrl}}/api/v1/hikvision/webhook
+X-API-Key: {{apiKey}}
+Content-Type: application/json
+
+{
+  "AccessControllerEvent": {
+    "employeeNoString": "EMP_TEST_99",
+    "dateTime": "2026-09-16T12:00:00",
+    "ipAddress": "192.168.20.215"
+  }
+}
+
+### 7. Prueba Duplicados: Enviar Marcaje Repetido (Debe omitirse)
+POST {{baseUrl}}/api/v1/hikvision/webhook
+X-API-Key: {{apiKey}}
+Content-Type: application/json
+
+{
+  "AccessControllerEvent": {
+    "employeeNoString": "EMP_TEST_99",
+    "dateTime": "2026-09-16T12:20:30",
+  "ipAddress": "192.168.20.215"
+  }
+}
