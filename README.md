@@ -6,7 +6,7 @@ Backend desarrollado en **FastAPI** para la recepción, procesamiento y almacena
 
 * **Recepción en Tiempo Real:** Captura de eventos biométricos (asistencia, accesos correctos/denegados, aperturas de puerta) enviados por los dispositivos.
 * **Autenticación Segura:** Manejo de autenticación Digest (*Digest Authentication*) para la comunicación con el hardware.
-* **Soportes de Base de Datos:** Conexión y persistencia de registros hacia **PostgreSQL** y **SQL Server**.
+* **Arquitectura Dual de Base de Datos:** Cuenta con puntos de entrada separados: `main.py` para **SQL Server** y `main2.py` para **PostgreSQL**.
 * **Empaquetado Independiente:** Configurado para compilarse como un ejecutable autónomo mediante PyInstaller.
 * **Pruebas Automatizadas:** Suite de pruebas unitarias implementada con `pytest`.
 
@@ -35,7 +35,6 @@ Asegúrate de tener instalado en tu entorno de desarrollo:
    ```bash
    git clone [https://github.com/GaliMalfoy/Api_biometrico-.git](https://github.com/GaliMalfoy/Api_biometrico-.git)
    cd Api_biometrico-
-
 
 
 
