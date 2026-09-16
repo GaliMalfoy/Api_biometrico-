@@ -26,7 +26,7 @@ Backend desarrollado en **FastAPI** para la recepción, procesamiento y almacena
 Asegúrate de tener instalado en tu entorno de desarrollo:
 * Python 3.10 o superior.
 * Gestor de paquetes `pip`.
-**ODBC Driver for SQL Server:** Obligatorio si vas a utilizar el módulo o variante de SQL Server para que el driver de conexión funcione correctamente en Windows/Linux.
+* **ODBC Driver for SQL Server:** Obligatorio si vas a utilizar el módulo o variante de SQL Server para que el driver de conexión funcione correctamente en Windows/Linux.
 ---
 
 ## ⚙️ Instalación y Configuración
