@@ -1,0 +1,33 @@
+# ==========================================
+# CONFIGURACIÓN GENERAL DE LA API Y DISPOSITIVOS
+# ==========================================
+
+# Control de Hardware y Servidor Remoto
+# 0 = Modo offline (sin biométrico ni SQL), 1 = Modo online (con hardware conectado)
+ENABLE_HARDWARE=0
+
+# Configuración de tu API
+SERVER_IP=192.168.20.167
+SERVER_PORT=8000
+API_SECRET_KEY=12345
+
+# Configuración del Reloj Biométrico Hikvision (DS-K1T8003MF)
+BIOMETRIC_IP=192.168.20.210
+BIOMETRIC_USER=admin
+BIOMETRIC_PASS=BiHr2428
+
+# Configuración del Servidor SQL Server
+DB_HOST=192.168.50.19
+DB_PORT=1433
+DB_NAME=BIHR
+DB_USER=sa
+DB_PASS=tu_contraseña_real_de_sql_server
+ATTENDANCE_TABLE=marcaje
+
+# Tiempos de control
+DUPLICATE_MINUTES=2
+POLL_INTERVAL_SECONDS=2
+
+# Identificadores de tienda
+IP=1
+ID_TIENDA=1
