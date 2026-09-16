@@ -94,7 +94,6 @@ DB_USER = CFG.get("DB_USER", "postgres")
 DB_PASS = CFG.get("DB_PASS", "")
 
 RAW_TABLE_NAME = CFG.get("TABLE_NAME", "public.marcaje")
-# Formateo de identificadores para PostgreSQL ("esquema"."tabla")
 TABLE_NAME = ".".join([f'"{part}"' for part in RAW_TABLE_NAME.replace('"', '').replace("[", "").replace("]", "").split(".")])
 
 DUPLICATE_MINUTES = int(CFG.get("DUPLICATE_MINUTES", "2"))
@@ -125,6 +124,84 @@ async def guardar_respaldo_local_txt(id_empleado: str, fecha_hora: datetime, ip_
             logger.info(f"Respaldo TXT guardado para {id_empleado}")
         except Exception as e:
             logger.error(f"Error escribiendo respaldo TXT: {e}")
+
+# ============================================================
+# TAREA DE SINCRONIZACIÓN AUTOMÁTICA DE RESPALDOS
+# ============================================================
+async def tarea_sincronizar_respaldos_pendientes():
+    """Tarea en segundo plano que revisa el archivo de respaldo y los sube a PostgreSQL si hay conexión."""
+    archivo_respaldo = obtener_ruta_respaldo()
+    
+    while True:
+        await asyncio.sleep(30)  # Revisa cada 30 segundos
+        
+        # Si la base de datos no está disponible, esperamos a la siguiente iteración
+        if not DB_ENGINE:
+            continue
+            
+        if not os.path.exists(archivo_respaldo):
+            continue
+
+        async with file_lock:
+            try:
+                def _leer_y_limpiar():
+                    if not os.path.exists(archivo_respaldo):
+                        return []
+                    with open(archivo_respaldo, "r", encoding="utf-8") as f:
+                        return f.readlines()
+
+                lineas = await asyncio.to_thread(_leer_y_limpiar)
+                if not lineas:
+                    continue
+
+                lineas_pendientes = []
+                sincronizados_count = 0
+
+                for linea in lineas:
+                    if "EMP:" not in linea or "FECHA_HORA:" not in linea:
+                        continue
+                    
+                    try:
+                        partes = [p.strip() for p in linea.split("|")]
+                        emp_id = None
+                        fecha_hora_str = None
+                        ip_disp = BIOMETRIC_IP
+                        origen_evt = "RESYNC"
+
+                        for p in partes:
+                            if p.startswith("EMP:"):
+                                emp_id = p.replace("EMP:", "").strip()
+                            elif p.startswith("FECHA_HORA:"):
+                                fecha_hora_str = p.replace("FECHA_HORA:", "").strip()
+                            elif p.startswith("IP:"):
+                                ip_disp = p.replace("IP:", "").strip()
+                            elif p.startswith("ORIGEN:"):
+                                origen_evt = p.replace("ORIGEN:", "").strip()
+
+                        if emp_id and fecha_hora_str:
+                            fh = datetime.fromisoformat(fecha_hora_str)
+                            
+                            # Intentamos insertar directamente usando la lógica síncrona de BD
+                            exito = _operacion_db_sync(emp_id, fh, ip_disp, f"SYNC_{origen_evt}")
+                            if exito:
+                                sincronizados_count += 1
+                        else:
+                            lineas_pendientes.append(linea)
+                    except Exception as parse_err:
+                        logger.error(f"Error parseando línea de respaldo para sincronizar: {parse_err}")
+                        lineas_pendientes.append(linea)
+
+                def _reescribir(pendientes):
+                    with open(archivo_respaldo, "w", encoding="utf-8") as f:
+                        f.writelines(pendientes)
+
+                await asyncio.to_thread(_reescribir, lineas_pendientes)
+
+                if sincronizados_count > 0:
+                    logger.info(f"Sincronización exitosa: {sincronizados_count} marcajes pendientes subidos a PostgreSQL desde el respaldo.")
+
+            except Exception as e:
+                logger.error(f"Error en la tarea en segundo plano de sincronización de respaldos: {e}")
 
 # ============================================================
 # UTILIDADES DE BÚSQUEDA Y PARSEO
@@ -170,7 +247,6 @@ def _operacion_db_sync(id_empleado: str, fecha_hora: datetime, ip_dispositivo: s
                 with open(archivo_respaldo, "r", encoding="utf-8") as f:
                     lineas = f.readlines()
                 
-                # Revisar las líneas de atrás hacia adelante (más reciente primero)
                 for linea in reversed(lineas):
                     if f"EMP: {id_empleado}" in linea:
                         partes = linea.split("|")
@@ -179,7 +255,6 @@ def _operacion_db_sync(id_empleado: str, fecha_hora: datetime, ip_dispositivo: s
                                 str_fh = p.replace("FECHA_HORA:", "").strip()
                                 try:
                                     dt_existente = datetime.fromisoformat(str_fh)
-                                    # Si el marcaje anterior está dentro del rango de duplicados
                                     if limite_tiempo <= dt_existente <= fecha_hora:
                                         logger.warning(f"Marcaje duplicado omitido (Modo Offline) -> Emp: {id_empleado} | Hora: {fecha_hora}")
                                         return False
@@ -346,6 +421,7 @@ async def lifespan(app: FastAPI):
 
     task_pull = None
     task_stream = None
+    task_sync_respaldos = None
 
     if ENABLE_HARDWARE:
         user_encoded = urllib.parse.quote_plus(DB_USER)
@@ -369,7 +445,8 @@ async def lifespan(app: FastAPI):
 
         task_pull = asyncio.create_task(sincronizar_marcajes_biometrico())
         task_stream = asyncio.create_task(escuchar_stream_en_vivo())
-        logger.info("Servicios de monitoreo activados.")
+        task_sync_respaldos = asyncio.create_task(tarea_sincronizar_respaldos_pendientes())
+        logger.info("Servicios de monitoreo y sincronización activados.")
     else:
         logger.info("--------------------------------------------------")
         logger.info(" MODO OFFLINE ACTIVADO (ENABLE_HARDWARE=0)")
@@ -379,9 +456,10 @@ async def lifespan(app: FastAPI):
     yield
 
     if ENABLE_HARDWARE:
-        if task_pull: task_pull.cancel()
-        if task_stream: task_stream.cancel()
-        tasks_to_gather = [t for t in [task_pull, task_stream] if t is not None]
+        for t in [task_pull, task_stream, task_sync_respaldos]:
+            if t: t.cancel()
+            
+        tasks_to_gather = [t for t in [task_pull, task_stream, task_sync_respaldos] if t is not None]
         if tasks_to_gather:
             await asyncio.gather(*tasks_to_gather, return_exceptions=True)
 

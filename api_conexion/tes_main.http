@@ -5,7 +5,7 @@
 GET {{baseUrl}}/
 
 ### 2. Probar Fallo de Autenticación (Debe dar 403)
-POST {{baseUrl}}/api/v1/hikvision/simular-marcaje?id_empleado=999
+POST {{ baseUrl}}/api/v1/hikvision/simular-marcaje?id_empleado=999
 X-API-Key: token_incorrecto
 
 ### 3. Simular Marcaje (Modo Query Param)

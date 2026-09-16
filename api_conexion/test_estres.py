@@ -10,8 +10,8 @@ HEADERS = {
     "X-API-Key": str("12345")
 }
 
-TOTAL_PETICIONES = 100  # Cantidad total de peticiones a enviar
-CONCURRENCIA = 80     # Peticiones simultáneas
+TOTAL_PETICIONES = 1000  # Cantidad total de peticiones a enviar
+CONCURRENCIA = 100     # Peticiones simultáneas
 
 async def hacer_peticion(client, semaphore, idx):
     async with semaphore:
