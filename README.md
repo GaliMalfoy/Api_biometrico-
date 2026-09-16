@@ -56,7 +56,7 @@ source venv/bin/activate
 4. Configura las variables de entorno:
 Crea un archivo .env en la raíz del proyecto basándote en la configuración de tus conexiones de base de datos y parámetros del servidor.
 
-   🏃‍♂️ Ejecución de la Aplicación
+## **🏃‍♂️ Ejecución de la Aplicación**
 
    Para iniciar el servidor en modo de desarrollo local, ejecuta:
 
@@ -66,12 +66,12 @@ La documentación interactiva de la API (Swagger UI) estará disponible en:
 http://localhost:8000/docs
 
 
-##🧪 Ejecutar Pruebas
+## **🧪 Ejecutar Pruebas**
 
 Para correr la suite de pruebas unitarias:
 
 pytest
 
-💡 Conexión con Dispositivos Hikvision}
+## **💡 Conexión con Dispositivos Hikvision**
 
 Configura la dirección IP de tu dispositivo biométrico Hikvision para que apunte al servidor donde corre esta API utilizando el protocolo ISAPI (Notificaciones de eventos vía HTTP Host / Listener).
