@@ -36,7 +36,7 @@ Content-Type: application/json
 
 {
   "AccessControllerEvent": {
-    "employeeNoString": "EMP_TEST_99",
+    "employeeNoString": "EMP_TEST_96",
     "dateTime": "2026-09-16T12:00:00",
     "ipAddress": "192.168.20.215"
   }
@@ -49,7 +49,7 @@ Content-Type: application/json
 
 {
   "AccessControllerEvent": {
-    "employeeNoString": "EMP_TEST_99",
+    "employeeNoString": "EMP_TEST_96",
     "dateTime": "2026-09-16T12:20:30",
   "ipAddress": "192.168.20.215"
   }
