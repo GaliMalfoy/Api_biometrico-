@@ -9,6 +9,7 @@ import os
 import sys
 from typing import Any, Optional
 import urllib.parse
+
 from fastapi import Depends, FastAPI, HTTPException, Request, Response, Security
 from fastapi.security.api_key import APIKeyHeader
 import httpx
@@ -19,14 +20,12 @@ import uvicorn
 # ============================================================
 # RUTAS DE SISTEMA Y EJECUTABLE
 # ============================================================
-def obtener_directorio_base():
-    """Retorna la ruta interna de PyInstaller (_MEIPASS) o la carpeta raíz."""
+def obtener_directorio_base() -> str:
     if getattr(sys, 'frozen', False):
         return getattr(sys, '_MEIPASS', os.path.dirname(sys.executable))
     return os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 
-def obtener_directorio_ejecutable():
-    """Retorna la carpeta donde reside físicamente el archivo .exe."""
+def obtener_directorio_ejecutable() -> str:
     if getattr(sys, 'frozen', False):
         return os.path.dirname(sys.executable)
     return os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
@@ -82,14 +81,12 @@ else:
 SERVER_PORT = int(CFG.get("SERVER_PORT", "8000"))
 ENABLE_HARDWARE = CFG.get("ENABLE_HARDWARE", "0") == "1"
 
-# Identificador de Tienda (Soporta ID_TIENDA o STORE_ID en config.txt)
-STORE_ID = CFG.get("STORE_ID", CFG.get("ID_TIENDA", "GENERAL"))
+STORE_ID = CFG.get("STORE_ID") or CFG.get("ID_TIENDA") or "GENERAL"
 
-BIOMETRIC_IP = CFG.get("BIOMETRIC_IP", "192.168.20.215")
+BIOMETRIC_IP = CFG.get("BIOMETRIC_IP", "192.168.20.210")
 BIOMETRIC_USER = CFG.get("BIOMETRIC_USER", "admin")
 BIOMETRIC_PASS = CFG.get("BIOMETRIC_PASS", "admin123")
 
-# Configuración PostgreSQL
 DB_HOST = CFG.get("DB_HOST", "192.168.50.19")
 DB_PORT = CFG.get("DB_PORT", "5432")
 DB_NAME = CFG.get("DB_NAME", "bihr")
@@ -108,15 +105,14 @@ DB_ENGINE: Optional[Engine] = None
 # ============================================================
 # RESPALDO LOCAL TXT
 # ============================================================
-def _escribir_archivo(ruta: str, linea: str):
+def _escribir_archivo(ruta: str, linea: str) -> None:
     with open(ruta, "a", encoding="utf-8") as f:
         f.write(linea)
 
 async def guardar_respaldo_local_txt(id_empleado: str, fecha_hora: datetime, ip_dispositivo: str, origen: str, id_tienda: str = STORE_ID):
     archivo_respaldo = obtener_ruta_respaldo()
     timestamp = datetime.now().isoformat()
-    
-    linea_respaldo = f"{timestamp} | EMP: {id_empleado} | TIENDA: {id_tienda} | FECHA_HORA: {fecha_hora} | IP: {ip_dispositivo} | ORIGEN: {origen}\n"
+    linea_respaldo = f"{timestamp} | EMP: {id_empleado} | TIENDA: {id_tienda} | FECHA_HORA: {fecha_hora.isoformat()} | IP: {ip_dispositivo} | ORIGEN: {origen}\n"
 
     async with file_lock:
         try:
@@ -129,16 +125,11 @@ async def guardar_respaldo_local_txt(id_empleado: str, fecha_hora: datetime, ip_
 # TAREA DE SINCRONIZACIÓN AUTOMÁTICA DE RESPALDOS
 # ============================================================
 async def tarea_sincronizar_respaldos_pendientes():
-    """Tarea en segundo plano que revisa el archivo de respaldo y los sube a PostgreSQL si hay conexión."""
     archivo_respaldo = obtener_ruta_respaldo()
-    
+
     while True:
         await asyncio.sleep(30)
-        
-        if not DB_ENGINE:
-            continue
-            
-        if not os.path.exists(archivo_respaldo):
+        if not DB_ENGINE or not os.path.exists(archivo_respaldo):
             continue
 
         async with file_lock:
@@ -159,11 +150,10 @@ async def tarea_sincronizar_respaldos_pendientes():
                 for linea in lineas:
                     if "EMP:" not in linea or "FECHA_HORA:" not in linea:
                         continue
-                    
+
                     try:
                         partes = [p.strip() for p in linea.split("|")]
-                        emp_id = None
-                        fecha_hora_str = None
+                        emp_id, fecha_hora_str = None, None
                         ip_disp = BIOMETRIC_IP
                         origen_evt = "RESYNC"
                         tienda_evt = STORE_ID
@@ -172,7 +162,7 @@ async def tarea_sincronizar_respaldos_pendientes():
                             if p.startswith("EMP:"):
                                 emp_id = p.replace("EMP:", "").strip()
                             elif p.startswith("TIENDA:"):
-                                tienda_evt = p.replace("TIENDA:", "").strip()
+                                tienda_evt = p.replace("TIENDA:", "").strip() or STORE_ID
                             elif p.startswith("FECHA_HORA:"):
                                 fecha_hora_str = p.replace("FECHA_HORA:", "").strip()
                             elif p.startswith("IP:"):
@@ -182,9 +172,11 @@ async def tarea_sincronizar_respaldos_pendientes():
 
                         if emp_id and fecha_hora_str:
                             fh = datetime.fromisoformat(fecha_hora_str)
-                            exito = _operacion_db_sync(emp_id, fh, ip_disp, f"SYNC_{origen_evt}", tienda_evt)
+                            exito = await asyncio.to_thread(_operacion_db_sync, emp_id, fh, ip_disp, f"SYNC_{origen_evt}", tienda_evt)
                             if exito:
                                 sincronizados_count += 1
+                            else:
+                                lineas_pendientes.append(linea)
                         else:
                             lineas_pendientes.append(linea)
                     except Exception as parse_err:
@@ -201,7 +193,7 @@ async def tarea_sincronizar_respaldos_pendientes():
                     logger.info(f"Sincronización exitosa: {sincronizados_count} marcajes pendientes subidos a PostgreSQL desde el respaldo.")
 
             except Exception as e:
-                logger.error(f"Error en la tarea en segundo plano de sincronización de respaldos: {e}")
+                logger.error(f"Error en la tarea de sincronización de respaldos: {e}")
 
 # ============================================================
 # UTILIDADES DE BÚSQUEDA Y PARSEO
@@ -224,7 +216,8 @@ def buscar_en_datos(data: Any, target_keys: list) -> Any:
     return None
 
 def parsear_fecha_hora(valor: Any) -> Optional[datetime]:
-    if not valor: return None
+    if not valor:
+        return None
     try:
         dt = datetime.fromisoformat(str(valor).replace("Z", "+00:00"))
         return dt.replace(tzinfo=None) if dt.tzinfo else dt
@@ -236,7 +229,7 @@ def parsear_fecha_hora(valor: Any) -> Optional[datetime]:
 # ============================================================
 def _operacion_db_sync(id_empleado: str, fecha_hora: datetime, ip_dispositivo: str, origen: str, id_tienda: str = STORE_ID) -> bool:
     limite_tiempo = fecha_hora - timedelta(minutes=DUPLICATE_MINUTES)
-    
+
     # MODO OFFLINE
     if not DB_ENGINE:
         archivo_respaldo = obtener_ruta_respaldo()
@@ -244,7 +237,7 @@ def _operacion_db_sync(id_empleado: str, fecha_hora: datetime, ip_dispositivo: s
             try:
                 with open(archivo_respaldo, "r", encoding="utf-8") as f:
                     lineas = f.readlines()
-                
+
                 for linea in reversed(lineas):
                     if f"EMP: {id_empleado}" in linea:
                         partes = linea.split("|")
@@ -254,6 +247,7 @@ def _operacion_db_sync(id_empleado: str, fecha_hora: datetime, ip_dispositivo: s
                                 try:
                                     dt_existente = datetime.fromisoformat(str_fh)
                                     if limite_tiempo <= dt_existente <= fecha_hora:
+                                        print(f"⚠️ [DUPLICADO DETECTADO - OFFLINE] Emp: {id_empleado} a las {fecha_hora}")
                                         logger.warning(f"Marcaje duplicado omitido (Modo Offline) -> Emp: {id_empleado} | Hora: {fecha_hora}")
                                         return False
                                 except ValueError:
@@ -261,10 +255,10 @@ def _operacion_db_sync(id_empleado: str, fecha_hora: datetime, ip_dispositivo: s
             except Exception as e:
                 logger.error(f"Error leyendo respaldo TXT para duplicados: {e}")
 
-        logger.info(f"Modo Offline: Procesando nuevo marcaje para emp: {id_empleado}")
+        print(f"💾 [GUARDADO EN RESPALDO LOCAL] Emp: {id_empleado} | Hora: {fecha_hora}")
         return True
 
-    # MODO ONLINE
+    # MODO ONLINE (POSTGRESQL)
     fecha_solo = fecha_hora.date()
     hora_solo = fecha_hora.strftime("%H:%M:%S")
 
@@ -272,66 +266,88 @@ def _operacion_db_sync(id_empleado: str, fecha_hora: datetime, ip_dispositivo: s
         fecha_solo -= timedelta(days=1)
     dia_anterior_valor = 1 if fecha_solo < date.today() else 0
 
+    # Conversión segura para id_tienda
+    try:
+        id_tienda_num = int(id_tienda)
+    except (ValueError, TypeError):
+        id_tienda_num = None
+
     try:
         with DB_ENGINE.begin() as conn:
+            # Búsqueda de duplicados por cod_emp, fecha y rango horario
             query_dup = text(f"""
                 SELECT 1 
                 FROM {TABLE_NAME} 
-                WHERE id_empleado = :id_empleado 
-                  AND fecha_hora >= :limite_tiempo
-                  AND fecha_hora <= :fecha_hora
+                WHERE cod_emp = :cod_emp 
+                  AND fecha = :fecha
+                  AND hora >= :limite_hora
+                  AND hora <= :hora
                 LIMIT 1
             """)
             duplicado = conn.execute(query_dup, {
-                "id_empleado": id_empleado,
-                "limite_tiempo": limite_tiempo,
-                "fecha_hora": fecha_hora
+                "cod_emp": id_empleado,
+                "fecha": fecha_solo,
+                "limite_hora": limite_tiempo.strftime("%H:%M:%S"),
+                "hora": hora_solo
             }).fetchone()
 
             if duplicado:
+                print(f"⚠️ [DUPLICADO DETECTADO - OMITIDO DE BD] Emp: {id_empleado} | Hora: {fecha_hora}")
                 logger.warning(f"Marcaje duplicado omitido -> Emp: {id_empleado} | Hora: {fecha_hora}")
                 return False
 
+            # Inserción con la estructura real de campos de la BD
             query_insert = text(f"""
-                INSERT INTO {TABLE_NAME} (id_empleado, fecha_hora, fecha, hora, ip_dispositivo, origen, dia_anterior, id_tienda)
-                VALUES (:id_empleado, :fecha_hora, :fecha, :hora, :ip_dispositivo, :origen, :dia_anterior, :id_tienda)
+                INSERT INTO {TABLE_NAME} (cod_emp, fecha, hora, ip, diaanterior, id_tienda, created_at)
+                VALUES (:cod_emp, :fecha, :hora, :ip, :diaanterior, :id_tienda, :created_at)
             """)
             conn.execute(query_insert, {
-                "id_empleado": id_empleado,
-                "fecha_hora": fecha_hora,
+                "cod_emp": id_empleado,
                 "fecha": fecha_solo,
                 "hora": hora_solo,
-                "ip_dispositivo": ip_dispositivo,
-                "origen": origen,
-                "dia_anterior": dia_anterior_valor,
-                "id_tienda": id_tienda
+                "ip": ip_dispositivo,
+                "diaanterior": dia_anterior_valor,
+                "id_tienda": id_tienda_num,
+                "created_at": datetime.now()
             })
 
+        print(f"✅ [GUARDADO EXITOSO EN POSTGRESQL] Emp: {id_empleado} | Tabla: {TABLE_NAME}")
         logger.info(f"Marcaje registrado en PostgreSQL -> Emp: {id_empleado} | Tienda: {id_tienda} | {fecha_solo} {hora_solo} | Origen: {origen}")
         return True
     except Exception as e:
+        print(f"❌ [ERROR AL GUARDAR EN BD] {e}. Se guardará en respaldo local TXT.")
         logger.error(f"Error procesando transacción en PostgreSQL: {e}. Se mantendrá respaldo local.")
         return True
 
 async def procesar_y_guardar_evento(body_data: dict, origen="PULL") -> bool:
     id_empleado = str(buscar_en_datos(body_data, ["employeeNoString", "employeeNo"]) or "").strip()
+
     if not id_empleado: 
         return False
 
     fecha_hora = parsear_fecha_hora(buscar_en_datos(body_data, ["dateTime", "time"])) or datetime.now()
     ip_dispositivo = body_data.get("ipAddress") or BIOMETRIC_IP
-    
-    id_tienda = body_data.get("id_tienda") or STORE_ID
+
+    id_tienda_evento = body_data.get("id_tienda")
+    id_tienda = str(id_tienda_evento).strip() if id_tienda_evento else STORE_ID
+
+    print("\n" + "="*60)
+    print(f"🔥 [MARCAJE EN TIEMPO REAL DETECTADO]")
+    print(f"   👤 EMPLEADO: {id_empleado}")
+    print(f"   🏢 TIENDA  : {id_tienda}")
+    print(f"   🕒 FECHA   : {fecha_hora.strftime('%Y-%m-%d %H:%M:%S')}")
+    print(f"   🌐 ORIGEN  : {origen} ({ip_dispositivo})")
 
     procesado = await asyncio.to_thread(_operacion_db_sync, id_empleado, fecha_hora, ip_dispositivo, origen, id_tienda)
 
     if procesado:
         await guardar_respaldo_local_txt(id_empleado, fecha_hora, ip_dispositivo, origen, id_tienda)
 
+    print("="*60 + "\n")
     return procesado
 
 # ============================================================
-# RECEPCIÓN EN TIEMPO REAL (ISAPI HIKVISION)
+# RECEPCIÓN EN TIEMPO REAL (ISAPI HIKVISION CON PARSEO BALANCEADO)
 # ============================================================
 async def escuchar_stream_en_vivo():
     url_stream = f"http://{BIOMETRIC_IP}/ISAPI/Event/notification/alertStream"
@@ -339,40 +355,61 @@ async def escuchar_stream_en_vivo():
 
     while True:
         try:
-            async with httpx.AsyncClient(timeout=httpx.Timeout(60.0, read=None)) as client:
-                async with client.stream("GET", url_stream, auth=auth) as response:
+            async with httpx.AsyncClient(auth=auth, verify=False, timeout=httpx.Timeout(60.0, read=None)) as client:
+                async with client.stream("GET", url_stream) as response:
+
+                    if response.status_code == 401:
+                        logger.error(f"Error 401: Credenciales incorrectas ({BIOMETRIC_USER}:{BIOMETRIC_PASS}) o ISAPI deshabilitado en {BIOMETRIC_IP}.")
+                        await asyncio.sleep(10)
+                        continue
+
                     response.raise_for_status()
-                    logger.info("Conexión en TIEMPO REAL con Biométrico Hikvision establecida.")
+                    logger.info(f"Conexión en TIEMPO REAL con Biométrico Hikvision ({BIOMETRIC_IP}) establecida.")
 
                     buffer = ""
                     async for chunk in response.aiter_text():
-                        if not chunk: continue
+                        if not chunk: 
+                            continue
                         buffer += chunk
 
-                        while "{" in buffer and "}" in buffer:
+                        while True:
                             inicio = buffer.find("{")
-                            fin = buffer.find("}", inicio)
+                            if inicio == -1:
+                                break
+
+                            llaves_abiertas = 0
+                            fin = -1
+                            for idx in range(inicio, len(buffer)):
+                                if buffer[idx] == "{":
+                                    llaves_abiertas += 1
+                                elif buffer[idx] == "}":
+                                    llaves_abiertas -= 1
+                                    if llaves_abiertas == 0:
+                                        fin = idx
+                                        break
+
                             if fin != -1:
                                 posible_json = buffer[inicio:fin+1]
+                                buffer = buffer[fin+1:]
+
                                 try:
                                     data = json.loads(posible_json)
                                     evento = buscar_en_datos(data, ["AccessControllerEvent", "AcsEvent"]) or data
                                     asyncio.create_task(procesar_y_guardar_evento(evento, origen="STREAM"))
-                                    buffer = buffer[fin+1:]
                                 except json.JSONDecodeError:
-                                    siguiente_fin = buffer.find("}", fin + 1)
-                                    if siguiente_fin != -1:
-                                        fin = siguiente_fin
-                                    else:
-                                        break
+                                    continue
                             else:
                                 break
 
-                        if len(buffer) > 100000:
+                        if len(buffer) > 200000:
                             buffer = ""
 
         except httpx.ReadTimeout:
-            logger.warning("Reconectando stream Hikvision por timeout...")
+            logger.warning("Reconectando stream Hikvision por timeout de lectura...")
+            await asyncio.sleep(2)
+        except httpx.HTTPStatusError as http_err:
+            logger.error(f"Error HTTP en Stream: {http_err}. Reintentando en 5 segundos...")
+            await asyncio.sleep(5)
         except asyncio.CancelledError:
             logger.info("Stream ISAPI detenido correctamente.")
             break
@@ -384,20 +421,23 @@ async def sincronizar_marcajes_biometrico():
     auth = httpx.DigestAuth(BIOMETRIC_USER, BIOMETRIC_PASS)
     url = f"http://{BIOMETRIC_IP}/ISAPI/AccessControl/AcsEvent?format=json"
 
-    async with httpx.AsyncClient() as client:
+    async with httpx.AsyncClient(auth=auth, verify=False) as client:
         while True:
             try:
                 ahora = datetime.now()
                 payload = {
                     "AcsEventCond": {
-                        "searchID": "1", "searchResultPosition": 0, "maxResults": 100,
-                        "major": 5, "minor": 0,
+                        "searchID": "1", 
+                        "searchResultPosition": 0, 
+                        "maxResults": 100,
+                        "major": 5, 
+                        "minor": 0,
                         "startTime": (ahora - timedelta(minutes=10)).strftime("%Y-%m-%dT%H:%M:%S"),
                         "endTime": (ahora + timedelta(seconds=5)).strftime("%Y-%m-%dT%H:%M:%S")
                     }                    
                 }
 
-                response = await client.post(url, json=payload, auth=auth, timeout=10)
+                response = await client.post(url, json=payload, timeout=10)
                 if response.status_code == 200:
                     eventos = buscar_en_datos(response.json(), ["InfoList"]) or []
                     for ev in eventos:
@@ -455,12 +495,12 @@ async def lifespan(app: FastAPI):
     yield
 
     if ENABLE_HARDWARE:
-        for t in [task_pull, task_stream, task_sync_respaldos]:
-            if t: t.cancel()
-            
-        tasks_to_gather = [t for t in [task_pull, task_stream, task_sync_respaldos] if t is not None]
-        if tasks_to_gather:
-            await asyncio.gather(*tasks_to_gather, return_exceptions=True)
+        tasks = [t for t in [task_pull, task_stream, task_sync_respaldos] if t is not None]
+        for t in tasks:
+            t.cancel()
+
+        if tasks:
+            await asyncio.gather(*tasks, return_exceptions=True)
 
         if DB_ENGINE:
             DB_ENGINE.dispose()
@@ -478,14 +518,52 @@ async def raiz():
     return {"message": "API de Hikvision funcionando correctamente", "status": "online"}
 
 @app.post("/api/v1/hikvision/webhook")
-async def recibir_webhook(request: Request, _=Depends(verificar_api_key)):
+async def recibir_webhook(request: Request):
     try:
-        body = await request.json()
-        evento = body.get("AccessControllerEvent", body)
-        asyncio.create_task(procesar_y_guardar_evento(evento, origen="WEBHOOK"))
-        return Response(content="Event accepted", status_code=202)
-    except json.JSONDecodeError:
-        return Response(content="Invalid JSON", status_code=400)
+        content_type = request.headers.get("content-type", "")
+
+        if "application/json" in content_type:
+            body = await request.json()
+            evento = body.get("AccessControllerEvent", body)
+            asyncio.create_task(procesar_y_guardar_evento(evento, origen="WEBHOOK"))
+            return Response(content="Event accepted", status_code=202)
+
+        elif "multipart" in content_type:
+            form = await request.form()
+            evento_raw = form.get("event_log") or form.get("AccessControllerEvent")
+
+            if evento_raw:
+                data = json.loads(evento_raw) if isinstance(evento_raw, str) else evento_raw
+                evento = data.get("AccessControllerEvent", data)
+                asyncio.create_task(procesar_y_guardar_evento(evento, origen="WEBHOOK"))
+                return Response(content="Event accepted", status_code=202)
+
+            for key, value in form.items():
+                if isinstance(value, str) and "employeeNo" in value:
+                    try:
+                        data = json.loads(value)
+                        evento = data.get("AccessControllerEvent", data)
+                        asyncio.create_task(procesar_y_guardar_evento(evento, origen="WEBHOOK"))
+                        return Response(content="Event accepted", status_code=202)
+                    except json.JSONDecodeError:
+                        continue
+
+        body_bytes = await request.body()
+        if body_bytes:
+            texto = body_bytes.decode("utf-8", errors="ignore")
+            if "{" in texto and "}" in texto:
+                inicio = texto.find("{")
+                fin = texto.rfind("}") + 1
+                data = json.loads(texto[inicio:fin])
+                evento = data.get("AccessControllerEvent", data)
+                asyncio.create_task(procesar_y_guardar_evento(evento, origen="WEBHOOK"))
+                return Response(content="Event accepted", status_code=202)
+
+        return Response(content="No readable event data", status_code=400)
+
+    except Exception as e:
+        logger.error(f"Error procesando Webhook de Hikvision: {e}")
+        return Response(content="Error internal processing", status_code=500)
 
 @app.get("/api/v1/hikvision/reporte-respaldo")
 async def obtener_reporte_respaldo(_=Depends(verificar_api_key)):
@@ -510,15 +588,17 @@ async def simular_marcaje(id_empleado: str, _=Depends(verificar_api_key)):
     payload_simulado = {
         "employeeNoString": id_empleado,
         "dateTime": datetime.now().isoformat(),
-        "ipAddress": BIOMETRIC_IP
+        "ipAddress": BIOMETRIC_IP,
+        "id_tienda": STORE_ID
     }
     resultado = await procesar_y_guardar_evento(payload_simulado, origen="PRUEBA_MANUAL")
     return {
         "status": "procesado" if resultado else "ignorado (duplicado o error BD)",
         "empleado": id_empleado,
+        "tienda": STORE_ID,
         "fecha_hora": datetime.now().isoformat()
     }
 
 if __name__ == "__main__":
     multiprocessing.freeze_support()
-    uvicorn.run(app, host="0.0.0.0", port=SERVER_PORT, reload=False)
+    uvicorn.run(app, host="0.0.0.0", port=SERVER_PORT, reload=False)    

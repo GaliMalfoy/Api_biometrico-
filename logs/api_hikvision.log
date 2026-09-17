@@ -47,3 +47,2413 @@
 2026-09-17 08:31:20,810 | INFO | Modo Offline o sin conexión a SQL Server. Procesando respaldo de marcaje para Tienda: 001 | Emp: EMP001
 2026-09-17 08:46:30,086 | INFO | Configuración cargada correctamente desde: C:\Users\USUARIO\Documents\API PARA CAPTADOR\config.txt
 2026-09-17 08:46:30,197 | INFO | Modo Offline o sin conexión a SQL Server. Procesando respaldo de marcaje para Tienda: 001 | Emp: EMP001
+2026-09-17 11:12:42,877 | INFO | Configuración cargada correctamente desde: C:\Users\USUARIO\Documents\API PARA CAPTADOR\config.txt
+2026-09-17 11:12:43,045 | INFO | --------------------------------------------------
+2026-09-17 11:12:43,046 | INFO |  MODO OFFLINE ACTIVADO (ENABLE_HARDWARE=0)
+2026-09-17 11:12:43,047 | INFO |  Omitiendo conexión a PostgreSQL y tareas de biométrico.
+2026-09-17 11:12:43,047 | INFO | --------------------------------------------------
+2026-09-17 11:13:05,925 | INFO | Configuración cargada correctamente desde: C:\Users\USUARIO\Documents\API PARA CAPTADOR\config.txt
+2026-09-17 11:13:06,514 | INFO | Conexión con PostgreSQL verificada con éxito.
+2026-09-17 11:13:06,516 | INFO | Servicios de monitoreo y sincronización activados.
+2026-09-17 11:13:06,748 | ERROR | Error en recepción en tiempo real: Client error '401 Unauthorized' for url 'http://192.168.20.210/ISAPI/Event/notification/alertStream'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401. Reintentando en 5 segundos...
+2026-09-17 11:13:11,832 | ERROR | Error en recepción en tiempo real: Client error '401 Unauthorized' for url 'http://192.168.20.210/ISAPI/Event/notification/alertStream'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401. Reintentando en 5 segundos...
+2026-09-17 11:13:16,897 | ERROR | Error en recepción en tiempo real: Client error '401 Unauthorized' for url 'http://192.168.20.210/ISAPI/Event/notification/alertStream'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401. Reintentando en 5 segundos...
+2026-09-17 11:13:22,107 | ERROR | Error en recepción en tiempo real: Client error '401 Unauthorized' for url 'http://192.168.20.210/ISAPI/Event/notification/alertStream'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401. Reintentando en 5 segundos...
+2026-09-17 11:13:27,165 | ERROR | Error en recepción en tiempo real: Client error '401 Unauthorized' for url 'http://192.168.20.210/ISAPI/Event/notification/alertStream'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401. Reintentando en 5 segundos...
+2026-09-17 11:13:32,272 | ERROR | Error en recepción en tiempo real: Client error '401 Unauthorized' for url 'http://192.168.20.210/ISAPI/Event/notification/alertStream'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401. Reintentando en 5 segundos...
+2026-09-17 11:13:36,723 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UndefinedColumn) column "id_empleado" does not exist
+LINE 4:                 WHERE id_empleado = 'EMP001' 
+                              ^
+
+[SQL: 
+                SELECT 1 
+                FROM "public"."marcaje" 
+                WHERE id_empleado = %(id_empleado)s 
+                  AND fecha_hora >= %(limite_tiempo)s
+                  AND fecha_hora <= %(fecha_hora)s
+                LIMIT 1
+            ]
+[parameters: {'id_empleado': 'EMP001', 'limite_tiempo': datetime.datetime(2026, 9, 17, 8, 44, 30), 'fecha_hora': datetime.datetime(2026, 9, 17, 8, 46, 30)}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Se mantendrá respaldo local.
+2026-09-17 11:13:36,726 | INFO | Sincronización exitosa: 1 marcajes pendientes subidos a PostgreSQL desde el respaldo.
+2026-09-17 11:13:37,377 | ERROR | Error en recepción en tiempo real: Client error '401 Unauthorized' for url 'http://192.168.20.210/ISAPI/Event/notification/alertStream'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401. Reintentando en 5 segundos...
+2026-09-17 11:13:42,465 | ERROR | Error en recepción en tiempo real: Client error '401 Unauthorized' for url 'http://192.168.20.210/ISAPI/Event/notification/alertStream'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401. Reintentando en 5 segundos...
+2026-09-17 11:13:47,564 | ERROR | Error en recepción en tiempo real: Client error '401 Unauthorized' for url 'http://192.168.20.210/ISAPI/Event/notification/alertStream'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401. Reintentando en 5 segundos...
+2026-09-17 11:13:51,358 | INFO | Motor de base de datos liberado.
+2026-09-17 11:15:07,854 | INFO | Configuración cargada correctamente desde: C:\Users\USUARIO\Documents\API PARA CAPTADOR\config.txt
+2026-09-17 11:15:08,531 | INFO | Conexión con PostgreSQL verificada con éxito.
+2026-09-17 11:15:08,532 | INFO | Servicios de monitoreo y sincronización activados.
+2026-09-17 11:15:08,719 | ERROR | Error en recepción en tiempo real: Client error '401 Unauthorized' for url 'http://192.168.20.210/ISAPI/Event/notification/alertStream'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401. Reintentando en 5 segundos...
+2026-09-17 11:15:13,851 | ERROR | Error en recepción en tiempo real: Client error '401 Unauthorized' for url 'http://192.168.20.210/ISAPI/Event/notification/alertStream'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401. Reintentando en 5 segundos...
+2026-09-17 11:15:16,255 | INFO | Motor de base de datos liberado.
+2026-09-17 11:15:22,486 | INFO | Configuración cargada correctamente desde: C:\Users\USUARIO\Documents\API PARA CAPTADOR\config.txt
+2026-09-17 11:15:24,105 | INFO | Conexión con PostgreSQL verificada con éxito.
+2026-09-17 11:15:24,106 | INFO | Servicios de monitoreo y sincronización activados.
+2026-09-17 11:15:25,042 | ERROR | Error en recepción en tiempo real: Client error '401 Unauthorized' for url 'http://192.168.20.210/ISAPI/Event/notification/alertStream'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401. Reintentando en 5 segundos...
+2026-09-17 11:15:30,142 | ERROR | Error en recepción en tiempo real: Client error '401 Unauthorized' for url 'http://192.168.20.210/ISAPI/Event/notification/alertStream'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401. Reintentando en 5 segundos...
+2026-09-17 11:15:35,210 | ERROR | Error en recepción en tiempo real: Client error '401 Unauthorized' for url 'http://192.168.20.210/ISAPI/Event/notification/alertStream'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401. Reintentando en 5 segundos...
+2026-09-17 11:15:37,610 | INFO | Motor de base de datos liberado.
+2026-09-17 11:16:50,650 | INFO | Configuración cargada correctamente desde: C:\Users\USUARIO\Documents\API PARA CAPTADOR\config.txt
+2026-09-17 11:16:51,007 | INFO | Conexión con PostgreSQL verificada con éxito.
+2026-09-17 11:16:51,008 | INFO | Servicios de monitoreo y sincronización activados.
+2026-09-17 11:16:51,415 | ERROR | Error en recepción en tiempo real: Client error '401 Unauthorized' for url 'http://192.168.20.210/ISAPI/Event/notification/alertStream'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401. Reintentando en 5 segundos...
+2026-09-17 11:16:56,471 | ERROR | Error en recepción en tiempo real: Client error '401 Unauthorized' for url 'http://192.168.20.210/ISAPI/Event/notification/alertStream'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401. Reintentando en 5 segundos...
+2026-09-17 11:16:58,600 | INFO | Motor de base de datos liberado.
+2026-09-17 11:18:03,107 | INFO | Configuración cargada correctamente desde: C:\Users\USUARIO\Documents\API PARA CAPTADOR\config.txt
+2026-09-17 11:18:03,510 | INFO | Conexión con PostgreSQL verificada con éxito.
+2026-09-17 11:18:03,511 | INFO | Servicios de monitoreo y sincronización activados.
+2026-09-17 11:18:03,694 | ERROR | Error 401: Credenciales incorrectas (admin:BiHr2428) o autenticación ISAPI deshabilitada en el dispositivo 192.168.20.210.
+2026-09-17 11:18:13,759 | ERROR | Error 401: Credenciales incorrectas (admin:BiHr2428) o autenticación ISAPI deshabilitada en el dispositivo 192.168.20.210.
+2026-09-17 11:18:23,839 | ERROR | Error 401: Credenciales incorrectas (admin:BiHr2428) o autenticación ISAPI deshabilitada en el dispositivo 192.168.20.210.
+2026-09-17 11:18:32,598 | INFO | Stream ISAPI detenido correctamente.
+2026-09-17 11:18:32,604 | INFO | Motor de base de datos liberado.
+2026-09-17 11:22:48,273 | INFO | Configuración cargada correctamente desde: C:\Users\USUARIO\Documents\API PARA CAPTADOR\config.txt
+2026-09-17 11:22:48,780 | INFO | Conexión con PostgreSQL verificada con éxito.
+2026-09-17 11:22:48,782 | INFO | Servicios de monitoreo y sincronización activados.
+2026-09-17 11:22:49,434 | INFO | Conexión en TIEMPO REAL con Biométrico Hikvision (192.168.20.210) establecida.
+2026-09-17 11:27:18,577 | INFO | Configuración cargada correctamente desde: C:\Users\USUARIO\Documents\API PARA CAPTADOR\config.txt
+2026-09-17 11:27:19,106 | INFO | Conexión con PostgreSQL verificada con éxito.
+2026-09-17 11:27:19,107 | INFO | Servicios de monitoreo y sincronización activados.
+2026-09-17 11:27:19,436 | INFO | Conexión en TIEMPO REAL con Biométrico Hikvision (192.168.20.210) establecida.
+2026-09-17 11:27:23,914 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UndefinedColumn) column "id_empleado" does not exist
+LINE 4:                 WHERE id_empleado = 'TEST' 
+                              ^
+
+[SQL: 
+                SELECT 1 
+                FROM "public"."marcaje" 
+                WHERE id_empleado = %(id_empleado)s 
+                  AND fecha_hora >= %(limite_tiempo)s
+                  AND fecha_hora <= %(fecha_hora)s
+                LIMIT 1
+            ]
+[parameters: {'id_empleado': 'TEST', 'limite_tiempo': datetime.datetime(2026, 9, 17, 11, 25, 23, 879542), 'fecha_hora': datetime.datetime(2026, 9, 17, 11, 27, 23, 879542)}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Se mantendrá respaldo local.
+2026-09-17 11:27:23,942 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UndefinedColumn) column "id_empleado" does not exist
+LINE 4:                 WHERE id_empleado = 'TEST' 
+                              ^
+
+[SQL: 
+                SELECT 1 
+                FROM "public"."marcaje" 
+                WHERE id_empleado = %(id_empleado)s 
+                  AND fecha_hora >= %(limite_tiempo)s
+                  AND fecha_hora <= %(fecha_hora)s
+                LIMIT 1
+            ]
+[parameters: {'id_empleado': 'TEST', 'limite_tiempo': datetime.datetime(2026, 9, 17, 11, 25, 23, 911318), 'fecha_hora': datetime.datetime(2026, 9, 17, 11, 27, 23, 911318)}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Se mantendrá respaldo local.
+2026-09-17 11:27:23,957 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UndefinedColumn) column "id_empleado" does not exist
+LINE 4:                 WHERE id_empleado = 'TEST' 
+                              ^
+
+[SQL: 
+                SELECT 1 
+                FROM "public"."marcaje" 
+                WHERE id_empleado = %(id_empleado)s 
+                  AND fecha_hora >= %(limite_tiempo)s
+                  AND fecha_hora <= %(fecha_hora)s
+                LIMIT 1
+            ]
+[parameters: {'id_empleado': 'TEST', 'limite_tiempo': datetime.datetime(2026, 9, 17, 11, 25, 23, 886338), 'fecha_hora': datetime.datetime(2026, 9, 17, 11, 27, 23, 886338)}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Se mantendrá respaldo local.
+2026-09-17 11:27:23,969 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UndefinedColumn) column "id_empleado" does not exist
+LINE 4:                 WHERE id_empleado = 'TEST' 
+                              ^
+
+[SQL: 
+                SELECT 1 
+                FROM "public"."marcaje" 
+                WHERE id_empleado = %(id_empleado)s 
+                  AND fecha_hora >= %(limite_tiempo)s
+                  AND fecha_hora <= %(fecha_hora)s
+                LIMIT 1
+            ]
+[parameters: {'id_empleado': 'TEST', 'limite_tiempo': datetime.datetime(2026, 9, 17, 11, 25, 23, 920443), 'fecha_hora': datetime.datetime(2026, 9, 17, 11, 27, 23, 920443)}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Se mantendrá respaldo local.
+2026-09-17 11:27:23,972 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UndefinedColumn) column "id_empleado" does not exist
+LINE 4:                 WHERE id_empleado = 'TEST' 
+                              ^
+
+[SQL: 
+                SELECT 1 
+                FROM "public"."marcaje" 
+                WHERE id_empleado = %(id_empleado)s 
+                  AND fecha_hora >= %(limite_tiempo)s
+                  AND fecha_hora <= %(fecha_hora)s
+                LIMIT 1
+            ]
+[parameters: {'id_empleado': 'TEST', 'limite_tiempo': datetime.datetime(2026, 9, 17, 11, 25, 23, 887996), 'fecha_hora': datetime.datetime(2026, 9, 17, 11, 27, 23, 887996)}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Se mantendrá respaldo local.
+2026-09-17 11:27:23,975 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UndefinedColumn) column "id_empleado" does not exist
+LINE 4:                 WHERE id_empleado = 'TEST' 
+                              ^
+
+[SQL: 
+                SELECT 1 
+                FROM "public"."marcaje" 
+                WHERE id_empleado = %(id_empleado)s 
+                  AND fecha_hora >= %(limite_tiempo)s
+                  AND fecha_hora <= %(fecha_hora)s
+                LIMIT 1
+            ]
+[parameters: {'id_empleado': 'TEST', 'limite_tiempo': datetime.datetime(2026, 9, 17, 11, 25, 23, 891593), 'fecha_hora': datetime.datetime(2026, 9, 17, 11, 27, 23, 891593)}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Se mantendrá respaldo local.
+2026-09-17 11:27:23,980 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UndefinedColumn) column "id_empleado" does not exist
+LINE 4:                 WHERE id_empleado = 'TEST' 
+                              ^
+
+[SQL: 
+                SELECT 1 
+                FROM "public"."marcaje" 
+                WHERE id_empleado = %(id_empleado)s 
+                  AND fecha_hora >= %(limite_tiempo)s
+                  AND fecha_hora <= %(fecha_hora)s
+                LIMIT 1
+            ]
+[parameters: {'id_empleado': 'TEST', 'limite_tiempo': datetime.datetime(2026, 9, 17, 11, 25, 23, 915135), 'fecha_hora': datetime.datetime(2026, 9, 17, 11, 27, 23, 915135)}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Se mantendrá respaldo local.
+2026-09-17 11:27:23,982 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UndefinedColumn) column "id_empleado" does not exist
+LINE 4:                 WHERE id_empleado = 'TEST' 
+                              ^
+
+[SQL: 
+                SELECT 1 
+                FROM "public"."marcaje" 
+                WHERE id_empleado = %(id_empleado)s 
+                  AND fecha_hora >= %(limite_tiempo)s
+                  AND fecha_hora <= %(fecha_hora)s
+                LIMIT 1
+            ]
+[parameters: {'id_empleado': 'TEST', 'limite_tiempo': datetime.datetime(2026, 9, 17, 11, 25, 23, 899274), 'fecha_hora': datetime.datetime(2026, 9, 17, 11, 27, 23, 899274)}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Se mantendrá respaldo local.
+2026-09-17 11:27:23,985 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UndefinedColumn) column "id_empleado" does not exist
+LINE 4:                 WHERE id_empleado = 'TEST' 
+                              ^
+
+[SQL: 
+                SELECT 1 
+                FROM "public"."marcaje" 
+                WHERE id_empleado = %(id_empleado)s 
+                  AND fecha_hora >= %(limite_tiempo)s
+                  AND fecha_hora <= %(fecha_hora)s
+                LIMIT 1
+            ]
+[parameters: {'id_empleado': 'TEST', 'limite_tiempo': datetime.datetime(2026, 9, 17, 11, 25, 23, 905113), 'fecha_hora': datetime.datetime(2026, 9, 17, 11, 27, 23, 905113)}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Se mantendrá respaldo local.
+2026-09-17 11:27:23,997 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UndefinedColumn) column "id_empleado" does not exist
+LINE 4:                 WHERE id_empleado = 'TEST' 
+                              ^
+
+[SQL: 
+                SELECT 1 
+                FROM "public"."marcaje" 
+                WHERE id_empleado = %(id_empleado)s 
+                  AND fecha_hora >= %(limite_tiempo)s
+                  AND fecha_hora <= %(fecha_hora)s
+                LIMIT 1
+            ]
+[parameters: {'id_empleado': 'TEST', 'limite_tiempo': datetime.datetime(2026, 9, 17, 11, 25, 23, 925303), 'fecha_hora': datetime.datetime(2026, 9, 17, 11, 27, 23, 925303)}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Se mantendrá respaldo local.
+2026-09-17 11:27:24,002 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UndefinedColumn) column "id_empleado" does not exist
+LINE 4:                 WHERE id_empleado = 'TEST' 
+                              ^
+
+[SQL: 
+                SELECT 1 
+                FROM "public"."marcaje" 
+                WHERE id_empleado = %(id_empleado)s 
+                  AND fecha_hora >= %(limite_tiempo)s
+                  AND fecha_hora <= %(fecha_hora)s
+                LIMIT 1
+            ]
+[parameters: {'id_empleado': 'TEST', 'limite_tiempo': datetime.datetime(2026, 9, 17, 11, 25, 23, 930195), 'fecha_hora': datetime.datetime(2026, 9, 17, 11, 27, 23, 930195)}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Se mantendrá respaldo local.
+2026-09-17 11:27:24,004 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UndefinedColumn) column "id_empleado" does not exist
+LINE 4:                 WHERE id_empleado = 'TEST' 
+                              ^
+
+[SQL: 
+                SELECT 1 
+                FROM "public"."marcaje" 
+                WHERE id_empleado = %(id_empleado)s 
+                  AND fecha_hora >= %(limite_tiempo)s
+                  AND fecha_hora <= %(fecha_hora)s
+                LIMIT 1
+            ]
+[parameters: {'id_empleado': 'TEST', 'limite_tiempo': datetime.datetime(2026, 9, 17, 11, 25, 23, 928475), 'fecha_hora': datetime.datetime(2026, 9, 17, 11, 27, 23, 928475)}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Se mantendrá respaldo local.
+2026-09-17 11:27:24,004 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UndefinedColumn) column "id_empleado" does not exist
+LINE 4:                 WHERE id_empleado = 'TEST' 
+                              ^
+
+[SQL: 
+                SELECT 1 
+                FROM "public"."marcaje" 
+                WHERE id_empleado = %(id_empleado)s 
+                  AND fecha_hora >= %(limite_tiempo)s
+                  AND fecha_hora <= %(fecha_hora)s
+                LIMIT 1
+            ]
+[parameters: {'id_empleado': 'TEST', 'limite_tiempo': datetime.datetime(2026, 9, 17, 11, 25, 23, 917423), 'fecha_hora': datetime.datetime(2026, 9, 17, 11, 27, 23, 917423)}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Se mantendrá respaldo local.
+2026-09-17 11:27:24,007 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UndefinedColumn) column "id_empleado" does not exist
+LINE 4:                 WHERE id_empleado = 'TEST' 
+                              ^
+
+[SQL: 
+                SELECT 1 
+                FROM "public"."marcaje" 
+                WHERE id_empleado = %(id_empleado)s 
+                  AND fecha_hora >= %(limite_tiempo)s
+                  AND fecha_hora <= %(fecha_hora)s
+                LIMIT 1
+            ]
+[parameters: {'id_empleado': 'TEST', 'limite_tiempo': datetime.datetime(2026, 9, 17, 11, 25, 23, 932041), 'fecha_hora': datetime.datetime(2026, 9, 17, 11, 27, 23, 932041)}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Se mantendrá respaldo local.
+2026-09-17 11:27:24,028 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UndefinedColumn) column "id_empleado" does not exist
+LINE 4:                 WHERE id_empleado = 'TEST' 
+                              ^
+
+[SQL: 
+                SELECT 1 
+                FROM "public"."marcaje" 
+                WHERE id_empleado = %(id_empleado)s 
+                  AND fecha_hora >= %(limite_tiempo)s
+                  AND fecha_hora <= %(fecha_hora)s
+                LIMIT 1
+            ]
+[parameters: {'id_empleado': 'TEST', 'limite_tiempo': datetime.datetime(2026, 9, 17, 11, 25, 23, 933267), 'fecha_hora': datetime.datetime(2026, 9, 17, 11, 27, 23, 933267)}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Se mantendrá respaldo local.
+2026-09-17 11:27:24,028 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UndefinedColumn) column "id_empleado" does not exist
+LINE 4:                 WHERE id_empleado = 'TEST' 
+                              ^
+
+[SQL: 
+                SELECT 1 
+                FROM "public"."marcaje" 
+                WHERE id_empleado = %(id_empleado)s 
+                  AND fecha_hora >= %(limite_tiempo)s
+                  AND fecha_hora <= %(fecha_hora)s
+                LIMIT 1
+            ]
+[parameters: {'id_empleado': 'TEST', 'limite_tiempo': datetime.datetime(2026, 9, 17, 11, 25, 23, 936378), 'fecha_hora': datetime.datetime(2026, 9, 17, 11, 27, 23, 936378)}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Se mantendrá respaldo local.
+2026-09-17 11:27:24,033 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UndefinedColumn) column "id_empleado" does not exist
+LINE 4:                 WHERE id_empleado = 'TEST' 
+                              ^
+
+[SQL: 
+                SELECT 1 
+                FROM "public"."marcaje" 
+                WHERE id_empleado = %(id_empleado)s 
+                  AND fecha_hora >= %(limite_tiempo)s
+                  AND fecha_hora <= %(fecha_hora)s
+                LIMIT 1
+            ]
+[parameters: {'id_empleado': 'TEST', 'limite_tiempo': datetime.datetime(2026, 9, 17, 11, 25, 23, 937749), 'fecha_hora': datetime.datetime(2026, 9, 17, 11, 27, 23, 937749)}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Se mantendrá respaldo local.
+2026-09-17 11:27:24,034 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UndefinedColumn) column "id_empleado" does not exist
+LINE 4:                 WHERE id_empleado = 'TEST' 
+                              ^
+
+[SQL: 
+                SELECT 1 
+                FROM "public"."marcaje" 
+                WHERE id_empleado = %(id_empleado)s 
+                  AND fecha_hora >= %(limite_tiempo)s
+                  AND fecha_hora <= %(fecha_hora)s
+                LIMIT 1
+            ]
+[parameters: {'id_empleado': 'TEST', 'limite_tiempo': datetime.datetime(2026, 9, 17, 11, 25, 23, 938532), 'fecha_hora': datetime.datetime(2026, 9, 17, 11, 27, 23, 938532)}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Se mantendrá respaldo local.
+2026-09-17 11:27:24,046 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UndefinedColumn) column "id_empleado" does not exist
+LINE 4:                 WHERE id_empleado = 'TEST' 
+                              ^
+
+[SQL: 
+                SELECT 1 
+                FROM "public"."marcaje" 
+                WHERE id_empleado = %(id_empleado)s 
+                  AND fecha_hora >= %(limite_tiempo)s
+                  AND fecha_hora <= %(fecha_hora)s
+                LIMIT 1
+            ]
+[parameters: {'id_empleado': 'TEST', 'limite_tiempo': datetime.datetime(2026, 9, 17, 11, 25, 23, 947569), 'fecha_hora': datetime.datetime(2026, 9, 17, 11, 27, 23, 947569)}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Se mantendrá respaldo local.
+2026-09-17 11:27:24,047 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UndefinedColumn) column "id_empleado" does not exist
+LINE 4:                 WHERE id_empleado = 'TEST' 
+                              ^
+
+[SQL: 
+                SELECT 1 
+                FROM "public"."marcaje" 
+                WHERE id_empleado = %(id_empleado)s 
+                  AND fecha_hora >= %(limite_tiempo)s
+                  AND fecha_hora <= %(fecha_hora)s
+                LIMIT 1
+            ]
+[parameters: {'id_empleado': 'TEST', 'limite_tiempo': datetime.datetime(2026, 9, 17, 11, 25, 23, 949523), 'fecha_hora': datetime.datetime(2026, 9, 17, 11, 27, 23, 949523)}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Se mantendrá respaldo local.
+2026-09-17 11:27:24,048 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UndefinedColumn) column "id_empleado" does not exist
+LINE 4:                 WHERE id_empleado = 'TEST' 
+                              ^
+
+[SQL: 
+                SELECT 1 
+                FROM "public"."marcaje" 
+                WHERE id_empleado = %(id_empleado)s 
+                  AND fecha_hora >= %(limite_tiempo)s
+                  AND fecha_hora <= %(fecha_hora)s
+                LIMIT 1
+            ]
+[parameters: {'id_empleado': 'TEST', 'limite_tiempo': datetime.datetime(2026, 9, 17, 11, 25, 23, 939932), 'fecha_hora': datetime.datetime(2026, 9, 17, 11, 27, 23, 939932)}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Se mantendrá respaldo local.
+2026-09-17 11:27:24,049 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UndefinedColumn) column "id_empleado" does not exist
+LINE 4:                 WHERE id_empleado = 'TEST' 
+                              ^
+
+[SQL: 
+                SELECT 1 
+                FROM "public"."marcaje" 
+                WHERE id_empleado = %(id_empleado)s 
+                  AND fecha_hora >= %(limite_tiempo)s
+                  AND fecha_hora <= %(fecha_hora)s
+                LIMIT 1
+            ]
+[parameters: {'id_empleado': 'TEST', 'limite_tiempo': datetime.datetime(2026, 9, 17, 11, 25, 23, 948357), 'fecha_hora': datetime.datetime(2026, 9, 17, 11, 27, 23, 948357)}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Se mantendrá respaldo local.
+2026-09-17 11:27:24,051 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UndefinedColumn) column "id_empleado" does not exist
+LINE 4:                 WHERE id_empleado = 'TEST' 
+                              ^
+
+[SQL: 
+                SELECT 1 
+                FROM "public"."marcaje" 
+                WHERE id_empleado = %(id_empleado)s 
+                  AND fecha_hora >= %(limite_tiempo)s
+                  AND fecha_hora <= %(fecha_hora)s
+                LIMIT 1
+            ]
+[parameters: {'id_empleado': 'TEST', 'limite_tiempo': datetime.datetime(2026, 9, 17, 11, 25, 23, 954241), 'fecha_hora': datetime.datetime(2026, 9, 17, 11, 27, 23, 954241)}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Se mantendrá respaldo local.
+2026-09-17 11:27:24,051 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UndefinedColumn) column "id_empleado" does not exist
+LINE 4:                 WHERE id_empleado = 'TEST' 
+                              ^
+
+[SQL: 
+                SELECT 1 
+                FROM "public"."marcaje" 
+                WHERE id_empleado = %(id_empleado)s 
+                  AND fecha_hora >= %(limite_tiempo)s
+                  AND fecha_hora <= %(fecha_hora)s
+                LIMIT 1
+            ]
+[parameters: {'id_empleado': 'TEST', 'limite_tiempo': datetime.datetime(2026, 9, 17, 11, 25, 23, 950919), 'fecha_hora': datetime.datetime(2026, 9, 17, 11, 27, 23, 950919)}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Se mantendrá respaldo local.
+2026-09-17 11:27:24,061 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UndefinedColumn) column "id_empleado" does not exist
+LINE 4:                 WHERE id_empleado = 'TEST' 
+                              ^
+
+[SQL: 
+                SELECT 1 
+                FROM "public"."marcaje" 
+                WHERE id_empleado = %(id_empleado)s 
+                  AND fecha_hora >= %(limite_tiempo)s
+                  AND fecha_hora <= %(fecha_hora)s
+                LIMIT 1
+            ]
+[parameters: {'id_empleado': 'TEST', 'limite_tiempo': datetime.datetime(2026, 9, 17, 11, 25, 23, 956967), 'fecha_hora': datetime.datetime(2026, 9, 17, 11, 27, 23, 956967)}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Se mantendrá respaldo local.
+2026-09-17 11:27:24,066 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UndefinedColumn) column "id_empleado" does not exist
+LINE 4:                 WHERE id_empleado = 'TEST' 
+                              ^
+
+[SQL: 
+                SELECT 1 
+                FROM "public"."marcaje" 
+                WHERE id_empleado = %(id_empleado)s 
+                  AND fecha_hora >= %(limite_tiempo)s
+                  AND fecha_hora <= %(fecha_hora)s
+                LIMIT 1
+            ]
+[parameters: {'id_empleado': 'TEST', 'limite_tiempo': datetime.datetime(2026, 9, 17, 11, 25, 23, 960027), 'fecha_hora': datetime.datetime(2026, 9, 17, 11, 27, 23, 960027)}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Se mantendrá respaldo local.
+2026-09-17 11:27:24,077 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UndefinedColumn) column "id_empleado" does not exist
+LINE 4:                 WHERE id_empleado = 'TEST' 
+                              ^
+
+[SQL: 
+                SELECT 1 
+                FROM "public"."marcaje" 
+                WHERE id_empleado = %(id_empleado)s 
+                  AND fecha_hora >= %(limite_tiempo)s
+                  AND fecha_hora <= %(fecha_hora)s
+                LIMIT 1
+            ]
+[parameters: {'id_empleado': 'TEST', 'limite_tiempo': datetime.datetime(2026, 9, 17, 11, 25, 23, 962445), 'fecha_hora': datetime.datetime(2026, 9, 17, 11, 27, 23, 962445)}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Se mantendrá respaldo local.
+2026-09-17 11:27:24,079 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UndefinedColumn) column "id_empleado" does not exist
+LINE 4:                 WHERE id_empleado = 'TEST' 
+                              ^
+
+[SQL: 
+                SELECT 1 
+                FROM "public"."marcaje" 
+                WHERE id_empleado = %(id_empleado)s 
+                  AND fecha_hora >= %(limite_tiempo)s
+                  AND fecha_hora <= %(fecha_hora)s
+                LIMIT 1
+            ]
+[parameters: {'id_empleado': 'TEST', 'limite_tiempo': datetime.datetime(2026, 9, 17, 11, 25, 23, 961679), 'fecha_hora': datetime.datetime(2026, 9, 17, 11, 27, 23, 961679)}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Se mantendrá respaldo local.
+2026-09-17 11:27:24,080 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UndefinedColumn) column "id_empleado" does not exist
+LINE 4:                 WHERE id_empleado = 'TEST' 
+                              ^
+
+[SQL: 
+                SELECT 1 
+                FROM "public"."marcaje" 
+                WHERE id_empleado = %(id_empleado)s 
+                  AND fecha_hora >= %(limite_tiempo)s
+                  AND fecha_hora <= %(fecha_hora)s
+                LIMIT 1
+            ]
+[parameters: {'id_empleado': 'TEST', 'limite_tiempo': datetime.datetime(2026, 9, 17, 11, 25, 23, 960864), 'fecha_hora': datetime.datetime(2026, 9, 17, 11, 27, 23, 960864)}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Se mantendrá respaldo local.
+2026-09-17 11:27:24,100 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UndefinedColumn) column "id_empleado" does not exist
+LINE 4:                 WHERE id_empleado = 'TEST' 
+                              ^
+
+[SQL: 
+                SELECT 1 
+                FROM "public"."marcaje" 
+                WHERE id_empleado = %(id_empleado)s 
+                  AND fecha_hora >= %(limite_tiempo)s
+                  AND fecha_hora <= %(fecha_hora)s
+                LIMIT 1
+            ]
+[parameters: {'id_empleado': 'TEST', 'limite_tiempo': datetime.datetime(2026, 9, 17, 11, 25, 23, 967683), 'fecha_hora': datetime.datetime(2026, 9, 17, 11, 27, 23, 967683)}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Se mantendrá respaldo local.
+2026-09-17 11:27:24,101 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UndefinedColumn) column "id_empleado" does not exist
+LINE 4:                 WHERE id_empleado = 'TEST' 
+                              ^
+
+[SQL: 
+                SELECT 1 
+                FROM "public"."marcaje" 
+                WHERE id_empleado = %(id_empleado)s 
+                  AND fecha_hora >= %(limite_tiempo)s
+                  AND fecha_hora <= %(fecha_hora)s
+                LIMIT 1
+            ]
+[parameters: {'id_empleado': 'TEST', 'limite_tiempo': datetime.datetime(2026, 9, 17, 11, 25, 23, 964017), 'fecha_hora': datetime.datetime(2026, 9, 17, 11, 27, 23, 964017)}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Se mantendrá respaldo local.
+2026-09-17 11:27:24,102 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UndefinedColumn) column "id_empleado" does not exist
+LINE 4:                 WHERE id_empleado = 'TEST' 
+                              ^
+
+[SQL: 
+                SELECT 1 
+                FROM "public"."marcaje" 
+                WHERE id_empleado = %(id_empleado)s 
+                  AND fecha_hora >= %(limite_tiempo)s
+                  AND fecha_hora <= %(fecha_hora)s
+                LIMIT 1
+            ]
+[parameters: {'id_empleado': 'TEST', 'limite_tiempo': datetime.datetime(2026, 9, 17, 11, 25, 23, 969189), 'fecha_hora': datetime.datetime(2026, 9, 17, 11, 27, 23, 969189)}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Se mantendrá respaldo local.
+2026-09-17 11:27:24,104 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UndefinedColumn) column "id_empleado" does not exist
+LINE 4:                 WHERE id_empleado = 'TEST' 
+                              ^
+
+[SQL: 
+                SELECT 1 
+                FROM "public"."marcaje" 
+                WHERE id_empleado = %(id_empleado)s 
+                  AND fecha_hora >= %(limite_tiempo)s
+                  AND fecha_hora <= %(fecha_hora)s
+                LIMIT 1
+            ]
+[parameters: {'id_empleado': 'TEST', 'limite_tiempo': datetime.datetime(2026, 9, 17, 11, 25, 23, 963213), 'fecha_hora': datetime.datetime(2026, 9, 17, 11, 27, 23, 963213)}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Se mantendrá respaldo local.
+2026-09-17 11:27:24,114 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UndefinedColumn) column "id_empleado" does not exist
+LINE 4:                 WHERE id_empleado = 'TEST' 
+                              ^
+
+[SQL: 
+                SELECT 1 
+                FROM "public"."marcaje" 
+                WHERE id_empleado = %(id_empleado)s 
+                  AND fecha_hora >= %(limite_tiempo)s
+                  AND fecha_hora <= %(fecha_hora)s
+                LIMIT 1
+            ]
+[parameters: {'id_empleado': 'TEST', 'limite_tiempo': datetime.datetime(2026, 9, 17, 11, 25, 23, 976616), 'fecha_hora': datetime.datetime(2026, 9, 17, 11, 27, 23, 976616)}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Se mantendrá respaldo local.
+2026-09-17 11:27:24,117 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UndefinedColumn) column "id_empleado" does not exist
+LINE 4:                 WHERE id_empleado = 'TEST' 
+                              ^
+
+[SQL: 
+                SELECT 1 
+                FROM "public"."marcaje" 
+                WHERE id_empleado = %(id_empleado)s 
+                  AND fecha_hora >= %(limite_tiempo)s
+                  AND fecha_hora <= %(fecha_hora)s
+                LIMIT 1
+            ]
+[parameters: {'id_empleado': 'TEST', 'limite_tiempo': datetime.datetime(2026, 9, 17, 11, 25, 23, 978184), 'fecha_hora': datetime.datetime(2026, 9, 17, 11, 27, 23, 978184)}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Se mantendrá respaldo local.
+2026-09-17 11:27:24,117 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UndefinedColumn) column "id_empleado" does not exist
+LINE 4:                 WHERE id_empleado = 'TEST' 
+                              ^
+
+[SQL: 
+                SELECT 1 
+                FROM "public"."marcaje" 
+                WHERE id_empleado = %(id_empleado)s 
+                  AND fecha_hora >= %(limite_tiempo)s
+                  AND fecha_hora <= %(fecha_hora)s
+                LIMIT 1
+            ]
+[parameters: {'id_empleado': 'TEST', 'limite_tiempo': datetime.datetime(2026, 9, 17, 11, 25, 24, 2200), 'fecha_hora': datetime.datetime(2026, 9, 17, 11, 27, 24, 2200)}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Se mantendrá respaldo local.
+2026-09-17 11:27:24,119 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UndefinedColumn) column "id_empleado" does not exist
+LINE 4:                 WHERE id_empleado = 'TEST' 
+                              ^
+
+[SQL: 
+                SELECT 1 
+                FROM "public"."marcaje" 
+                WHERE id_empleado = %(id_empleado)s 
+                  AND fecha_hora >= %(limite_tiempo)s
+                  AND fecha_hora <= %(fecha_hora)s
+                LIMIT 1
+            ]
+[parameters: {'id_empleado': 'TEST', 'limite_tiempo': datetime.datetime(2026, 9, 17, 11, 25, 23, 999099), 'fecha_hora': datetime.datetime(2026, 9, 17, 11, 27, 23, 999099)}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Se mantendrá respaldo local.
+2026-09-17 11:27:24,125 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UndefinedColumn) column "id_empleado" does not exist
+LINE 4:                 WHERE id_empleado = 'TEST' 
+                              ^
+
+[SQL: 
+                SELECT 1 
+                FROM "public"."marcaje" 
+                WHERE id_empleado = %(id_empleado)s 
+                  AND fecha_hora >= %(limite_tiempo)s
+                  AND fecha_hora <= %(fecha_hora)s
+                LIMIT 1
+            ]
+[parameters: {'id_empleado': 'TEST', 'limite_tiempo': datetime.datetime(2026, 9, 17, 11, 25, 24, 9752), 'fecha_hora': datetime.datetime(2026, 9, 17, 11, 27, 24, 9752)}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Se mantendrá respaldo local.
+2026-09-17 11:27:24,127 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UndefinedColumn) column "id_empleado" does not exist
+LINE 4:                 WHERE id_empleado = 'TEST' 
+                              ^
+
+[SQL: 
+                SELECT 1 
+                FROM "public"."marcaje" 
+                WHERE id_empleado = %(id_empleado)s 
+                  AND fecha_hora >= %(limite_tiempo)s
+                  AND fecha_hora <= %(fecha_hora)s
+                LIMIT 1
+            ]
+[parameters: {'id_empleado': 'TEST', 'limite_tiempo': datetime.datetime(2026, 9, 17, 11, 25, 24, 10444), 'fecha_hora': datetime.datetime(2026, 9, 17, 11, 27, 24, 10444)}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Se mantendrá respaldo local.
+2026-09-17 11:27:24,128 | INFO | Respaldo TXT guardado para TEST (Tienda: 1)
+2026-09-17 11:27:24,130 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UndefinedColumn) column "id_empleado" does not exist
+LINE 4:                 WHERE id_empleado = 'TEST' 
+                              ^
+
+[SQL: 
+                SELECT 1 
+                FROM "public"."marcaje" 
+                WHERE id_empleado = %(id_empleado)s 
+                  AND fecha_hora >= %(limite_tiempo)s
+                  AND fecha_hora <= %(fecha_hora)s
+                LIMIT 1
+            ]
+[parameters: {'id_empleado': 'TEST', 'limite_tiempo': datetime.datetime(2026, 9, 17, 11, 25, 24, 6568), 'fecha_hora': datetime.datetime(2026, 9, 17, 11, 27, 24, 6568)}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Se mantendrá respaldo local.
+2026-09-17 11:27:24,148 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UndefinedColumn) column "id_empleado" does not exist
+LINE 4:                 WHERE id_empleado = 'TEST' 
+                              ^
+
+[SQL: 
+                SELECT 1 
+                FROM "public"."marcaje" 
+                WHERE id_empleado = %(id_empleado)s 
+                  AND fecha_hora >= %(limite_tiempo)s
+                  AND fecha_hora <= %(fecha_hora)s
+                LIMIT 1
+            ]
+[parameters: {'id_empleado': 'TEST', 'limite_tiempo': datetime.datetime(2026, 9, 17, 11, 25, 24, 12119), 'fecha_hora': datetime.datetime(2026, 9, 17, 11, 27, 24, 12119)}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Se mantendrá respaldo local.
+2026-09-17 11:27:24,148 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UndefinedColumn) column "id_empleado" does not exist
+LINE 4:                 WHERE id_empleado = 'TEST' 
+                              ^
+
+[SQL: 
+                SELECT 1 
+                FROM "public"."marcaje" 
+                WHERE id_empleado = %(id_empleado)s 
+                  AND fecha_hora >= %(limite_tiempo)s
+                  AND fecha_hora <= %(fecha_hora)s
+                LIMIT 1
+            ]
+[parameters: {'id_empleado': 'TEST', 'limite_tiempo': datetime.datetime(2026, 9, 17, 11, 25, 24, 11110), 'fecha_hora': datetime.datetime(2026, 9, 17, 11, 27, 24, 11110)}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Se mantendrá respaldo local.
+2026-09-17 11:27:24,152 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UndefinedColumn) column "id_empleado" does not exist
+LINE 4:                 WHERE id_empleado = 'TEST' 
+                              ^
+
+[SQL: 
+                SELECT 1 
+                FROM "public"."marcaje" 
+                WHERE id_empleado = %(id_empleado)s 
+                  AND fecha_hora >= %(limite_tiempo)s
+                  AND fecha_hora <= %(fecha_hora)s
+                LIMIT 1
+            ]
+[parameters: {'id_empleado': 'TEST', 'limite_tiempo': datetime.datetime(2026, 9, 17, 11, 25, 24, 15582), 'fecha_hora': datetime.datetime(2026, 9, 17, 11, 27, 24, 15582)}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Se mantendrá respaldo local.
+2026-09-17 11:27:24,153 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UndefinedColumn) column "id_empleado" does not exist
+LINE 4:                 WHERE id_empleado = 'TEST' 
+                              ^
+
+[SQL: 
+                SELECT 1 
+                FROM "public"."marcaje" 
+                WHERE id_empleado = %(id_empleado)s 
+                  AND fecha_hora >= %(limite_tiempo)s
+                  AND fecha_hora <= %(fecha_hora)s
+                LIMIT 1
+            ]
+[parameters: {'id_empleado': 'TEST', 'limite_tiempo': datetime.datetime(2026, 9, 17, 11, 25, 24, 13038), 'fecha_hora': datetime.datetime(2026, 9, 17, 11, 27, 24, 13038)}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Se mantendrá respaldo local.
+2026-09-17 11:27:24,154 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UndefinedColumn) column "id_empleado" does not exist
+LINE 4:                 WHERE id_empleado = 'TEST' 
+                              ^
+
+[SQL: 
+                SELECT 1 
+                FROM "public"."marcaje" 
+                WHERE id_empleado = %(id_empleado)s 
+                  AND fecha_hora >= %(limite_tiempo)s
+                  AND fecha_hora <= %(fecha_hora)s
+                LIMIT 1
+            ]
+[parameters: {'id_empleado': 'TEST', 'limite_tiempo': datetime.datetime(2026, 9, 17, 11, 25, 24, 14410), 'fecha_hora': datetime.datetime(2026, 9, 17, 11, 27, 24, 14410)}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Se mantendrá respaldo local.
+2026-09-17 11:27:24,157 | INFO | Respaldo TXT guardado para TEST (Tienda: 1)
+2026-09-17 11:27:24,160 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UndefinedColumn) column "id_empleado" does not exist
+LINE 4:                 WHERE id_empleado = 'TEST' 
+                              ^
+
+[SQL: 
+                SELECT 1 
+                FROM "public"."marcaje" 
+                WHERE id_empleado = %(id_empleado)s 
+                  AND fecha_hora >= %(limite_tiempo)s
+                  AND fecha_hora <= %(fecha_hora)s
+                LIMIT 1
+            ]
+[parameters: {'id_empleado': 'TEST', 'limite_tiempo': datetime.datetime(2026, 9, 17, 11, 25, 24, 52016), 'fecha_hora': datetime.datetime(2026, 9, 17, 11, 27, 24, 52016)}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Se mantendrá respaldo local.
+2026-09-17 11:27:24,161 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UndefinedColumn) column "id_empleado" does not exist
+LINE 4:                 WHERE id_empleado = 'TEST' 
+                              ^
+
+[SQL: 
+                SELECT 1 
+                FROM "public"."marcaje" 
+                WHERE id_empleado = %(id_empleado)s 
+                  AND fecha_hora >= %(limite_tiempo)s
+                  AND fecha_hora <= %(fecha_hora)s
+                LIMIT 1
+            ]
+[parameters: {'id_empleado': 'TEST', 'limite_tiempo': datetime.datetime(2026, 9, 17, 11, 25, 24, 29872), 'fecha_hora': datetime.datetime(2026, 9, 17, 11, 27, 24, 29872)}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Se mantendrá respaldo local.
+2026-09-17 11:27:24,161 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UndefinedColumn) column "id_empleado" does not exist
+LINE 4:                 WHERE id_empleado = 'TEST' 
+                              ^
+
+[SQL: 
+                SELECT 1 
+                FROM "public"."marcaje" 
+                WHERE id_empleado = %(id_empleado)s 
+                  AND fecha_hora >= %(limite_tiempo)s
+                  AND fecha_hora <= %(fecha_hora)s
+                LIMIT 1
+            ]
+[parameters: {'id_empleado': 'TEST', 'limite_tiempo': datetime.datetime(2026, 9, 17, 11, 25, 24, 31790), 'fecha_hora': datetime.datetime(2026, 9, 17, 11, 27, 24, 31790)}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Se mantendrá respaldo local.
+2026-09-17 11:27:24,165 | INFO | Respaldo TXT guardado para TEST (Tienda: 1)
+2026-09-17 11:27:24,174 | INFO | Respaldo TXT guardado para TEST (Tienda: 1)
+2026-09-17 11:27:24,182 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UndefinedColumn) column "id_empleado" does not exist
+LINE 4:                 WHERE id_empleado = 'TEST' 
+                              ^
+
+[SQL: 
+                SELECT 1 
+                FROM "public"."marcaje" 
+                WHERE id_empleado = %(id_empleado)s 
+                  AND fecha_hora >= %(limite_tiempo)s
+                  AND fecha_hora <= %(fecha_hora)s
+                LIMIT 1
+            ]
+[parameters: {'id_empleado': 'TEST', 'limite_tiempo': datetime.datetime(2026, 9, 17, 11, 25, 24, 53642), 'fecha_hora': datetime.datetime(2026, 9, 17, 11, 27, 24, 53642)}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Se mantendrá respaldo local.
+2026-09-17 11:27:24,183 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UndefinedColumn) column "id_empleado" does not exist
+LINE 4:                 WHERE id_empleado = 'TEST' 
+                              ^
+
+[SQL: 
+                SELECT 1 
+                FROM "public"."marcaje" 
+                WHERE id_empleado = %(id_empleado)s 
+                  AND fecha_hora >= %(limite_tiempo)s
+                  AND fecha_hora <= %(fecha_hora)s
+                LIMIT 1
+            ]
+[parameters: {'id_empleado': 'TEST', 'limite_tiempo': datetime.datetime(2026, 9, 17, 11, 25, 24, 55538), 'fecha_hora': datetime.datetime(2026, 9, 17, 11, 27, 24, 55538)}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Se mantendrá respaldo local.
+2026-09-17 11:27:24,186 | INFO | Respaldo TXT guardado para TEST (Tienda: 1)
+2026-09-17 11:27:24,192 | INFO | Respaldo TXT guardado para TEST (Tienda: 1)
+2026-09-17 11:27:24,194 | INFO | Respaldo TXT guardado para TEST (Tienda: 1)
+2026-09-17 11:27:24,200 | INFO | Respaldo TXT guardado para TEST (Tienda: 1)
+2026-09-17 11:27:24,206 | INFO | Respaldo TXT guardado para TEST (Tienda: 1)
+2026-09-17 11:27:24,211 | INFO | Respaldo TXT guardado para TEST (Tienda: 1)
+2026-09-17 11:27:24,213 | INFO | Respaldo TXT guardado para TEST (Tienda: 1)
+2026-09-17 11:27:24,221 | INFO | Respaldo TXT guardado para TEST (Tienda: 1)
+2026-09-17 11:27:24,224 | INFO | Respaldo TXT guardado para TEST (Tienda: 1)
+2026-09-17 11:27:24,228 | INFO | Respaldo TXT guardado para TEST (Tienda: 1)
+2026-09-17 11:27:24,230 | INFO | Respaldo TXT guardado para TEST (Tienda: 1)
+2026-09-17 11:27:24,242 | INFO | Respaldo TXT guardado para TEST (Tienda: 1)
+2026-09-17 11:27:24,247 | INFO | Respaldo TXT guardado para TEST (Tienda: 1)
+2026-09-17 11:27:24,250 | INFO | Respaldo TXT guardado para TEST (Tienda: 1)
+2026-09-17 11:27:24,252 | INFO | Respaldo TXT guardado para TEST (Tienda: 1)
+2026-09-17 11:27:24,255 | INFO | Respaldo TXT guardado para TEST (Tienda: 1)
+2026-09-17 11:27:24,258 | INFO | Respaldo TXT guardado para TEST (Tienda: 1)
+2026-09-17 11:27:24,261 | INFO | Respaldo TXT guardado para TEST (Tienda: 1)
+2026-09-17 11:27:24,264 | INFO | Respaldo TXT guardado para TEST (Tienda: 1)
+2026-09-17 11:27:24,269 | INFO | Respaldo TXT guardado para TEST (Tienda: 1)
+2026-09-17 11:27:24,272 | INFO | Respaldo TXT guardado para TEST (Tienda: 1)
+2026-09-17 11:27:24,277 | INFO | Respaldo TXT guardado para TEST (Tienda: 1)
+2026-09-17 11:27:24,279 | INFO | Respaldo TXT guardado para TEST (Tienda: 1)
+2026-09-17 11:27:24,282 | INFO | Respaldo TXT guardado para TEST (Tienda: 1)
+2026-09-17 11:27:24,285 | INFO | Respaldo TXT guardado para TEST (Tienda: 1)
+2026-09-17 11:27:24,288 | INFO | Respaldo TXT guardado para TEST (Tienda: 1)
+2026-09-17 11:27:24,291 | INFO | Respaldo TXT guardado para TEST (Tienda: 1)
+2026-09-17 11:27:24,294 | INFO | Respaldo TXT guardado para TEST (Tienda: 1)
+2026-09-17 11:27:24,296 | INFO | Respaldo TXT guardado para TEST (Tienda: 1)
+2026-09-17 11:27:24,302 | INFO | Respaldo TXT guardado para TEST (Tienda: 1)
+2026-09-17 11:27:24,305 | INFO | Respaldo TXT guardado para TEST (Tienda: 1)
+2026-09-17 11:27:24,310 | INFO | Respaldo TXT guardado para TEST (Tienda: 1)
+2026-09-17 11:27:24,313 | INFO | Respaldo TXT guardado para TEST (Tienda: 1)
+2026-09-17 11:27:24,315 | INFO | Respaldo TXT guardado para TEST (Tienda: 1)
+2026-09-17 11:27:24,318 | INFO | Respaldo TXT guardado para TEST (Tienda: 1)
+2026-09-17 11:27:24,320 | INFO | Respaldo TXT guardado para TEST (Tienda: 1)
+2026-09-17 11:27:24,324 | INFO | Respaldo TXT guardado para TEST (Tienda: 1)
+2026-09-17 11:27:24,326 | INFO | Respaldo TXT guardado para TEST (Tienda: 1)
+2026-09-17 11:27:24,329 | INFO | Respaldo TXT guardado para TEST (Tienda: 1)
+2026-09-17 11:27:24,333 | INFO | Respaldo TXT guardado para TEST (Tienda: 1)
+2026-09-17 11:27:24,339 | INFO | Respaldo TXT guardado para TEST (Tienda: 1)
+2026-09-17 11:27:24,343 | INFO | Respaldo TXT guardado para TEST (Tienda: 1)
+2026-09-17 11:27:24,346 | INFO | Respaldo TXT guardado para TEST (Tienda: 1)
+2026-09-17 11:27:24,353 | INFO | Respaldo TXT guardado para TEST (Tienda: 1)
+2026-09-17 11:27:24,356 | INFO | Respaldo TXT guardado para TEST (Tienda: 1)
+2026-09-17 11:27:24,362 | INFO | Respaldo TXT guardado para TEST (Tienda: 1)
+2026-09-17 11:27:49,413 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UndefinedColumn) column "id_empleado" does not exist
+LINE 4:                 WHERE id_empleado = 'TEST' 
+                              ^
+
+[SQL: 
+                SELECT 1 
+                FROM "public"."marcaje" 
+                WHERE id_empleado = %(id_empleado)s 
+                  AND fecha_hora >= %(limite_tiempo)s
+                  AND fecha_hora <= %(fecha_hora)s
+                LIMIT 1
+            ]
+[parameters: {'id_empleado': 'TEST', 'limite_tiempo': datetime.datetime(2026, 9, 17, 11, 25, 23, 879542), 'fecha_hora': datetime.datetime(2026, 9, 17, 11, 27, 23, 879542)}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Se mantendrá respaldo local.
+2026-09-17 11:27:49,432 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UndefinedColumn) column "id_empleado" does not exist
+LINE 4:                 WHERE id_empleado = 'TEST' 
+                              ^
+
+[SQL: 
+                SELECT 1 
+                FROM "public"."marcaje" 
+                WHERE id_empleado = %(id_empleado)s 
+                  AND fecha_hora >= %(limite_tiempo)s
+                  AND fecha_hora <= %(fecha_hora)s
+                LIMIT 1
+            ]
+[parameters: {'id_empleado': 'TEST', 'limite_tiempo': datetime.datetime(2026, 9, 17, 11, 25, 23, 911318), 'fecha_hora': datetime.datetime(2026, 9, 17, 11, 27, 23, 911318)}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Se mantendrá respaldo local.
+2026-09-17 11:27:49,460 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UndefinedColumn) column "id_empleado" does not exist
+LINE 4:                 WHERE id_empleado = 'TEST' 
+                              ^
+
+[SQL: 
+                SELECT 1 
+                FROM "public"."marcaje" 
+                WHERE id_empleado = %(id_empleado)s 
+                  AND fecha_hora >= %(limite_tiempo)s
+                  AND fecha_hora <= %(fecha_hora)s
+                LIMIT 1
+            ]
+[parameters: {'id_empleado': 'TEST', 'limite_tiempo': datetime.datetime(2026, 9, 17, 11, 25, 23, 886338), 'fecha_hora': datetime.datetime(2026, 9, 17, 11, 27, 23, 886338)}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Se mantendrá respaldo local.
+2026-09-17 11:27:49,486 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UndefinedColumn) column "id_empleado" does not exist
+LINE 4:                 WHERE id_empleado = 'TEST' 
+                              ^
+
+[SQL: 
+                SELECT 1 
+                FROM "public"."marcaje" 
+                WHERE id_empleado = %(id_empleado)s 
+                  AND fecha_hora >= %(limite_tiempo)s
+                  AND fecha_hora <= %(fecha_hora)s
+                LIMIT 1
+            ]
+[parameters: {'id_empleado': 'TEST', 'limite_tiempo': datetime.datetime(2026, 9, 17, 11, 25, 23, 920443), 'fecha_hora': datetime.datetime(2026, 9, 17, 11, 27, 23, 920443)}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Se mantendrá respaldo local.
+2026-09-17 11:27:49,530 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UndefinedColumn) column "id_empleado" does not exist
+LINE 4:                 WHERE id_empleado = 'TEST' 
+                              ^
+
+[SQL: 
+                SELECT 1 
+                FROM "public"."marcaje" 
+                WHERE id_empleado = %(id_empleado)s 
+                  AND fecha_hora >= %(limite_tiempo)s
+                  AND fecha_hora <= %(fecha_hora)s
+                LIMIT 1
+            ]
+[parameters: {'id_empleado': 'TEST', 'limite_tiempo': datetime.datetime(2026, 9, 17, 11, 25, 23, 887996), 'fecha_hora': datetime.datetime(2026, 9, 17, 11, 27, 23, 887996)}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Se mantendrá respaldo local.
+2026-09-17 11:27:49,551 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UndefinedColumn) column "id_empleado" does not exist
+LINE 4:                 WHERE id_empleado = 'TEST' 
+                              ^
+
+[SQL: 
+                SELECT 1 
+                FROM "public"."marcaje" 
+                WHERE id_empleado = %(id_empleado)s 
+                  AND fecha_hora >= %(limite_tiempo)s
+                  AND fecha_hora <= %(fecha_hora)s
+                LIMIT 1
+            ]
+[parameters: {'id_empleado': 'TEST', 'limite_tiempo': datetime.datetime(2026, 9, 17, 11, 25, 23, 891593), 'fecha_hora': datetime.datetime(2026, 9, 17, 11, 27, 23, 891593)}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Se mantendrá respaldo local.
+2026-09-17 11:27:49,580 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UndefinedColumn) column "id_empleado" does not exist
+LINE 4:                 WHERE id_empleado = 'TEST' 
+                              ^
+
+[SQL: 
+                SELECT 1 
+                FROM "public"."marcaje" 
+                WHERE id_empleado = %(id_empleado)s 
+                  AND fecha_hora >= %(limite_tiempo)s
+                  AND fecha_hora <= %(fecha_hora)s
+                LIMIT 1
+            ]
+[parameters: {'id_empleado': 'TEST', 'limite_tiempo': datetime.datetime(2026, 9, 17, 11, 25, 23, 915135), 'fecha_hora': datetime.datetime(2026, 9, 17, 11, 27, 23, 915135)}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Se mantendrá respaldo local.
+2026-09-17 11:27:49,600 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UndefinedColumn) column "id_empleado" does not exist
+LINE 4:                 WHERE id_empleado = 'TEST' 
+                              ^
+
+[SQL: 
+                SELECT 1 
+                FROM "public"."marcaje" 
+                WHERE id_empleado = %(id_empleado)s 
+                  AND fecha_hora >= %(limite_tiempo)s
+                  AND fecha_hora <= %(fecha_hora)s
+                LIMIT 1
+            ]
+[parameters: {'id_empleado': 'TEST', 'limite_tiempo': datetime.datetime(2026, 9, 17, 11, 25, 23, 899274), 'fecha_hora': datetime.datetime(2026, 9, 17, 11, 27, 23, 899274)}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Se mantendrá respaldo local.
+2026-09-17 11:27:49,634 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UndefinedColumn) column "id_empleado" does not exist
+LINE 4:                 WHERE id_empleado = 'TEST' 
+                              ^
+
+[SQL: 
+                SELECT 1 
+                FROM "public"."marcaje" 
+                WHERE id_empleado = %(id_empleado)s 
+                  AND fecha_hora >= %(limite_tiempo)s
+                  AND fecha_hora <= %(fecha_hora)s
+                LIMIT 1
+            ]
+[parameters: {'id_empleado': 'TEST', 'limite_tiempo': datetime.datetime(2026, 9, 17, 11, 25, 23, 905113), 'fecha_hora': datetime.datetime(2026, 9, 17, 11, 27, 23, 905113)}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Se mantendrá respaldo local.
+2026-09-17 11:27:49,669 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UndefinedColumn) column "id_empleado" does not exist
+LINE 4:                 WHERE id_empleado = 'TEST' 
+                              ^
+
+[SQL: 
+                SELECT 1 
+                FROM "public"."marcaje" 
+                WHERE id_empleado = %(id_empleado)s 
+                  AND fecha_hora >= %(limite_tiempo)s
+                  AND fecha_hora <= %(fecha_hora)s
+                LIMIT 1
+            ]
+[parameters: {'id_empleado': 'TEST', 'limite_tiempo': datetime.datetime(2026, 9, 17, 11, 25, 23, 925303), 'fecha_hora': datetime.datetime(2026, 9, 17, 11, 27, 23, 925303)}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Se mantendrá respaldo local.
+2026-09-17 11:27:49,686 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UndefinedColumn) column "id_empleado" does not exist
+LINE 4:                 WHERE id_empleado = 'TEST' 
+                              ^
+
+[SQL: 
+                SELECT 1 
+                FROM "public"."marcaje" 
+                WHERE id_empleado = %(id_empleado)s 
+                  AND fecha_hora >= %(limite_tiempo)s
+                  AND fecha_hora <= %(fecha_hora)s
+                LIMIT 1
+            ]
+[parameters: {'id_empleado': 'TEST', 'limite_tiempo': datetime.datetime(2026, 9, 17, 11, 25, 23, 930195), 'fecha_hora': datetime.datetime(2026, 9, 17, 11, 27, 23, 930195)}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Se mantendrá respaldo local.
+2026-09-17 11:27:49,706 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UndefinedColumn) column "id_empleado" does not exist
+LINE 4:                 WHERE id_empleado = 'TEST' 
+                              ^
+
+[SQL: 
+                SELECT 1 
+                FROM "public"."marcaje" 
+                WHERE id_empleado = %(id_empleado)s 
+                  AND fecha_hora >= %(limite_tiempo)s
+                  AND fecha_hora <= %(fecha_hora)s
+                LIMIT 1
+            ]
+[parameters: {'id_empleado': 'TEST', 'limite_tiempo': datetime.datetime(2026, 9, 17, 11, 25, 23, 928475), 'fecha_hora': datetime.datetime(2026, 9, 17, 11, 27, 23, 928475)}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Se mantendrá respaldo local.
+2026-09-17 11:27:49,728 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UndefinedColumn) column "id_empleado" does not exist
+LINE 4:                 WHERE id_empleado = 'TEST' 
+                              ^
+
+[SQL: 
+                SELECT 1 
+                FROM "public"."marcaje" 
+                WHERE id_empleado = %(id_empleado)s 
+                  AND fecha_hora >= %(limite_tiempo)s
+                  AND fecha_hora <= %(fecha_hora)s
+                LIMIT 1
+            ]
+[parameters: {'id_empleado': 'TEST', 'limite_tiempo': datetime.datetime(2026, 9, 17, 11, 25, 23, 917423), 'fecha_hora': datetime.datetime(2026, 9, 17, 11, 27, 23, 917423)}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Se mantendrá respaldo local.
+2026-09-17 11:27:49,748 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UndefinedColumn) column "id_empleado" does not exist
+LINE 4:                 WHERE id_empleado = 'TEST' 
+                              ^
+
+[SQL: 
+                SELECT 1 
+                FROM "public"."marcaje" 
+                WHERE id_empleado = %(id_empleado)s 
+                  AND fecha_hora >= %(limite_tiempo)s
+                  AND fecha_hora <= %(fecha_hora)s
+                LIMIT 1
+            ]
+[parameters: {'id_empleado': 'TEST', 'limite_tiempo': datetime.datetime(2026, 9, 17, 11, 25, 23, 932041), 'fecha_hora': datetime.datetime(2026, 9, 17, 11, 27, 23, 932041)}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Se mantendrá respaldo local.
+2026-09-17 11:27:49,769 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UndefinedColumn) column "id_empleado" does not exist
+LINE 4:                 WHERE id_empleado = 'TEST' 
+                              ^
+
+[SQL: 
+                SELECT 1 
+                FROM "public"."marcaje" 
+                WHERE id_empleado = %(id_empleado)s 
+                  AND fecha_hora >= %(limite_tiempo)s
+                  AND fecha_hora <= %(fecha_hora)s
+                LIMIT 1
+            ]
+[parameters: {'id_empleado': 'TEST', 'limite_tiempo': datetime.datetime(2026, 9, 17, 11, 25, 23, 933267), 'fecha_hora': datetime.datetime(2026, 9, 17, 11, 27, 23, 933267)}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Se mantendrá respaldo local.
+2026-09-17 11:27:49,798 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UndefinedColumn) column "id_empleado" does not exist
+LINE 4:                 WHERE id_empleado = 'TEST' 
+                              ^
+
+[SQL: 
+                SELECT 1 
+                FROM "public"."marcaje" 
+                WHERE id_empleado = %(id_empleado)s 
+                  AND fecha_hora >= %(limite_tiempo)s
+                  AND fecha_hora <= %(fecha_hora)s
+                LIMIT 1
+            ]
+[parameters: {'id_empleado': 'TEST', 'limite_tiempo': datetime.datetime(2026, 9, 17, 11, 25, 23, 936378), 'fecha_hora': datetime.datetime(2026, 9, 17, 11, 27, 23, 936378)}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Se mantendrá respaldo local.
+2026-09-17 11:27:49,828 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UndefinedColumn) column "id_empleado" does not exist
+LINE 4:                 WHERE id_empleado = 'TEST' 
+                              ^
+
+[SQL: 
+                SELECT 1 
+                FROM "public"."marcaje" 
+                WHERE id_empleado = %(id_empleado)s 
+                  AND fecha_hora >= %(limite_tiempo)s
+                  AND fecha_hora <= %(fecha_hora)s
+                LIMIT 1
+            ]
+[parameters: {'id_empleado': 'TEST', 'limite_tiempo': datetime.datetime(2026, 9, 17, 11, 25, 23, 937749), 'fecha_hora': datetime.datetime(2026, 9, 17, 11, 27, 23, 937749)}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Se mantendrá respaldo local.
+2026-09-17 11:27:49,849 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UndefinedColumn) column "id_empleado" does not exist
+LINE 4:                 WHERE id_empleado = 'TEST' 
+                              ^
+
+[SQL: 
+                SELECT 1 
+                FROM "public"."marcaje" 
+                WHERE id_empleado = %(id_empleado)s 
+                  AND fecha_hora >= %(limite_tiempo)s
+                  AND fecha_hora <= %(fecha_hora)s
+                LIMIT 1
+            ]
+[parameters: {'id_empleado': 'TEST', 'limite_tiempo': datetime.datetime(2026, 9, 17, 11, 25, 23, 938532), 'fecha_hora': datetime.datetime(2026, 9, 17, 11, 27, 23, 938532)}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Se mantendrá respaldo local.
+2026-09-17 11:27:49,874 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UndefinedColumn) column "id_empleado" does not exist
+LINE 4:                 WHERE id_empleado = 'TEST' 
+                              ^
+
+[SQL: 
+                SELECT 1 
+                FROM "public"."marcaje" 
+                WHERE id_empleado = %(id_empleado)s 
+                  AND fecha_hora >= %(limite_tiempo)s
+                  AND fecha_hora <= %(fecha_hora)s
+                LIMIT 1
+            ]
+[parameters: {'id_empleado': 'TEST', 'limite_tiempo': datetime.datetime(2026, 9, 17, 11, 25, 23, 947569), 'fecha_hora': datetime.datetime(2026, 9, 17, 11, 27, 23, 947569)}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Se mantendrá respaldo local.
+2026-09-17 11:27:49,906 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UndefinedColumn) column "id_empleado" does not exist
+LINE 4:                 WHERE id_empleado = 'TEST' 
+                              ^
+
+[SQL: 
+                SELECT 1 
+                FROM "public"."marcaje" 
+                WHERE id_empleado = %(id_empleado)s 
+                  AND fecha_hora >= %(limite_tiempo)s
+                  AND fecha_hora <= %(fecha_hora)s
+                LIMIT 1
+            ]
+[parameters: {'id_empleado': 'TEST', 'limite_tiempo': datetime.datetime(2026, 9, 17, 11, 25, 23, 949523), 'fecha_hora': datetime.datetime(2026, 9, 17, 11, 27, 23, 949523)}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Se mantendrá respaldo local.
+2026-09-17 11:27:49,938 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UndefinedColumn) column "id_empleado" does not exist
+LINE 4:                 WHERE id_empleado = 'TEST' 
+                              ^
+
+[SQL: 
+                SELECT 1 
+                FROM "public"."marcaje" 
+                WHERE id_empleado = %(id_empleado)s 
+                  AND fecha_hora >= %(limite_tiempo)s
+                  AND fecha_hora <= %(fecha_hora)s
+                LIMIT 1
+            ]
+[parameters: {'id_empleado': 'TEST', 'limite_tiempo': datetime.datetime(2026, 9, 17, 11, 25, 23, 939932), 'fecha_hora': datetime.datetime(2026, 9, 17, 11, 27, 23, 939932)}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Se mantendrá respaldo local.
+2026-09-17 11:27:49,961 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UndefinedColumn) column "id_empleado" does not exist
+LINE 4:                 WHERE id_empleado = 'TEST' 
+                              ^
+
+[SQL: 
+                SELECT 1 
+                FROM "public"."marcaje" 
+                WHERE id_empleado = %(id_empleado)s 
+                  AND fecha_hora >= %(limite_tiempo)s
+                  AND fecha_hora <= %(fecha_hora)s
+                LIMIT 1
+            ]
+[parameters: {'id_empleado': 'TEST', 'limite_tiempo': datetime.datetime(2026, 9, 17, 11, 25, 23, 948357), 'fecha_hora': datetime.datetime(2026, 9, 17, 11, 27, 23, 948357)}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Se mantendrá respaldo local.
+2026-09-17 11:27:49,985 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UndefinedColumn) column "id_empleado" does not exist
+LINE 4:                 WHERE id_empleado = 'TEST' 
+                              ^
+
+[SQL: 
+                SELECT 1 
+                FROM "public"."marcaje" 
+                WHERE id_empleado = %(id_empleado)s 
+                  AND fecha_hora >= %(limite_tiempo)s
+                  AND fecha_hora <= %(fecha_hora)s
+                LIMIT 1
+            ]
+[parameters: {'id_empleado': 'TEST', 'limite_tiempo': datetime.datetime(2026, 9, 17, 11, 25, 23, 954241), 'fecha_hora': datetime.datetime(2026, 9, 17, 11, 27, 23, 954241)}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Se mantendrá respaldo local.
+2026-09-17 11:27:50,025 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UndefinedColumn) column "id_empleado" does not exist
+LINE 4:                 WHERE id_empleado = 'TEST' 
+                              ^
+
+[SQL: 
+                SELECT 1 
+                FROM "public"."marcaje" 
+                WHERE id_empleado = %(id_empleado)s 
+                  AND fecha_hora >= %(limite_tiempo)s
+                  AND fecha_hora <= %(fecha_hora)s
+                LIMIT 1
+            ]
+[parameters: {'id_empleado': 'TEST', 'limite_tiempo': datetime.datetime(2026, 9, 17, 11, 25, 23, 950919), 'fecha_hora': datetime.datetime(2026, 9, 17, 11, 27, 23, 950919)}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Se mantendrá respaldo local.
+2026-09-17 11:27:50,056 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UndefinedColumn) column "id_empleado" does not exist
+LINE 4:                 WHERE id_empleado = 'TEST' 
+                              ^
+
+[SQL: 
+                SELECT 1 
+                FROM "public"."marcaje" 
+                WHERE id_empleado = %(id_empleado)s 
+                  AND fecha_hora >= %(limite_tiempo)s
+                  AND fecha_hora <= %(fecha_hora)s
+                LIMIT 1
+            ]
+[parameters: {'id_empleado': 'TEST', 'limite_tiempo': datetime.datetime(2026, 9, 17, 11, 25, 23, 956967), 'fecha_hora': datetime.datetime(2026, 9, 17, 11, 27, 23, 956967)}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Se mantendrá respaldo local.
+2026-09-17 11:27:50,083 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UndefinedColumn) column "id_empleado" does not exist
+LINE 4:                 WHERE id_empleado = 'TEST' 
+                              ^
+
+[SQL: 
+                SELECT 1 
+                FROM "public"."marcaje" 
+                WHERE id_empleado = %(id_empleado)s 
+                  AND fecha_hora >= %(limite_tiempo)s
+                  AND fecha_hora <= %(fecha_hora)s
+                LIMIT 1
+            ]
+[parameters: {'id_empleado': 'TEST', 'limite_tiempo': datetime.datetime(2026, 9, 17, 11, 25, 23, 960027), 'fecha_hora': datetime.datetime(2026, 9, 17, 11, 27, 23, 960027)}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Se mantendrá respaldo local.
+2026-09-17 11:27:50,111 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UndefinedColumn) column "id_empleado" does not exist
+LINE 4:                 WHERE id_empleado = 'TEST' 
+                              ^
+
+[SQL: 
+                SELECT 1 
+                FROM "public"."marcaje" 
+                WHERE id_empleado = %(id_empleado)s 
+                  AND fecha_hora >= %(limite_tiempo)s
+                  AND fecha_hora <= %(fecha_hora)s
+                LIMIT 1
+            ]
+[parameters: {'id_empleado': 'TEST', 'limite_tiempo': datetime.datetime(2026, 9, 17, 11, 25, 23, 962445), 'fecha_hora': datetime.datetime(2026, 9, 17, 11, 27, 23, 962445)}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Se mantendrá respaldo local.
+2026-09-17 11:27:50,144 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UndefinedColumn) column "id_empleado" does not exist
+LINE 4:                 WHERE id_empleado = 'TEST' 
+                              ^
+
+[SQL: 
+                SELECT 1 
+                FROM "public"."marcaje" 
+                WHERE id_empleado = %(id_empleado)s 
+                  AND fecha_hora >= %(limite_tiempo)s
+                  AND fecha_hora <= %(fecha_hora)s
+                LIMIT 1
+            ]
+[parameters: {'id_empleado': 'TEST', 'limite_tiempo': datetime.datetime(2026, 9, 17, 11, 25, 23, 961679), 'fecha_hora': datetime.datetime(2026, 9, 17, 11, 27, 23, 961679)}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Se mantendrá respaldo local.
+2026-09-17 11:27:50,173 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UndefinedColumn) column "id_empleado" does not exist
+LINE 4:                 WHERE id_empleado = 'TEST' 
+                              ^
+
+[SQL: 
+                SELECT 1 
+                FROM "public"."marcaje" 
+                WHERE id_empleado = %(id_empleado)s 
+                  AND fecha_hora >= %(limite_tiempo)s
+                  AND fecha_hora <= %(fecha_hora)s
+                LIMIT 1
+            ]
+[parameters: {'id_empleado': 'TEST', 'limite_tiempo': datetime.datetime(2026, 9, 17, 11, 25, 23, 960864), 'fecha_hora': datetime.datetime(2026, 9, 17, 11, 27, 23, 960864)}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Se mantendrá respaldo local.
+2026-09-17 11:27:50,195 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UndefinedColumn) column "id_empleado" does not exist
+LINE 4:                 WHERE id_empleado = 'TEST' 
+                              ^
+
+[SQL: 
+                SELECT 1 
+                FROM "public"."marcaje" 
+                WHERE id_empleado = %(id_empleado)s 
+                  AND fecha_hora >= %(limite_tiempo)s
+                  AND fecha_hora <= %(fecha_hora)s
+                LIMIT 1
+            ]
+[parameters: {'id_empleado': 'TEST', 'limite_tiempo': datetime.datetime(2026, 9, 17, 11, 25, 23, 967683), 'fecha_hora': datetime.datetime(2026, 9, 17, 11, 27, 23, 967683)}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Se mantendrá respaldo local.
+2026-09-17 11:27:50,231 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UndefinedColumn) column "id_empleado" does not exist
+LINE 4:                 WHERE id_empleado = 'TEST' 
+                              ^
+
+[SQL: 
+                SELECT 1 
+                FROM "public"."marcaje" 
+                WHERE id_empleado = %(id_empleado)s 
+                  AND fecha_hora >= %(limite_tiempo)s
+                  AND fecha_hora <= %(fecha_hora)s
+                LIMIT 1
+            ]
+[parameters: {'id_empleado': 'TEST', 'limite_tiempo': datetime.datetime(2026, 9, 17, 11, 25, 23, 964017), 'fecha_hora': datetime.datetime(2026, 9, 17, 11, 27, 23, 964017)}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Se mantendrá respaldo local.
+2026-09-17 11:27:50,306 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UndefinedColumn) column "id_empleado" does not exist
+LINE 4:                 WHERE id_empleado = 'TEST' 
+                              ^
+
+[SQL: 
+                SELECT 1 
+                FROM "public"."marcaje" 
+                WHERE id_empleado = %(id_empleado)s 
+                  AND fecha_hora >= %(limite_tiempo)s
+                  AND fecha_hora <= %(fecha_hora)s
+                LIMIT 1
+            ]
+[parameters: {'id_empleado': 'TEST', 'limite_tiempo': datetime.datetime(2026, 9, 17, 11, 25, 23, 969189), 'fecha_hora': datetime.datetime(2026, 9, 17, 11, 27, 23, 969189)}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Se mantendrá respaldo local.
+2026-09-17 11:27:50,381 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UndefinedColumn) column "id_empleado" does not exist
+LINE 4:                 WHERE id_empleado = 'TEST' 
+                              ^
+
+[SQL: 
+                SELECT 1 
+                FROM "public"."marcaje" 
+                WHERE id_empleado = %(id_empleado)s 
+                  AND fecha_hora >= %(limite_tiempo)s
+                  AND fecha_hora <= %(fecha_hora)s
+                LIMIT 1
+            ]
+[parameters: {'id_empleado': 'TEST', 'limite_tiempo': datetime.datetime(2026, 9, 17, 11, 25, 23, 963213), 'fecha_hora': datetime.datetime(2026, 9, 17, 11, 27, 23, 963213)}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Se mantendrá respaldo local.
+2026-09-17 11:27:50,420 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UndefinedColumn) column "id_empleado" does not exist
+LINE 4:                 WHERE id_empleado = 'TEST' 
+                              ^
+
+[SQL: 
+                SELECT 1 
+                FROM "public"."marcaje" 
+                WHERE id_empleado = %(id_empleado)s 
+                  AND fecha_hora >= %(limite_tiempo)s
+                  AND fecha_hora <= %(fecha_hora)s
+                LIMIT 1
+            ]
+[parameters: {'id_empleado': 'TEST', 'limite_tiempo': datetime.datetime(2026, 9, 17, 11, 25, 23, 976616), 'fecha_hora': datetime.datetime(2026, 9, 17, 11, 27, 23, 976616)}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Se mantendrá respaldo local.
+2026-09-17 11:27:50,476 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UndefinedColumn) column "id_empleado" does not exist
+LINE 4:                 WHERE id_empleado = 'TEST' 
+                              ^
+
+[SQL: 
+                SELECT 1 
+                FROM "public"."marcaje" 
+                WHERE id_empleado = %(id_empleado)s 
+                  AND fecha_hora >= %(limite_tiempo)s
+                  AND fecha_hora <= %(fecha_hora)s
+                LIMIT 1
+            ]
+[parameters: {'id_empleado': 'TEST', 'limite_tiempo': datetime.datetime(2026, 9, 17, 11, 25, 23, 978184), 'fecha_hora': datetime.datetime(2026, 9, 17, 11, 27, 23, 978184)}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Se mantendrá respaldo local.
+2026-09-17 11:27:50,501 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UndefinedColumn) column "id_empleado" does not exist
+LINE 4:                 WHERE id_empleado = 'TEST' 
+                              ^
+
+[SQL: 
+                SELECT 1 
+                FROM "public"."marcaje" 
+                WHERE id_empleado = %(id_empleado)s 
+                  AND fecha_hora >= %(limite_tiempo)s
+                  AND fecha_hora <= %(fecha_hora)s
+                LIMIT 1
+            ]
+[parameters: {'id_empleado': 'TEST', 'limite_tiempo': datetime.datetime(2026, 9, 17, 11, 25, 24, 2200), 'fecha_hora': datetime.datetime(2026, 9, 17, 11, 27, 24, 2200)}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Se mantendrá respaldo local.
+2026-09-17 11:27:50,535 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UndefinedColumn) column "id_empleado" does not exist
+LINE 4:                 WHERE id_empleado = 'TEST' 
+                              ^
+
+[SQL: 
+                SELECT 1 
+                FROM "public"."marcaje" 
+                WHERE id_empleado = %(id_empleado)s 
+                  AND fecha_hora >= %(limite_tiempo)s
+                  AND fecha_hora <= %(fecha_hora)s
+                LIMIT 1
+            ]
+[parameters: {'id_empleado': 'TEST', 'limite_tiempo': datetime.datetime(2026, 9, 17, 11, 25, 23, 999099), 'fecha_hora': datetime.datetime(2026, 9, 17, 11, 27, 23, 999099)}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Se mantendrá respaldo local.
+2026-09-17 11:27:50,561 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UndefinedColumn) column "id_empleado" does not exist
+LINE 4:                 WHERE id_empleado = 'TEST' 
+                              ^
+
+[SQL: 
+                SELECT 1 
+                FROM "public"."marcaje" 
+                WHERE id_empleado = %(id_empleado)s 
+                  AND fecha_hora >= %(limite_tiempo)s
+                  AND fecha_hora <= %(fecha_hora)s
+                LIMIT 1
+            ]
+[parameters: {'id_empleado': 'TEST', 'limite_tiempo': datetime.datetime(2026, 9, 17, 11, 25, 24, 9752), 'fecha_hora': datetime.datetime(2026, 9, 17, 11, 27, 24, 9752)}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Se mantendrá respaldo local.
+2026-09-17 11:27:50,592 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UndefinedColumn) column "id_empleado" does not exist
+LINE 4:                 WHERE id_empleado = 'TEST' 
+                              ^
+
+[SQL: 
+                SELECT 1 
+                FROM "public"."marcaje" 
+                WHERE id_empleado = %(id_empleado)s 
+                  AND fecha_hora >= %(limite_tiempo)s
+                  AND fecha_hora <= %(fecha_hora)s
+                LIMIT 1
+            ]
+[parameters: {'id_empleado': 'TEST', 'limite_tiempo': datetime.datetime(2026, 9, 17, 11, 25, 24, 10444), 'fecha_hora': datetime.datetime(2026, 9, 17, 11, 27, 24, 10444)}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Se mantendrá respaldo local.
+2026-09-17 11:27:50,611 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UndefinedColumn) column "id_empleado" does not exist
+LINE 4:                 WHERE id_empleado = 'TEST' 
+                              ^
+
+[SQL: 
+                SELECT 1 
+                FROM "public"."marcaje" 
+                WHERE id_empleado = %(id_empleado)s 
+                  AND fecha_hora >= %(limite_tiempo)s
+                  AND fecha_hora <= %(fecha_hora)s
+                LIMIT 1
+            ]
+[parameters: {'id_empleado': 'TEST', 'limite_tiempo': datetime.datetime(2026, 9, 17, 11, 25, 24, 6568), 'fecha_hora': datetime.datetime(2026, 9, 17, 11, 27, 24, 6568)}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Se mantendrá respaldo local.
+2026-09-17 11:27:50,634 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UndefinedColumn) column "id_empleado" does not exist
+LINE 4:                 WHERE id_empleado = 'TEST' 
+                              ^
+
+[SQL: 
+                SELECT 1 
+                FROM "public"."marcaje" 
+                WHERE id_empleado = %(id_empleado)s 
+                  AND fecha_hora >= %(limite_tiempo)s
+                  AND fecha_hora <= %(fecha_hora)s
+                LIMIT 1
+            ]
+[parameters: {'id_empleado': 'TEST', 'limite_tiempo': datetime.datetime(2026, 9, 17, 11, 25, 24, 12119), 'fecha_hora': datetime.datetime(2026, 9, 17, 11, 27, 24, 12119)}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Se mantendrá respaldo local.
+2026-09-17 11:27:50,651 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UndefinedColumn) column "id_empleado" does not exist
+LINE 4:                 WHERE id_empleado = 'TEST' 
+                              ^
+
+[SQL: 
+                SELECT 1 
+                FROM "public"."marcaje" 
+                WHERE id_empleado = %(id_empleado)s 
+                  AND fecha_hora >= %(limite_tiempo)s
+                  AND fecha_hora <= %(fecha_hora)s
+                LIMIT 1
+            ]
+[parameters: {'id_empleado': 'TEST', 'limite_tiempo': datetime.datetime(2026, 9, 17, 11, 25, 24, 11110), 'fecha_hora': datetime.datetime(2026, 9, 17, 11, 27, 24, 11110)}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Se mantendrá respaldo local.
+2026-09-17 11:27:50,681 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UndefinedColumn) column "id_empleado" does not exist
+LINE 4:                 WHERE id_empleado = 'TEST' 
+                              ^
+
+[SQL: 
+                SELECT 1 
+                FROM "public"."marcaje" 
+                WHERE id_empleado = %(id_empleado)s 
+                  AND fecha_hora >= %(limite_tiempo)s
+                  AND fecha_hora <= %(fecha_hora)s
+                LIMIT 1
+            ]
+[parameters: {'id_empleado': 'TEST', 'limite_tiempo': datetime.datetime(2026, 9, 17, 11, 25, 24, 15582), 'fecha_hora': datetime.datetime(2026, 9, 17, 11, 27, 24, 15582)}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Se mantendrá respaldo local.
+2026-09-17 11:27:50,698 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UndefinedColumn) column "id_empleado" does not exist
+LINE 4:                 WHERE id_empleado = 'TEST' 
+                              ^
+
+[SQL: 
+                SELECT 1 
+                FROM "public"."marcaje" 
+                WHERE id_empleado = %(id_empleado)s 
+                  AND fecha_hora >= %(limite_tiempo)s
+                  AND fecha_hora <= %(fecha_hora)s
+                LIMIT 1
+            ]
+[parameters: {'id_empleado': 'TEST', 'limite_tiempo': datetime.datetime(2026, 9, 17, 11, 25, 24, 13038), 'fecha_hora': datetime.datetime(2026, 9, 17, 11, 27, 24, 13038)}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Se mantendrá respaldo local.
+2026-09-17 11:27:50,719 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UndefinedColumn) column "id_empleado" does not exist
+LINE 4:                 WHERE id_empleado = 'TEST' 
+                              ^
+
+[SQL: 
+                SELECT 1 
+                FROM "public"."marcaje" 
+                WHERE id_empleado = %(id_empleado)s 
+                  AND fecha_hora >= %(limite_tiempo)s
+                  AND fecha_hora <= %(fecha_hora)s
+                LIMIT 1
+            ]
+[parameters: {'id_empleado': 'TEST', 'limite_tiempo': datetime.datetime(2026, 9, 17, 11, 25, 24, 14410), 'fecha_hora': datetime.datetime(2026, 9, 17, 11, 27, 24, 14410)}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Se mantendrá respaldo local.
+2026-09-17 11:27:50,755 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UndefinedColumn) column "id_empleado" does not exist
+LINE 4:                 WHERE id_empleado = 'TEST' 
+                              ^
+
+[SQL: 
+                SELECT 1 
+                FROM "public"."marcaje" 
+                WHERE id_empleado = %(id_empleado)s 
+                  AND fecha_hora >= %(limite_tiempo)s
+                  AND fecha_hora <= %(fecha_hora)s
+                LIMIT 1
+            ]
+[parameters: {'id_empleado': 'TEST', 'limite_tiempo': datetime.datetime(2026, 9, 17, 11, 25, 24, 52016), 'fecha_hora': datetime.datetime(2026, 9, 17, 11, 27, 24, 52016)}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Se mantendrá respaldo local.
+2026-09-17 11:27:50,775 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UndefinedColumn) column "id_empleado" does not exist
+LINE 4:                 WHERE id_empleado = 'TEST' 
+                              ^
+
+[SQL: 
+                SELECT 1 
+                FROM "public"."marcaje" 
+                WHERE id_empleado = %(id_empleado)s 
+                  AND fecha_hora >= %(limite_tiempo)s
+                  AND fecha_hora <= %(fecha_hora)s
+                LIMIT 1
+            ]
+[parameters: {'id_empleado': 'TEST', 'limite_tiempo': datetime.datetime(2026, 9, 17, 11, 25, 24, 29872), 'fecha_hora': datetime.datetime(2026, 9, 17, 11, 27, 24, 29872)}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Se mantendrá respaldo local.
+2026-09-17 11:27:50,793 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UndefinedColumn) column "id_empleado" does not exist
+LINE 4:                 WHERE id_empleado = 'TEST' 
+                              ^
+
+[SQL: 
+                SELECT 1 
+                FROM "public"."marcaje" 
+                WHERE id_empleado = %(id_empleado)s 
+                  AND fecha_hora >= %(limite_tiempo)s
+                  AND fecha_hora <= %(fecha_hora)s
+                LIMIT 1
+            ]
+[parameters: {'id_empleado': 'TEST', 'limite_tiempo': datetime.datetime(2026, 9, 17, 11, 25, 24, 31790), 'fecha_hora': datetime.datetime(2026, 9, 17, 11, 27, 24, 31790)}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Se mantendrá respaldo local.
+2026-09-17 11:27:50,821 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UndefinedColumn) column "id_empleado" does not exist
+LINE 4:                 WHERE id_empleado = 'TEST' 
+                              ^
+
+[SQL: 
+                SELECT 1 
+                FROM "public"."marcaje" 
+                WHERE id_empleado = %(id_empleado)s 
+                  AND fecha_hora >= %(limite_tiempo)s
+                  AND fecha_hora <= %(fecha_hora)s
+                LIMIT 1
+            ]
+[parameters: {'id_empleado': 'TEST', 'limite_tiempo': datetime.datetime(2026, 9, 17, 11, 25, 24, 53642), 'fecha_hora': datetime.datetime(2026, 9, 17, 11, 27, 24, 53642)}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Se mantendrá respaldo local.
+2026-09-17 11:27:50,841 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UndefinedColumn) column "id_empleado" does not exist
+LINE 4:                 WHERE id_empleado = 'TEST' 
+                              ^
+
+[SQL: 
+                SELECT 1 
+                FROM "public"."marcaje" 
+                WHERE id_empleado = %(id_empleado)s 
+                  AND fecha_hora >= %(limite_tiempo)s
+                  AND fecha_hora <= %(fecha_hora)s
+                LIMIT 1
+            ]
+[parameters: {'id_empleado': 'TEST', 'limite_tiempo': datetime.datetime(2026, 9, 17, 11, 25, 24, 55538), 'fecha_hora': datetime.datetime(2026, 9, 17, 11, 27, 24, 55538)}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Se mantendrá respaldo local.
+2026-09-17 11:27:50,842 | INFO | Sincronización exitosa: 50 marcajes pendientes subidos a PostgreSQL desde el respaldo.
+2026-09-17 11:29:45,016 | INFO | Stream ISAPI detenido correctamente.
+2026-09-17 11:29:45,025 | INFO | Motor de base de datos liberado.
+2026-09-17 11:31:53,017 | INFO | Configuración cargada correctamente desde: C:\Users\USUARIO\Documents\API PARA CAPTADOR\config.txt
+2026-09-17 11:31:53,547 | INFO | Conexión con PostgreSQL verificada con éxito.
+2026-09-17 11:31:53,548 | INFO | Servicios de monitoreo y sincronización activados.
+2026-09-17 11:31:53,757 | ERROR | Error 401: Credenciales incorrectas (admin:BiHr2428) o ISAPI deshabilitado en 192.168.20.210.
+2026-09-17 11:32:03,856 | ERROR | Error 401: Credenciales incorrectas (admin:BiHr2428) o ISAPI deshabilitado en 192.168.20.210.
+2026-09-17 11:32:13,899 | ERROR | Error 401: Credenciales incorrectas (admin:BiHr2428) o ISAPI deshabilitado en 192.168.20.210.
+2026-09-17 11:32:14,996 | INFO | Stream ISAPI detenido correctamente.
+2026-09-17 11:32:14,999 | INFO | Motor de base de datos liberado.
+2026-09-17 11:34:32,903 | INFO | Configuración cargada correctamente desde: C:\Users\USUARIO\Documents\API PARA CAPTADOR\config.txt
+2026-09-17 11:34:33,530 | INFO | Conexión con PostgreSQL verificada con éxito.
+2026-09-17 11:34:33,532 | INFO | Servicios de monitoreo y sincronización activados.
+2026-09-17 11:34:33,873 | INFO | Conexión en TIEMPO REAL con Biométrico Hikvision (192.168.20.210) establecida.
+2026-09-17 11:35:17,674 | INFO | Marcaje registrado en PostgreSQL -> Emp: TEST | Tienda: 1 | 2026-09-17 11:35:17 | Origen: PRUEBA_MANUAL
+2026-09-17 11:35:17,710 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.673309
+2026-09-17 11:35:17,730 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.634514
+2026-09-17 11:35:17,734 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.628119
+2026-09-17 11:35:17,744 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.656879
+2026-09-17 11:35:17,745 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.703434
+2026-09-17 11:35:17,759 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.714823
+2026-09-17 11:35:17,762 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.650920
+2026-09-17 11:35:17,764 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.661519
+2026-09-17 11:35:17,767 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.725557
+2026-09-17 11:35:17,768 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.745779
+2026-09-17 11:35:17,774 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.717234
+2026-09-17 11:35:17,784 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.681028
+2026-09-17 11:35:17,789 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.697615
+2026-09-17 11:35:17,810 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.749573
+2026-09-17 11:35:17,830 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.782447
+2026-09-17 11:35:17,842 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.812234
+2026-09-17 11:35:17,846 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.818176
+2026-09-17 11:35:17,876 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.827561
+2026-09-17 11:35:17,878 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.846155
+2026-09-17 11:35:17,883 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.854625
+2026-09-17 11:35:17,884 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.848772
+2026-09-17 11:35:17,889 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.859333
+2026-09-17 11:35:17,890 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.862279
+2026-09-17 11:35:17,903 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.869345
+2026-09-17 11:35:17,930 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.877539
+2026-09-17 11:35:17,935 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.917317
+2026-09-17 11:35:17,943 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.909824
+2026-09-17 11:35:17,944 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.913787
+2026-09-17 11:35:17,945 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.918439
+2026-09-17 11:35:17,978 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.922595
+2026-09-17 11:35:17,979 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.932661
+2026-09-17 11:35:17,981 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.926758
+2026-09-17 11:35:17,990 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.941565
+2026-09-17 11:35:17,991 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.947970
+2026-09-17 11:35:17,993 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.939574
+2026-09-17 11:35:17,994 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.949674
+2026-09-17 11:35:18,000 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.959084
+2026-09-17 11:35:18,000 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.960730
+2026-09-17 11:35:18,009 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.962429
+2026-09-17 11:35:18,011 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.961626
+2026-09-17 11:35:18,017 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.964843
+2026-09-17 11:35:18,018 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:18.001547
+2026-09-17 11:35:18,029 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.963710
+2026-09-17 11:35:18,117 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:18.005983
+2026-09-17 11:35:18,206 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:18.016654
+2026-09-17 11:35:18,265 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:18.032356
+2026-09-17 11:35:18,280 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:18.223670
+2026-09-17 11:35:18,281 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:18.226318
+2026-09-17 11:35:18,282 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:18.217542
+2026-09-17 11:35:18,311 | INFO | Respaldo TXT guardado para TEST (Tienda: 1)
+2026-09-17 11:35:33,899 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.617189
+2026-09-17 11:35:35,733 | INFO | Marcaje registrado en PostgreSQL -> Emp: EMP001 | Tienda: 1 | 2026-09-17 11:35:35 | Origen: PRUEBA_MANUAL
+2026-09-17 11:35:35,739 | INFO | Respaldo TXT guardado para EMP001 (Tienda: 1)
+2026-09-17 11:35:41,789 | INFO | Marcaje registrado en PostgreSQL -> Emp: EMP002 | Tienda: 1 | 2026-09-16 10:30:00 | Origen: WEBHOOK
+2026-09-17 11:35:41,792 | INFO | Respaldo TXT guardado para EMP002 (Tienda: 1)
+2026-09-17 11:35:49,370 | INFO | Marcaje registrado en PostgreSQL -> Emp: EMP_TEST_96 | Tienda: 1 | 2026-09-16 12:00:00 | Origen: WEBHOOK
+2026-09-17 11:35:49,372 | INFO | Respaldo TXT guardado para EMP_TEST_96 (Tienda: 1)
+2026-09-17 11:35:53,145 | INFO | Marcaje registrado en PostgreSQL -> Emp: EMP_TEST_96 | Tienda: 1 | 2026-09-16 12:20:30 | Origen: WEBHOOK
+2026-09-17 11:35:53,148 | INFO | Respaldo TXT guardado para EMP_TEST_96 (Tienda: 1)
+2026-09-17 11:36:03,963 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.617189
+2026-09-17 11:36:03,986 | WARNING | Marcaje duplicado omitido -> Emp: EMP001 | Hora: 2026-09-17 11:35:35.694605
+2026-09-17 11:36:04,025 | WARNING | Marcaje duplicado omitido -> Emp: EMP002 | Hora: 2026-09-16 10:30:00
+2026-09-17 11:36:04,057 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:00:00
+2026-09-17 11:36:04,078 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:20:30
+2026-09-17 11:36:19,200 | INFO | Marcaje registrado en PostgreSQL -> Emp: 3 | Tienda: 1 | 2026-09-17 11:36:19 | Origen: STREAM
+2026-09-17 11:36:19,205 | INFO | Respaldo TXT guardado para 3 (Tienda: 1)
+2026-09-17 11:36:34,140 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.617189
+2026-09-17 11:36:34,182 | WARNING | Marcaje duplicado omitido -> Emp: EMP001 | Hora: 2026-09-17 11:35:35.694605
+2026-09-17 11:36:34,256 | WARNING | Marcaje duplicado omitido -> Emp: EMP002 | Hora: 2026-09-16 10:30:00
+2026-09-17 11:36:34,338 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:00:00
+2026-09-17 11:36:34,446 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:20:30
+2026-09-17 11:36:34,510 | WARNING | Marcaje duplicado omitido -> Emp: 3 | Hora: 2026-09-17 11:36:19.161006
+2026-09-17 11:37:04,557 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.617189
+2026-09-17 11:37:04,604 | WARNING | Marcaje duplicado omitido -> Emp: EMP001 | Hora: 2026-09-17 11:35:35.694605
+2026-09-17 11:37:04,632 | WARNING | Marcaje duplicado omitido -> Emp: EMP002 | Hora: 2026-09-16 10:30:00
+2026-09-17 11:37:04,650 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:00:00
+2026-09-17 11:37:04,666 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:20:30
+2026-09-17 11:37:04,692 | WARNING | Marcaje duplicado omitido -> Emp: 3 | Hora: 2026-09-17 11:36:19.161006
+2026-09-17 11:37:34,745 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.617189
+2026-09-17 11:37:34,778 | WARNING | Marcaje duplicado omitido -> Emp: EMP001 | Hora: 2026-09-17 11:35:35.694605
+2026-09-17 11:37:34,799 | WARNING | Marcaje duplicado omitido -> Emp: EMP002 | Hora: 2026-09-16 10:30:00
+2026-09-17 11:37:34,830 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:00:00
+2026-09-17 11:37:34,854 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:20:30
+2026-09-17 11:37:34,885 | WARNING | Marcaje duplicado omitido -> Emp: 3 | Hora: 2026-09-17 11:36:19.161006
+2026-09-17 11:38:01,704 | INFO | Marcaje registrado en PostgreSQL -> Emp: 2 | Tienda: 1 | 2026-09-17 11:38:01 | Origen: STREAM
+2026-09-17 11:38:01,710 | INFO | Respaldo TXT guardado para 2 (Tienda: 1)
+2026-09-17 11:38:04,939 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.617189
+2026-09-17 11:38:04,961 | WARNING | Marcaje duplicado omitido -> Emp: EMP001 | Hora: 2026-09-17 11:35:35.694605
+2026-09-17 11:38:04,990 | WARNING | Marcaje duplicado omitido -> Emp: EMP002 | Hora: 2026-09-16 10:30:00
+2026-09-17 11:38:05,014 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:00:00
+2026-09-17 11:38:05,042 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:20:30
+2026-09-17 11:38:05,066 | WARNING | Marcaje duplicado omitido -> Emp: 3 | Hora: 2026-09-17 11:36:19.161006
+2026-09-17 11:38:05,089 | WARNING | Marcaje duplicado omitido -> Emp: 2 | Hora: 2026-09-17 11:38:01.648173
+2026-09-17 11:38:35,147 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.617189
+2026-09-17 11:38:35,168 | WARNING | Marcaje duplicado omitido -> Emp: EMP001 | Hora: 2026-09-17 11:35:35.694605
+2026-09-17 11:38:35,209 | WARNING | Marcaje duplicado omitido -> Emp: EMP002 | Hora: 2026-09-16 10:30:00
+2026-09-17 11:38:35,244 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:00:00
+2026-09-17 11:38:35,275 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:20:30
+2026-09-17 11:38:35,313 | WARNING | Marcaje duplicado omitido -> Emp: 3 | Hora: 2026-09-17 11:36:19.161006
+2026-09-17 11:38:35,333 | WARNING | Marcaje duplicado omitido -> Emp: 2 | Hora: 2026-09-17 11:38:01.648173
+2026-09-17 11:39:05,432 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.617189
+2026-09-17 11:39:05,463 | WARNING | Marcaje duplicado omitido -> Emp: EMP001 | Hora: 2026-09-17 11:35:35.694605
+2026-09-17 11:39:05,497 | WARNING | Marcaje duplicado omitido -> Emp: EMP002 | Hora: 2026-09-16 10:30:00
+2026-09-17 11:39:05,515 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:00:00
+2026-09-17 11:39:05,531 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:20:30
+2026-09-17 11:39:05,556 | WARNING | Marcaje duplicado omitido -> Emp: 3 | Hora: 2026-09-17 11:36:19.161006
+2026-09-17 11:39:05,573 | WARNING | Marcaje duplicado omitido -> Emp: 2 | Hora: 2026-09-17 11:38:01.648173
+2026-09-17 11:39:35,626 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.617189
+2026-09-17 11:39:35,672 | WARNING | Marcaje duplicado omitido -> Emp: EMP001 | Hora: 2026-09-17 11:35:35.694605
+2026-09-17 11:39:35,694 | WARNING | Marcaje duplicado omitido -> Emp: EMP002 | Hora: 2026-09-16 10:30:00
+2026-09-17 11:39:35,727 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:00:00
+2026-09-17 11:39:35,748 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:20:30
+2026-09-17 11:39:35,772 | WARNING | Marcaje duplicado omitido -> Emp: 3 | Hora: 2026-09-17 11:36:19.161006
+2026-09-17 11:39:35,790 | WARNING | Marcaje duplicado omitido -> Emp: 2 | Hora: 2026-09-17 11:38:01.648173
+2026-09-17 11:40:05,827 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.617189
+2026-09-17 11:40:05,853 | WARNING | Marcaje duplicado omitido -> Emp: EMP001 | Hora: 2026-09-17 11:35:35.694605
+2026-09-17 11:40:05,885 | WARNING | Marcaje duplicado omitido -> Emp: EMP002 | Hora: 2026-09-16 10:30:00
+2026-09-17 11:40:05,911 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:00:00
+2026-09-17 11:40:05,929 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:20:30
+2026-09-17 11:40:05,949 | WARNING | Marcaje duplicado omitido -> Emp: 3 | Hora: 2026-09-17 11:36:19.161006
+2026-09-17 11:40:05,973 | WARNING | Marcaje duplicado omitido -> Emp: 2 | Hora: 2026-09-17 11:38:01.648173
+2026-09-17 11:40:36,033 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.617189
+2026-09-17 11:40:36,051 | WARNING | Marcaje duplicado omitido -> Emp: EMP001 | Hora: 2026-09-17 11:35:35.694605
+2026-09-17 11:40:36,075 | WARNING | Marcaje duplicado omitido -> Emp: EMP002 | Hora: 2026-09-16 10:30:00
+2026-09-17 11:40:36,108 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:00:00
+2026-09-17 11:40:36,139 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:20:30
+2026-09-17 11:40:36,167 | WARNING | Marcaje duplicado omitido -> Emp: 3 | Hora: 2026-09-17 11:36:19.161006
+2026-09-17 11:40:36,191 | WARNING | Marcaje duplicado omitido -> Emp: 2 | Hora: 2026-09-17 11:38:01.648173
+2026-09-17 11:40:43,368 | INFO | Marcaje registrado en PostgreSQL -> Emp: TEST | Tienda: 1 | 2026-09-17 11:40:43 | Origen: PRUEBA_MANUAL
+2026-09-17 11:40:43,370 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.344157
+2026-09-17 11:40:43,373 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UniqueViolation) duplicate key value violates unique constraint "marcaje_fecha_hora_cod_emp_key"
+DETAIL:  Key (fecha, hora, cod_emp)=(2026-09-17, 11:40:43, TEST) already exists.
+
+[SQL: 
+                INSERT INTO "public"."marcaje" (cod_emp, fecha, hora, ip, diaanterior, id_tienda, created_at)
+                VALUES (%(cod_emp)s, %(fecha)s, %(hora)s, %(ip)s, %(diaanterior)s, %(id_tienda)s, %(created_at)s)
+            ]
+[parameters: {'cod_emp': 'TEST', 'fecha': datetime.date(2026, 9, 17), 'hora': '11:40:43', 'ip': '192.168.20.210', 'diaanterior': 0, 'id_tienda': 1, 'created_at': datetime.datetime(2026, 9, 17, 11, 40, 43, 361384)}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj). Se mantendrá respaldo local.
+2026-09-17 11:40:43,373 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UniqueViolation) duplicate key value violates unique constraint "marcaje_fecha_hora_cod_emp_key"
+DETAIL:  Key (fecha, hora, cod_emp)=(2026-09-17, 11:40:43, TEST) already exists.
+
+[SQL: 
+                INSERT INTO "public"."marcaje" (cod_emp, fecha, hora, ip, diaanterior, id_tienda, created_at)
+                VALUES (%(cod_emp)s, %(fecha)s, %(hora)s, %(ip)s, %(diaanterior)s, %(id_tienda)s, %(created_at)s)
+            ]
+[parameters: {'cod_emp': 'TEST', 'fecha': datetime.date(2026, 9, 17), 'hora': '11:40:43', 'ip': '192.168.20.210', 'diaanterior': 0, 'id_tienda': 1, 'created_at': datetime.datetime(2026, 9, 17, 11, 40, 43, 360780)}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj). Se mantendrá respaldo local.
+2026-09-17 11:40:43,381 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UniqueViolation) duplicate key value violates unique constraint "marcaje_fecha_hora_cod_emp_key"
+DETAIL:  Key (fecha, hora, cod_emp)=(2026-09-17, 11:40:43, TEST) already exists.
+
+[SQL: 
+                INSERT INTO "public"."marcaje" (cod_emp, fecha, hora, ip, diaanterior, id_tienda, created_at)
+                VALUES (%(cod_emp)s, %(fecha)s, %(hora)s, %(ip)s, %(diaanterior)s, %(id_tienda)s, %(created_at)s)
+            ]
+[parameters: {'cod_emp': 'TEST', 'fecha': datetime.date(2026, 9, 17), 'hora': '11:40:43', 'ip': '192.168.20.210', 'diaanterior': 0, 'id_tienda': 1, 'created_at': datetime.datetime(2026, 9, 17, 11, 40, 43, 367037)}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj). Se mantendrá respaldo local.
+2026-09-17 11:40:43,381 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.358908
+2026-09-17 11:40:43,382 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.356454
+2026-09-17 11:40:43,383 | ERROR | Error procesando transacción en PostgreSQL: (psycopg2.errors.UniqueViolation) duplicate key value violates unique constraint "marcaje_fecha_hora_cod_emp_key"
+DETAIL:  Key (fecha, hora, cod_emp)=(2026-09-17, 11:40:43, TEST) already exists.
+
+[SQL: 
+                INSERT INTO "public"."marcaje" (cod_emp, fecha, hora, ip, diaanterior, id_tienda, created_at)
+                VALUES (%(cod_emp)s, %(fecha)s, %(hora)s, %(ip)s, %(diaanterior)s, %(id_tienda)s, %(created_at)s)
+            ]
+[parameters: {'cod_emp': 'TEST', 'fecha': datetime.date(2026, 9, 17), 'hora': '11:40:43', 'ip': '192.168.20.210', 'diaanterior': 0, 'id_tienda': 1, 'created_at': datetime.datetime(2026, 9, 17, 11, 40, 43, 365807)}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj). Se mantendrá respaldo local.
+2026-09-17 11:40:43,384 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.362423
+2026-09-17 11:40:43,389 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.365489
+2026-09-17 11:40:43,405 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.371924
+2026-09-17 11:40:43,406 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.385006
+2026-09-17 11:40:43,407 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.388239
+2026-09-17 11:40:43,409 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.395185
+2026-09-17 11:40:43,413 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.397554
+2026-09-17 11:40:43,416 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.398951
+2026-09-17 11:40:43,418 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.400051
+2026-09-17 11:40:43,419 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.401748
+2026-09-17 11:40:43,423 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.407641
+2026-09-17 11:40:43,425 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.403380
+2026-09-17 11:40:43,431 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.411531
+2026-09-17 11:40:43,432 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.408985
+2026-09-17 11:40:43,435 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.413890
+2026-09-17 11:40:43,437 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.414845
+2026-09-17 11:40:43,440 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.421633
+2026-09-17 11:40:43,441 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.420634
+2026-09-17 11:40:43,445 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.424219
+2026-09-17 11:40:43,449 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.425170
+2026-09-17 11:40:43,449 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.428739
+2026-09-17 11:40:43,450 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.430275
+2026-09-17 11:40:43,454 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.433436
+2026-09-17 11:40:43,456 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.436132
+2026-09-17 11:40:43,464 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.437794
+2026-09-17 11:40:43,466 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.441595
+2026-09-17 11:40:43,470 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.457465
+2026-09-17 11:40:43,478 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.459399
+2026-09-17 11:40:43,481 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.455963
+2026-09-17 11:40:43,482 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.458341
+2026-09-17 11:40:43,484 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.461886
+2026-09-17 11:40:43,484 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.465325
+2026-09-17 11:40:43,488 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.467406
+2026-09-17 11:40:43,491 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.468415
+2026-09-17 11:40:43,493 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.469079
+2026-09-17 11:40:43,506 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.474201
+2026-09-17 11:40:43,506 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.475329
+2026-09-17 11:40:43,511 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.472549
+2026-09-17 11:40:43,512 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.478018
+2026-09-17 11:40:43,517 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.497746
+2026-09-17 11:40:43,518 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.498777
+2026-09-17 11:40:43,519 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.490122
+2026-09-17 11:40:43,541 | INFO | Respaldo TXT guardado para TEST (Tienda: 1)
+2026-09-17 11:40:43,607 | INFO | Respaldo TXT guardado para TEST (Tienda: 1)
+2026-09-17 11:40:43,610 | INFO | Respaldo TXT guardado para TEST (Tienda: 1)
+2026-09-17 11:40:43,615 | INFO | Respaldo TXT guardado para TEST (Tienda: 1)
+2026-09-17 11:40:43,617 | INFO | Respaldo TXT guardado para TEST (Tienda: 1)
+2026-09-17 11:41:06,262 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.617189
+2026-09-17 11:41:06,279 | WARNING | Marcaje duplicado omitido -> Emp: EMP001 | Hora: 2026-09-17 11:35:35.694605
+2026-09-17 11:41:06,301 | WARNING | Marcaje duplicado omitido -> Emp: EMP002 | Hora: 2026-09-16 10:30:00
+2026-09-17 11:41:06,322 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:00:00
+2026-09-17 11:41:06,345 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:20:30
+2026-09-17 11:41:06,367 | WARNING | Marcaje duplicado omitido -> Emp: 3 | Hora: 2026-09-17 11:36:19.161006
+2026-09-17 11:41:06,401 | WARNING | Marcaje duplicado omitido -> Emp: 2 | Hora: 2026-09-17 11:38:01.648173
+2026-09-17 11:41:06,422 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.325608
+2026-09-17 11:41:06,443 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.341237
+2026-09-17 11:41:06,463 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.336363
+2026-09-17 11:41:06,485 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.345377
+2026-09-17 11:41:06,508 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.342944
+2026-09-17 11:41:36,551 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.617189
+2026-09-17 11:41:36,571 | WARNING | Marcaje duplicado omitido -> Emp: EMP001 | Hora: 2026-09-17 11:35:35.694605
+2026-09-17 11:41:36,591 | WARNING | Marcaje duplicado omitido -> Emp: EMP002 | Hora: 2026-09-16 10:30:00
+2026-09-17 11:41:36,617 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:00:00
+2026-09-17 11:41:36,639 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:20:30
+2026-09-17 11:41:36,663 | WARNING | Marcaje duplicado omitido -> Emp: 3 | Hora: 2026-09-17 11:36:19.161006
+2026-09-17 11:41:36,688 | WARNING | Marcaje duplicado omitido -> Emp: 2 | Hora: 2026-09-17 11:38:01.648173
+2026-09-17 11:41:36,713 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.325608
+2026-09-17 11:41:36,737 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.341237
+2026-09-17 11:41:36,770 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.336363
+2026-09-17 11:41:36,798 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.345377
+2026-09-17 11:41:36,824 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.342944
+2026-09-17 11:42:06,874 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.617189
+2026-09-17 11:42:06,911 | WARNING | Marcaje duplicado omitido -> Emp: EMP001 | Hora: 2026-09-17 11:35:35.694605
+2026-09-17 11:42:06,948 | WARNING | Marcaje duplicado omitido -> Emp: EMP002 | Hora: 2026-09-16 10:30:00
+2026-09-17 11:42:06,983 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:00:00
+2026-09-17 11:42:07,030 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:20:30
+2026-09-17 11:42:07,100 | WARNING | Marcaje duplicado omitido -> Emp: 3 | Hora: 2026-09-17 11:36:19.161006
+2026-09-17 11:42:07,147 | WARNING | Marcaje duplicado omitido -> Emp: 2 | Hora: 2026-09-17 11:38:01.648173
+2026-09-17 11:42:07,183 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.325608
+2026-09-17 11:42:07,214 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.341237
+2026-09-17 11:42:07,252 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.336363
+2026-09-17 11:42:07,284 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.345377
+2026-09-17 11:42:07,326 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.342944
+2026-09-17 11:42:37,383 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.617189
+2026-09-17 11:42:37,407 | WARNING | Marcaje duplicado omitido -> Emp: EMP001 | Hora: 2026-09-17 11:35:35.694605
+2026-09-17 11:42:37,429 | WARNING | Marcaje duplicado omitido -> Emp: EMP002 | Hora: 2026-09-16 10:30:00
+2026-09-17 11:42:37,450 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:00:00
+2026-09-17 11:42:37,475 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:20:30
+2026-09-17 11:42:37,499 | WARNING | Marcaje duplicado omitido -> Emp: 3 | Hora: 2026-09-17 11:36:19.161006
+2026-09-17 11:42:37,527 | WARNING | Marcaje duplicado omitido -> Emp: 2 | Hora: 2026-09-17 11:38:01.648173
+2026-09-17 11:42:37,550 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.325608
+2026-09-17 11:42:37,571 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.341237
+2026-09-17 11:42:37,630 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.336363
+2026-09-17 11:42:37,773 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.345377
+2026-09-17 11:42:37,809 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.342944
+2026-09-17 11:43:09,192 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.617189
+2026-09-17 11:43:09,991 | WARNING | Marcaje duplicado omitido -> Emp: EMP001 | Hora: 2026-09-17 11:35:35.694605
+2026-09-17 11:43:10,041 | WARNING | Marcaje duplicado omitido -> Emp: EMP002 | Hora: 2026-09-16 10:30:00
+2026-09-17 11:43:10,110 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:00:00
+2026-09-17 11:43:10,141 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:20:30
+2026-09-17 11:43:10,671 | WARNING | Marcaje duplicado omitido -> Emp: 3 | Hora: 2026-09-17 11:36:19.161006
+2026-09-17 11:43:10,759 | WARNING | Marcaje duplicado omitido -> Emp: 2 | Hora: 2026-09-17 11:38:01.648173
+2026-09-17 11:43:10,804 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.325608
+2026-09-17 11:43:10,861 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.341237
+2026-09-17 11:43:10,934 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.336363
+2026-09-17 11:43:10,985 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.345377
+2026-09-17 11:43:11,049 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.342944
+2026-09-17 11:43:41,112 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.617189
+2026-09-17 11:43:41,184 | WARNING | Marcaje duplicado omitido -> Emp: EMP001 | Hora: 2026-09-17 11:35:35.694605
+2026-09-17 11:43:41,236 | WARNING | Marcaje duplicado omitido -> Emp: EMP002 | Hora: 2026-09-16 10:30:00
+2026-09-17 11:43:41,819 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:00:00
+2026-09-17 11:43:42,077 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:20:30
+2026-09-17 11:43:42,271 | WARNING | Marcaje duplicado omitido -> Emp: 3 | Hora: 2026-09-17 11:36:19.161006
+2026-09-17 11:43:42,510 | WARNING | Marcaje duplicado omitido -> Emp: 2 | Hora: 2026-09-17 11:38:01.648173
+2026-09-17 11:43:42,969 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.325608
+2026-09-17 11:43:43,232 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.341237
+2026-09-17 11:43:43,441 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.336363
+2026-09-17 11:43:44,313 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.345377
+2026-09-17 11:43:44,601 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.342944
+2026-09-17 11:44:14,658 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.617189
+2026-09-17 11:44:14,690 | WARNING | Marcaje duplicado omitido -> Emp: EMP001 | Hora: 2026-09-17 11:35:35.694605
+2026-09-17 11:44:14,731 | WARNING | Marcaje duplicado omitido -> Emp: EMP002 | Hora: 2026-09-16 10:30:00
+2026-09-17 11:44:14,774 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:00:00
+2026-09-17 11:44:14,805 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:20:30
+2026-09-17 11:44:14,848 | WARNING | Marcaje duplicado omitido -> Emp: 3 | Hora: 2026-09-17 11:36:19.161006
+2026-09-17 11:44:14,893 | WARNING | Marcaje duplicado omitido -> Emp: 2 | Hora: 2026-09-17 11:38:01.648173
+2026-09-17 11:44:14,953 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.325608
+2026-09-17 11:44:15,002 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.341237
+2026-09-17 11:44:15,034 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.336363
+2026-09-17 11:44:15,055 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.345377
+2026-09-17 11:44:15,100 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.342944
+2026-09-17 11:44:45,163 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.617189
+2026-09-17 11:44:45,195 | WARNING | Marcaje duplicado omitido -> Emp: EMP001 | Hora: 2026-09-17 11:35:35.694605
+2026-09-17 11:44:45,219 | WARNING | Marcaje duplicado omitido -> Emp: EMP002 | Hora: 2026-09-16 10:30:00
+2026-09-17 11:44:45,254 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:00:00
+2026-09-17 11:44:45,285 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:20:30
+2026-09-17 11:44:45,313 | WARNING | Marcaje duplicado omitido -> Emp: 3 | Hora: 2026-09-17 11:36:19.161006
+2026-09-17 11:44:45,355 | WARNING | Marcaje duplicado omitido -> Emp: 2 | Hora: 2026-09-17 11:38:01.648173
+2026-09-17 11:44:45,401 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.325608
+2026-09-17 11:44:45,438 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.341237
+2026-09-17 11:44:45,478 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.336363
+2026-09-17 11:44:45,522 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.345377
+2026-09-17 11:44:45,583 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.342944
+2026-09-17 11:45:15,629 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.617189
+2026-09-17 11:45:15,648 | WARNING | Marcaje duplicado omitido -> Emp: EMP001 | Hora: 2026-09-17 11:35:35.694605
+2026-09-17 11:45:15,670 | WARNING | Marcaje duplicado omitido -> Emp: EMP002 | Hora: 2026-09-16 10:30:00
+2026-09-17 11:45:15,691 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:00:00
+2026-09-17 11:45:15,712 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:20:30
+2026-09-17 11:45:15,742 | WARNING | Marcaje duplicado omitido -> Emp: 3 | Hora: 2026-09-17 11:36:19.161006
+2026-09-17 11:45:15,763 | WARNING | Marcaje duplicado omitido -> Emp: 2 | Hora: 2026-09-17 11:38:01.648173
+2026-09-17 11:45:15,785 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.325608
+2026-09-17 11:45:15,809 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.341237
+2026-09-17 11:45:15,829 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.336363
+2026-09-17 11:45:15,854 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.345377
+2026-09-17 11:45:15,877 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.342944
+2026-09-17 11:45:45,952 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.617189
+2026-09-17 11:45:45,988 | WARNING | Marcaje duplicado omitido -> Emp: EMP001 | Hora: 2026-09-17 11:35:35.694605
+2026-09-17 11:45:46,022 | WARNING | Marcaje duplicado omitido -> Emp: EMP002 | Hora: 2026-09-16 10:30:00
+2026-09-17 11:45:46,059 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:00:00
+2026-09-17 11:45:46,084 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:20:30
+2026-09-17 11:45:46,126 | WARNING | Marcaje duplicado omitido -> Emp: 3 | Hora: 2026-09-17 11:36:19.161006
+2026-09-17 11:45:46,162 | WARNING | Marcaje duplicado omitido -> Emp: 2 | Hora: 2026-09-17 11:38:01.648173
+2026-09-17 11:45:46,189 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.325608
+2026-09-17 11:45:46,216 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.341237
+2026-09-17 11:45:46,241 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.336363
+2026-09-17 11:45:46,272 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.345377
+2026-09-17 11:45:46,306 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.342944
+2026-09-17 11:46:16,346 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.617189
+2026-09-17 11:46:16,370 | WARNING | Marcaje duplicado omitido -> Emp: EMP001 | Hora: 2026-09-17 11:35:35.694605
+2026-09-17 11:46:16,390 | WARNING | Marcaje duplicado omitido -> Emp: EMP002 | Hora: 2026-09-16 10:30:00
+2026-09-17 11:46:16,412 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:00:00
+2026-09-17 11:46:16,434 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:20:30
+2026-09-17 11:46:16,453 | WARNING | Marcaje duplicado omitido -> Emp: 3 | Hora: 2026-09-17 11:36:19.161006
+2026-09-17 11:46:16,479 | WARNING | Marcaje duplicado omitido -> Emp: 2 | Hora: 2026-09-17 11:38:01.648173
+2026-09-17 11:46:16,504 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.325608
+2026-09-17 11:46:16,524 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.341237
+2026-09-17 11:46:16,544 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.336363
+2026-09-17 11:46:16,573 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.345377
+2026-09-17 11:46:16,598 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.342944
+2026-09-17 11:46:46,665 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.617189
+2026-09-17 11:46:46,761 | WARNING | Marcaje duplicado omitido -> Emp: EMP001 | Hora: 2026-09-17 11:35:35.694605
+2026-09-17 11:46:46,816 | WARNING | Marcaje duplicado omitido -> Emp: EMP002 | Hora: 2026-09-16 10:30:00
+2026-09-17 11:46:46,962 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:00:00
+2026-09-17 11:46:47,015 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:20:30
+2026-09-17 11:46:47,101 | WARNING | Marcaje duplicado omitido -> Emp: 3 | Hora: 2026-09-17 11:36:19.161006
+2026-09-17 11:46:47,139 | WARNING | Marcaje duplicado omitido -> Emp: 2 | Hora: 2026-09-17 11:38:01.648173
+2026-09-17 11:46:47,173 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.325608
+2026-09-17 11:46:47,210 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.341237
+2026-09-17 11:46:47,238 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.336363
+2026-09-17 11:46:47,290 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.345377
+2026-09-17 11:46:47,337 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.342944
+2026-09-17 11:47:17,383 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.617189
+2026-09-17 11:47:17,420 | WARNING | Marcaje duplicado omitido -> Emp: EMP001 | Hora: 2026-09-17 11:35:35.694605
+2026-09-17 11:47:17,437 | WARNING | Marcaje duplicado omitido -> Emp: EMP002 | Hora: 2026-09-16 10:30:00
+2026-09-17 11:47:17,457 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:00:00
+2026-09-17 11:47:17,476 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:20:30
+2026-09-17 11:47:17,498 | WARNING | Marcaje duplicado omitido -> Emp: 3 | Hora: 2026-09-17 11:36:19.161006
+2026-09-17 11:47:17,524 | WARNING | Marcaje duplicado omitido -> Emp: 2 | Hora: 2026-09-17 11:38:01.648173
+2026-09-17 11:47:17,544 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.325608
+2026-09-17 11:47:17,565 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.341237
+2026-09-17 11:47:17,585 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.336363
+2026-09-17 11:47:17,607 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.345377
+2026-09-17 11:47:17,640 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.342944
+2026-09-17 11:47:47,701 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.617189
+2026-09-17 11:47:47,722 | WARNING | Marcaje duplicado omitido -> Emp: EMP001 | Hora: 2026-09-17 11:35:35.694605
+2026-09-17 11:47:47,743 | WARNING | Marcaje duplicado omitido -> Emp: EMP002 | Hora: 2026-09-16 10:30:00
+2026-09-17 11:47:47,797 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:00:00
+2026-09-17 11:47:47,908 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:20:30
+2026-09-17 11:47:47,979 | WARNING | Marcaje duplicado omitido -> Emp: 3 | Hora: 2026-09-17 11:36:19.161006
+2026-09-17 11:47:48,005 | WARNING | Marcaje duplicado omitido -> Emp: 2 | Hora: 2026-09-17 11:38:01.648173
+2026-09-17 11:47:48,059 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.325608
+2026-09-17 11:47:48,115 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.341237
+2026-09-17 11:47:48,137 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.336363
+2026-09-17 11:47:48,169 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.345377
+2026-09-17 11:47:48,191 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.342944
+2026-09-17 11:48:18,239 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.617189
+2026-09-17 11:48:18,257 | WARNING | Marcaje duplicado omitido -> Emp: EMP001 | Hora: 2026-09-17 11:35:35.694605
+2026-09-17 11:48:18,279 | WARNING | Marcaje duplicado omitido -> Emp: EMP002 | Hora: 2026-09-16 10:30:00
+2026-09-17 11:48:18,297 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:00:00
+2026-09-17 11:48:18,319 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:20:30
+2026-09-17 11:48:18,341 | WARNING | Marcaje duplicado omitido -> Emp: 3 | Hora: 2026-09-17 11:36:19.161006
+2026-09-17 11:48:18,355 | WARNING | Marcaje duplicado omitido -> Emp: 2 | Hora: 2026-09-17 11:38:01.648173
+2026-09-17 11:48:18,377 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.325608
+2026-09-17 11:48:18,406 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.341237
+2026-09-17 11:48:18,430 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.336363
+2026-09-17 11:48:18,445 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.345377
+2026-09-17 11:48:18,462 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.342944
+2026-09-17 11:48:48,504 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.617189
+2026-09-17 11:48:48,522 | WARNING | Marcaje duplicado omitido -> Emp: EMP001 | Hora: 2026-09-17 11:35:35.694605
+2026-09-17 11:48:48,547 | WARNING | Marcaje duplicado omitido -> Emp: EMP002 | Hora: 2026-09-16 10:30:00
+2026-09-17 11:48:48,566 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:00:00
+2026-09-17 11:48:48,587 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:20:30
+2026-09-17 11:48:48,607 | WARNING | Marcaje duplicado omitido -> Emp: 3 | Hora: 2026-09-17 11:36:19.161006
+2026-09-17 11:48:48,627 | WARNING | Marcaje duplicado omitido -> Emp: 2 | Hora: 2026-09-17 11:38:01.648173
+2026-09-17 11:48:48,648 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.325608
+2026-09-17 11:48:48,678 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.341237
+2026-09-17 11:48:48,701 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.336363
+2026-09-17 11:48:48,726 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.345377
+2026-09-17 11:48:48,754 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.342944
+2026-09-17 11:49:00,439 | INFO | Marcaje registrado en PostgreSQL -> Emp: 5 | Tienda: 1 | 2026-09-17 11:49:00 | Origen: STREAM
+2026-09-17 11:49:00,444 | INFO | Respaldo TXT guardado para 5 (Tienda: 1)
+2026-09-17 11:49:18,902 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.617189
+2026-09-17 11:49:19,034 | WARNING | Marcaje duplicado omitido -> Emp: EMP001 | Hora: 2026-09-17 11:35:35.694605
+2026-09-17 11:49:19,082 | WARNING | Marcaje duplicado omitido -> Emp: EMP002 | Hora: 2026-09-16 10:30:00
+2026-09-17 11:49:19,275 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:00:00
+2026-09-17 11:49:19,404 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:20:30
+2026-09-17 11:49:19,447 | WARNING | Marcaje duplicado omitido -> Emp: 3 | Hora: 2026-09-17 11:36:19.161006
+2026-09-17 11:49:19,482 | WARNING | Marcaje duplicado omitido -> Emp: 2 | Hora: 2026-09-17 11:38:01.648173
+2026-09-17 11:49:19,500 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.325608
+2026-09-17 11:49:19,522 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.341237
+2026-09-17 11:49:19,543 | INFO | Configuración cargada correctamente desde: C:\Users\USUARIO\Documents\API PARA CAPTADOR\config.txt
+2026-09-17 11:49:19,588 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.336363
+2026-09-17 11:49:19,690 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.345377
+2026-09-17 11:49:19,765 | INFO | Modo Offline o sin conexión a SQL Server. Procesando respaldo de marcaje para Tienda: 001 | Emp: EMP001
+2026-09-17 11:49:19,786 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.342944
+2026-09-17 11:49:19,943 | WARNING | Marcaje duplicado omitido -> Emp: 5 | Hora: 2026-09-17 11:49:00.415098
+2026-09-17 11:49:49,994 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.617189
+2026-09-17 11:49:50,043 | WARNING | Marcaje duplicado omitido -> Emp: EMP001 | Hora: 2026-09-17 11:35:35.694605
+2026-09-17 11:49:50,082 | WARNING | Marcaje duplicado omitido -> Emp: EMP002 | Hora: 2026-09-16 10:30:00
+2026-09-17 11:49:50,118 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:00:00
+2026-09-17 11:49:50,162 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:20:30
+2026-09-17 11:49:50,218 | WARNING | Marcaje duplicado omitido -> Emp: 3 | Hora: 2026-09-17 11:36:19.161006
+2026-09-17 11:49:50,260 | WARNING | Marcaje duplicado omitido -> Emp: 2 | Hora: 2026-09-17 11:38:01.648173
+2026-09-17 11:49:50,300 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.325608
+2026-09-17 11:49:50,321 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.341237
+2026-09-17 11:49:50,356 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.336363
+2026-09-17 11:49:50,380 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.345377
+2026-09-17 11:49:50,413 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.342944
+2026-09-17 11:49:50,447 | WARNING | Marcaje duplicado omitido -> Emp: 5 | Hora: 2026-09-17 11:49:00.415098
+2026-09-17 11:50:20,494 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.617189
+2026-09-17 11:50:20,519 | WARNING | Marcaje duplicado omitido -> Emp: EMP001 | Hora: 2026-09-17 11:35:35.694605
+2026-09-17 11:50:20,549 | WARNING | Marcaje duplicado omitido -> Emp: EMP002 | Hora: 2026-09-16 10:30:00
+2026-09-17 11:50:20,571 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:00:00
+2026-09-17 11:50:20,601 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:20:30
+2026-09-17 11:50:20,625 | WARNING | Marcaje duplicado omitido -> Emp: 3 | Hora: 2026-09-17 11:36:19.161006
+2026-09-17 11:50:20,647 | WARNING | Marcaje duplicado omitido -> Emp: 2 | Hora: 2026-09-17 11:38:01.648173
+2026-09-17 11:50:20,674 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.325608
+2026-09-17 11:50:20,700 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.341237
+2026-09-17 11:50:20,726 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.336363
+2026-09-17 11:50:20,750 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.345377
+2026-09-17 11:50:20,778 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.342944
+2026-09-17 11:50:20,802 | WARNING | Marcaje duplicado omitido -> Emp: 5 | Hora: 2026-09-17 11:49:00.415098
+2026-09-17 11:50:50,842 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.617189
+2026-09-17 11:50:50,870 | WARNING | Marcaje duplicado omitido -> Emp: EMP001 | Hora: 2026-09-17 11:35:35.694605
+2026-09-17 11:50:50,894 | WARNING | Marcaje duplicado omitido -> Emp: EMP002 | Hora: 2026-09-16 10:30:00
+2026-09-17 11:50:50,917 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:00:00
+2026-09-17 11:50:50,933 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:20:30
+2026-09-17 11:50:50,956 | WARNING | Marcaje duplicado omitido -> Emp: 3 | Hora: 2026-09-17 11:36:19.161006
+2026-09-17 11:50:50,983 | WARNING | Marcaje duplicado omitido -> Emp: 2 | Hora: 2026-09-17 11:38:01.648173
+2026-09-17 11:50:51,012 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.325608
+2026-09-17 11:50:51,068 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.341237
+2026-09-17 11:50:51,181 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.336363
+2026-09-17 11:50:51,258 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.345377
+2026-09-17 11:50:51,308 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.342944
+2026-09-17 11:50:51,337 | WARNING | Marcaje duplicado omitido -> Emp: 5 | Hora: 2026-09-17 11:49:00.415098
+2026-09-17 11:51:21,387 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.617189
+2026-09-17 11:51:21,407 | WARNING | Marcaje duplicado omitido -> Emp: EMP001 | Hora: 2026-09-17 11:35:35.694605
+2026-09-17 11:51:21,439 | WARNING | Marcaje duplicado omitido -> Emp: EMP002 | Hora: 2026-09-16 10:30:00
+2026-09-17 11:51:21,459 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:00:00
+2026-09-17 11:51:21,482 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:20:30
+2026-09-17 11:51:21,500 | WARNING | Marcaje duplicado omitido -> Emp: 3 | Hora: 2026-09-17 11:36:19.161006
+2026-09-17 11:51:21,525 | WARNING | Marcaje duplicado omitido -> Emp: 2 | Hora: 2026-09-17 11:38:01.648173
+2026-09-17 11:51:21,547 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.325608
+2026-09-17 11:51:21,573 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.341237
+2026-09-17 11:51:21,591 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.336363
+2026-09-17 11:51:21,615 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.345377
+2026-09-17 11:51:21,645 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.342944
+2026-09-17 11:51:21,663 | WARNING | Marcaje duplicado omitido -> Emp: 5 | Hora: 2026-09-17 11:49:00.415098
+2026-09-17 11:51:51,717 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.617189
+2026-09-17 11:51:51,741 | WARNING | Marcaje duplicado omitido -> Emp: EMP001 | Hora: 2026-09-17 11:35:35.694605
+2026-09-17 11:51:51,766 | WARNING | Marcaje duplicado omitido -> Emp: EMP002 | Hora: 2026-09-16 10:30:00
+2026-09-17 11:51:51,789 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:00:00
+2026-09-17 11:51:51,812 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:20:30
+2026-09-17 11:51:51,839 | WARNING | Marcaje duplicado omitido -> Emp: 3 | Hora: 2026-09-17 11:36:19.161006
+2026-09-17 11:51:51,864 | WARNING | Marcaje duplicado omitido -> Emp: 2 | Hora: 2026-09-17 11:38:01.648173
+2026-09-17 11:51:51,896 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.325608
+2026-09-17 11:51:51,919 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.341237
+2026-09-17 11:51:51,946 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.336363
+2026-09-17 11:51:51,971 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.345377
+2026-09-17 11:51:52,013 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.342944
+2026-09-17 11:51:52,064 | WARNING | Marcaje duplicado omitido -> Emp: 5 | Hora: 2026-09-17 11:49:00.415098
+2026-09-17 11:52:22,120 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.617189
+2026-09-17 11:52:22,162 | WARNING | Marcaje duplicado omitido -> Emp: EMP001 | Hora: 2026-09-17 11:35:35.694605
+2026-09-17 11:52:22,208 | WARNING | Marcaje duplicado omitido -> Emp: EMP002 | Hora: 2026-09-16 10:30:00
+2026-09-17 11:52:22,267 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:00:00
+2026-09-17 11:52:22,300 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:20:30
+2026-09-17 11:52:22,355 | WARNING | Marcaje duplicado omitido -> Emp: 3 | Hora: 2026-09-17 11:36:19.161006
+2026-09-17 11:52:22,436 | WARNING | Marcaje duplicado omitido -> Emp: 2 | Hora: 2026-09-17 11:38:01.648173
+2026-09-17 11:52:22,534 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.325608
+2026-09-17 11:52:22,586 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.341237
+2026-09-17 11:52:22,614 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.336363
+2026-09-17 11:52:22,635 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.345377
+2026-09-17 11:52:22,685 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.342944
+2026-09-17 11:52:22,709 | WARNING | Marcaje duplicado omitido -> Emp: 5 | Hora: 2026-09-17 11:49:00.415098
+2026-09-17 11:52:52,770 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.617189
+2026-09-17 11:52:52,789 | WARNING | Marcaje duplicado omitido -> Emp: EMP001 | Hora: 2026-09-17 11:35:35.694605
+2026-09-17 11:52:52,818 | WARNING | Marcaje duplicado omitido -> Emp: EMP002 | Hora: 2026-09-16 10:30:00
+2026-09-17 11:52:52,846 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:00:00
+2026-09-17 11:52:52,903 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:20:30
+2026-09-17 11:52:52,928 | WARNING | Marcaje duplicado omitido -> Emp: 3 | Hora: 2026-09-17 11:36:19.161006
+2026-09-17 11:52:52,950 | WARNING | Marcaje duplicado omitido -> Emp: 2 | Hora: 2026-09-17 11:38:01.648173
+2026-09-17 11:52:52,981 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.325608
+2026-09-17 11:52:52,998 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.341237
+2026-09-17 11:52:53,020 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.336363
+2026-09-17 11:52:53,042 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.345377
+2026-09-17 11:52:53,058 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.342944
+2026-09-17 11:52:53,078 | WARNING | Marcaje duplicado omitido -> Emp: 5 | Hora: 2026-09-17 11:49:00.415098
+2026-09-17 11:53:23,109 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.617189
+2026-09-17 11:53:23,132 | WARNING | Marcaje duplicado omitido -> Emp: EMP001 | Hora: 2026-09-17 11:35:35.694605
+2026-09-17 11:53:23,171 | WARNING | Marcaje duplicado omitido -> Emp: EMP002 | Hora: 2026-09-16 10:30:00
+2026-09-17 11:53:23,197 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:00:00
+2026-09-17 11:53:23,217 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:20:30
+2026-09-17 11:53:23,244 | WARNING | Marcaje duplicado omitido -> Emp: 3 | Hora: 2026-09-17 11:36:19.161006
+2026-09-17 11:53:23,266 | WARNING | Marcaje duplicado omitido -> Emp: 2 | Hora: 2026-09-17 11:38:01.648173
+2026-09-17 11:53:23,295 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.325608
+2026-09-17 11:53:23,318 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.341237
+2026-09-17 11:53:23,346 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.336363
+2026-09-17 11:53:23,369 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.345377
+2026-09-17 11:53:23,399 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.342944
+2026-09-17 11:53:23,424 | WARNING | Marcaje duplicado omitido -> Emp: 5 | Hora: 2026-09-17 11:49:00.415098
+2026-09-17 11:53:53,493 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.617189
+2026-09-17 11:53:53,558 | WARNING | Marcaje duplicado omitido -> Emp: EMP001 | Hora: 2026-09-17 11:35:35.694605
+2026-09-17 11:53:53,632 | WARNING | Marcaje duplicado omitido -> Emp: EMP002 | Hora: 2026-09-16 10:30:00
+2026-09-17 11:53:53,723 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:00:00
+2026-09-17 11:53:53,762 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:20:30
+2026-09-17 11:53:53,783 | WARNING | Marcaje duplicado omitido -> Emp: 3 | Hora: 2026-09-17 11:36:19.161006
+2026-09-17 11:53:53,816 | WARNING | Marcaje duplicado omitido -> Emp: 2 | Hora: 2026-09-17 11:38:01.648173
+2026-09-17 11:53:53,834 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.325608
+2026-09-17 11:53:53,853 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.341237
+2026-09-17 11:53:53,867 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.336363
+2026-09-17 11:53:53,884 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.345377
+2026-09-17 11:53:53,904 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.342944
+2026-09-17 11:53:53,921 | WARNING | Marcaje duplicado omitido -> Emp: 5 | Hora: 2026-09-17 11:49:00.415098
+2026-09-17 11:54:23,962 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.617189
+2026-09-17 11:54:23,985 | WARNING | Marcaje duplicado omitido -> Emp: EMP001 | Hora: 2026-09-17 11:35:35.694605
+2026-09-17 11:54:24,021 | WARNING | Marcaje duplicado omitido -> Emp: EMP002 | Hora: 2026-09-16 10:30:00
+2026-09-17 11:54:24,056 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:00:00
+2026-09-17 11:54:24,074 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:20:30
+2026-09-17 11:54:24,099 | WARNING | Marcaje duplicado omitido -> Emp: 3 | Hora: 2026-09-17 11:36:19.161006
+2026-09-17 11:54:24,124 | WARNING | Marcaje duplicado omitido -> Emp: 2 | Hora: 2026-09-17 11:38:01.648173
+2026-09-17 11:54:24,143 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.325608
+2026-09-17 11:54:24,164 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.341237
+2026-09-17 11:54:24,182 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.336363
+2026-09-17 11:54:24,201 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.345377
+2026-09-17 11:54:24,227 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.342944
+2026-09-17 11:54:24,246 | WARNING | Marcaje duplicado omitido -> Emp: 5 | Hora: 2026-09-17 11:49:00.415098
+2026-09-17 11:54:54,298 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.617189
+2026-09-17 11:54:54,347 | WARNING | Marcaje duplicado omitido -> Emp: EMP001 | Hora: 2026-09-17 11:35:35.694605
+2026-09-17 11:54:54,381 | WARNING | Marcaje duplicado omitido -> Emp: EMP002 | Hora: 2026-09-16 10:30:00
+2026-09-17 11:54:54,417 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:00:00
+2026-09-17 11:54:54,494 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:20:30
+2026-09-17 11:54:54,520 | WARNING | Marcaje duplicado omitido -> Emp: 3 | Hora: 2026-09-17 11:36:19.161006
+2026-09-17 11:54:54,557 | WARNING | Marcaje duplicado omitido -> Emp: 2 | Hora: 2026-09-17 11:38:01.648173
+2026-09-17 11:54:54,605 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.325608
+2026-09-17 11:54:54,656 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.341237
+2026-09-17 11:54:54,698 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.336363
+2026-09-17 11:54:54,737 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.345377
+2026-09-17 11:54:54,774 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.342944
+2026-09-17 11:54:54,818 | WARNING | Marcaje duplicado omitido -> Emp: 5 | Hora: 2026-09-17 11:49:00.415098
+2026-09-17 11:55:24,871 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.617189
+2026-09-17 11:55:24,895 | WARNING | Marcaje duplicado omitido -> Emp: EMP001 | Hora: 2026-09-17 11:35:35.694605
+2026-09-17 11:55:24,919 | WARNING | Marcaje duplicado omitido -> Emp: EMP002 | Hora: 2026-09-16 10:30:00
+2026-09-17 11:55:24,945 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:00:00
+2026-09-17 11:55:24,968 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:20:30
+2026-09-17 11:55:24,991 | WARNING | Marcaje duplicado omitido -> Emp: 3 | Hora: 2026-09-17 11:36:19.161006
+2026-09-17 11:55:25,018 | WARNING | Marcaje duplicado omitido -> Emp: 2 | Hora: 2026-09-17 11:38:01.648173
+2026-09-17 11:55:25,044 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.325608
+2026-09-17 11:55:25,070 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.341237
+2026-09-17 11:55:25,099 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.336363
+2026-09-17 11:55:25,126 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.345377
+2026-09-17 11:55:25,149 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.342944
+2026-09-17 11:55:25,170 | WARNING | Marcaje duplicado omitido -> Emp: 5 | Hora: 2026-09-17 11:49:00.415098
+2026-09-17 11:55:55,226 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.617189
+2026-09-17 11:55:55,247 | WARNING | Marcaje duplicado omitido -> Emp: EMP001 | Hora: 2026-09-17 11:35:35.694605
+2026-09-17 11:55:55,284 | WARNING | Marcaje duplicado omitido -> Emp: EMP002 | Hora: 2026-09-16 10:30:00
+2026-09-17 11:55:55,317 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:00:00
+2026-09-17 11:55:55,333 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:20:30
+2026-09-17 11:55:55,364 | WARNING | Marcaje duplicado omitido -> Emp: 3 | Hora: 2026-09-17 11:36:19.161006
+2026-09-17 11:55:55,383 | WARNING | Marcaje duplicado omitido -> Emp: 2 | Hora: 2026-09-17 11:38:01.648173
+2026-09-17 11:55:55,399 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.325608
+2026-09-17 11:55:55,418 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.341237
+2026-09-17 11:55:55,434 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.336363
+2026-09-17 11:55:55,457 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.345377
+2026-09-17 11:55:55,484 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.342944
+2026-09-17 11:55:55,501 | WARNING | Marcaje duplicado omitido -> Emp: 5 | Hora: 2026-09-17 11:49:00.415098
+2026-09-17 11:56:25,539 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.617189
+2026-09-17 11:56:25,599 | WARNING | Marcaje duplicado omitido -> Emp: EMP001 | Hora: 2026-09-17 11:35:35.694605
+2026-09-17 11:56:25,679 | WARNING | Marcaje duplicado omitido -> Emp: EMP002 | Hora: 2026-09-16 10:30:00
+2026-09-17 11:56:25,778 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:00:00
+2026-09-17 11:56:25,810 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:20:30
+2026-09-17 11:56:25,842 | WARNING | Marcaje duplicado omitido -> Emp: 3 | Hora: 2026-09-17 11:36:19.161006
+2026-09-17 11:56:25,856 | WARNING | Marcaje duplicado omitido -> Emp: 2 | Hora: 2026-09-17 11:38:01.648173
+2026-09-17 11:56:25,876 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.325608
+2026-09-17 11:56:25,891 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.341237
+2026-09-17 11:56:25,909 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.336363
+2026-09-17 11:56:25,928 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.345377
+2026-09-17 11:56:25,943 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.342944
+2026-09-17 11:56:25,973 | WARNING | Marcaje duplicado omitido -> Emp: 5 | Hora: 2026-09-17 11:49:00.415098
+2026-09-17 11:56:56,021 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.617189
+2026-09-17 11:56:56,037 | WARNING | Marcaje duplicado omitido -> Emp: EMP001 | Hora: 2026-09-17 11:35:35.694605
+2026-09-17 11:56:56,058 | WARNING | Marcaje duplicado omitido -> Emp: EMP002 | Hora: 2026-09-16 10:30:00
+2026-09-17 11:56:56,086 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:00:00
+2026-09-17 11:56:56,113 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:20:30
+2026-09-17 11:56:56,135 | WARNING | Marcaje duplicado omitido -> Emp: 3 | Hora: 2026-09-17 11:36:19.161006
+2026-09-17 11:56:56,165 | WARNING | Marcaje duplicado omitido -> Emp: 2 | Hora: 2026-09-17 11:38:01.648173
+2026-09-17 11:56:56,198 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.325608
+2026-09-17 11:56:56,226 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.341237
+2026-09-17 11:56:56,250 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.336363
+2026-09-17 11:56:56,278 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.345377
+2026-09-17 11:56:56,308 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.342944
+2026-09-17 11:56:56,332 | WARNING | Marcaje duplicado omitido -> Emp: 5 | Hora: 2026-09-17 11:49:00.415098
+2026-09-17 11:57:26,388 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.617189
+2026-09-17 11:57:26,409 | WARNING | Marcaje duplicado omitido -> Emp: EMP001 | Hora: 2026-09-17 11:35:35.694605
+2026-09-17 11:57:26,449 | WARNING | Marcaje duplicado omitido -> Emp: EMP002 | Hora: 2026-09-16 10:30:00
+2026-09-17 11:57:26,473 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:00:00
+2026-09-17 11:57:26,500 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:20:30
+2026-09-17 11:57:26,522 | WARNING | Marcaje duplicado omitido -> Emp: 3 | Hora: 2026-09-17 11:36:19.161006
+2026-09-17 11:57:26,550 | WARNING | Marcaje duplicado omitido -> Emp: 2 | Hora: 2026-09-17 11:38:01.648173
+2026-09-17 11:57:26,575 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.325608
+2026-09-17 11:57:26,607 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.341237
+2026-09-17 11:57:26,632 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.336363
+2026-09-17 11:57:26,655 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.345377
+2026-09-17 11:57:26,677 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.342944
+2026-09-17 11:57:26,705 | WARNING | Marcaje duplicado omitido -> Emp: 5 | Hora: 2026-09-17 11:49:00.415098
+2026-09-17 11:57:56,750 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.617189
+2026-09-17 11:57:56,770 | WARNING | Marcaje duplicado omitido -> Emp: EMP001 | Hora: 2026-09-17 11:35:35.694605
+2026-09-17 11:57:56,809 | WARNING | Marcaje duplicado omitido -> Emp: EMP002 | Hora: 2026-09-16 10:30:00
+2026-09-17 11:57:56,833 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:00:00
+2026-09-17 11:57:56,874 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:20:30
+2026-09-17 11:57:56,916 | WARNING | Marcaje duplicado omitido -> Emp: 3 | Hora: 2026-09-17 11:36:19.161006
+2026-09-17 11:57:56,935 | WARNING | Marcaje duplicado omitido -> Emp: 2 | Hora: 2026-09-17 11:38:01.648173
+2026-09-17 11:57:56,967 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.325608
+2026-09-17 11:57:56,998 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.341237
+2026-09-17 11:57:57,036 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.336363
+2026-09-17 11:57:57,065 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.345377
+2026-09-17 11:57:57,085 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.342944
+2026-09-17 11:57:57,108 | WARNING | Marcaje duplicado omitido -> Emp: 5 | Hora: 2026-09-17 11:49:00.415098
+2026-09-17 11:58:27,147 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.617189
+2026-09-17 11:58:27,169 | WARNING | Marcaje duplicado omitido -> Emp: EMP001 | Hora: 2026-09-17 11:35:35.694605
+2026-09-17 11:58:27,192 | WARNING | Marcaje duplicado omitido -> Emp: EMP002 | Hora: 2026-09-16 10:30:00
+2026-09-17 11:58:27,220 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:00:00
+2026-09-17 11:58:27,240 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:20:30
+2026-09-17 11:58:27,273 | WARNING | Marcaje duplicado omitido -> Emp: 3 | Hora: 2026-09-17 11:36:19.161006
+2026-09-17 11:58:27,298 | WARNING | Marcaje duplicado omitido -> Emp: 2 | Hora: 2026-09-17 11:38:01.648173
+2026-09-17 11:58:27,323 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.325608
+2026-09-17 11:58:27,353 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.341237
+2026-09-17 11:58:27,390 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.336363
+2026-09-17 11:58:27,416 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.345377
+2026-09-17 11:58:27,436 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.342944
+2026-09-17 11:58:27,469 | WARNING | Marcaje duplicado omitido -> Emp: 5 | Hora: 2026-09-17 11:49:00.415098
+2026-09-17 11:58:57,510 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.617189
+2026-09-17 11:58:57,533 | WARNING | Marcaje duplicado omitido -> Emp: EMP001 | Hora: 2026-09-17 11:35:35.694605
+2026-09-17 11:58:57,555 | WARNING | Marcaje duplicado omitido -> Emp: EMP002 | Hora: 2026-09-16 10:30:00
+2026-09-17 11:58:57,591 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:00:00
+2026-09-17 11:58:57,613 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:20:30
+2026-09-17 11:58:57,642 | WARNING | Marcaje duplicado omitido -> Emp: 3 | Hora: 2026-09-17 11:36:19.161006
+2026-09-17 11:58:57,687 | WARNING | Marcaje duplicado omitido -> Emp: 2 | Hora: 2026-09-17 11:38:01.648173
+2026-09-17 11:58:57,735 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.325608
+2026-09-17 11:58:57,753 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.341237
+2026-09-17 11:58:57,802 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.336363
+2026-09-17 11:58:57,877 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.345377
+2026-09-17 11:58:57,953 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.342944
+2026-09-17 11:58:57,979 | WARNING | Marcaje duplicado omitido -> Emp: 5 | Hora: 2026-09-17 11:49:00.415098
+2026-09-17 11:59:28,037 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.617189
+2026-09-17 11:59:28,064 | WARNING | Marcaje duplicado omitido -> Emp: EMP001 | Hora: 2026-09-17 11:35:35.694605
+2026-09-17 11:59:28,091 | WARNING | Marcaje duplicado omitido -> Emp: EMP002 | Hora: 2026-09-16 10:30:00
+2026-09-17 11:59:28,114 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:00:00
+2026-09-17 11:59:28,135 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:20:30
+2026-09-17 11:59:28,159 | WARNING | Marcaje duplicado omitido -> Emp: 3 | Hora: 2026-09-17 11:36:19.161006
+2026-09-17 11:59:28,193 | WARNING | Marcaje duplicado omitido -> Emp: 2 | Hora: 2026-09-17 11:38:01.648173
+2026-09-17 11:59:28,223 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.325608
+2026-09-17 11:59:28,246 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.341237
+2026-09-17 11:59:28,269 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.336363
+2026-09-17 11:59:28,293 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.345377
+2026-09-17 11:59:28,323 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.342944
+2026-09-17 11:59:28,361 | WARNING | Marcaje duplicado omitido -> Emp: 5 | Hora: 2026-09-17 11:49:00.415098
+2026-09-17 11:59:58,421 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.617189
+2026-09-17 11:59:58,455 | WARNING | Marcaje duplicado omitido -> Emp: EMP001 | Hora: 2026-09-17 11:35:35.694605
+2026-09-17 11:59:58,476 | WARNING | Marcaje duplicado omitido -> Emp: EMP002 | Hora: 2026-09-16 10:30:00
+2026-09-17 11:59:58,503 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:00:00
+2026-09-17 11:59:58,526 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:20:30
+2026-09-17 11:59:58,566 | WARNING | Marcaje duplicado omitido -> Emp: 3 | Hora: 2026-09-17 11:36:19.161006
+2026-09-17 11:59:58,606 | WARNING | Marcaje duplicado omitido -> Emp: 2 | Hora: 2026-09-17 11:38:01.648173
+2026-09-17 11:59:58,622 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.325608
+2026-09-17 11:59:58,642 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.341237
+2026-09-17 11:59:58,665 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.336363
+2026-09-17 11:59:58,698 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.345377
+2026-09-17 11:59:58,719 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.342944
+2026-09-17 11:59:58,747 | WARNING | Marcaje duplicado omitido -> Emp: 5 | Hora: 2026-09-17 11:49:00.415098
+2026-09-17 12:00:28,788 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.617189
+2026-09-17 12:00:28,810 | WARNING | Marcaje duplicado omitido -> Emp: EMP001 | Hora: 2026-09-17 11:35:35.694605
+2026-09-17 12:00:28,836 | WARNING | Marcaje duplicado omitido -> Emp: EMP002 | Hora: 2026-09-16 10:30:00
+2026-09-17 12:00:28,857 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:00:00
+2026-09-17 12:00:28,881 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:20:30
+2026-09-17 12:00:28,902 | WARNING | Marcaje duplicado omitido -> Emp: 3 | Hora: 2026-09-17 11:36:19.161006
+2026-09-17 12:00:28,955 | WARNING | Marcaje duplicado omitido -> Emp: 2 | Hora: 2026-09-17 11:38:01.648173
+2026-09-17 12:00:29,036 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.325608
+2026-09-17 12:00:29,125 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.341237
+2026-09-17 12:00:29,159 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.336363
+2026-09-17 12:00:29,185 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.345377
+2026-09-17 12:00:29,203 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.342944
+2026-09-17 12:00:29,220 | WARNING | Marcaje duplicado omitido -> Emp: 5 | Hora: 2026-09-17 11:49:00.415098
+2026-09-17 12:00:59,276 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.617189
+2026-09-17 12:00:59,309 | WARNING | Marcaje duplicado omitido -> Emp: EMP001 | Hora: 2026-09-17 11:35:35.694605
+2026-09-17 12:00:59,333 | WARNING | Marcaje duplicado omitido -> Emp: EMP002 | Hora: 2026-09-16 10:30:00
+2026-09-17 12:00:59,349 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:00:00
+2026-09-17 12:00:59,382 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:20:30
+2026-09-17 12:00:59,400 | WARNING | Marcaje duplicado omitido -> Emp: 3 | Hora: 2026-09-17 11:36:19.161006
+2026-09-17 12:00:59,425 | WARNING | Marcaje duplicado omitido -> Emp: 2 | Hora: 2026-09-17 11:38:01.648173
+2026-09-17 12:00:59,443 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.325608
+2026-09-17 12:00:59,462 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.341237
+2026-09-17 12:00:59,490 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.336363
+2026-09-17 12:00:59,531 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.345377
+2026-09-17 12:00:59,568 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.342944
+2026-09-17 12:00:59,594 | WARNING | Marcaje duplicado omitido -> Emp: 5 | Hora: 2026-09-17 11:49:00.415098
+2026-09-17 12:01:29,696 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.617189
+2026-09-17 12:01:29,713 | WARNING | Marcaje duplicado omitido -> Emp: EMP001 | Hora: 2026-09-17 11:35:35.694605
+2026-09-17 12:01:29,754 | WARNING | Marcaje duplicado omitido -> Emp: EMP002 | Hora: 2026-09-16 10:30:00
+2026-09-17 12:01:29,865 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:00:00
+2026-09-17 12:01:29,943 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:20:30
+2026-09-17 12:01:30,062 | WARNING | Marcaje duplicado omitido -> Emp: 3 | Hora: 2026-09-17 11:36:19.161006
+2026-09-17 12:01:30,199 | WARNING | Marcaje duplicado omitido -> Emp: 2 | Hora: 2026-09-17 11:38:01.648173
+2026-09-17 12:01:30,251 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.325608
+2026-09-17 12:01:30,271 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.341237
+2026-09-17 12:01:30,490 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.336363
+2026-09-17 12:01:30,550 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.345377
+2026-09-17 12:01:30,665 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.342944
+2026-09-17 12:01:30,714 | WARNING | Marcaje duplicado omitido -> Emp: 5 | Hora: 2026-09-17 11:49:00.415098
+2026-09-17 12:02:00,812 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.617189
+2026-09-17 12:02:00,859 | WARNING | Marcaje duplicado omitido -> Emp: EMP001 | Hora: 2026-09-17 11:35:35.694605
+2026-09-17 12:02:00,926 | WARNING | Marcaje duplicado omitido -> Emp: EMP002 | Hora: 2026-09-16 10:30:00
+2026-09-17 12:02:00,993 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:00:00
+2026-09-17 12:02:01,068 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:20:30
+2026-09-17 12:02:01,188 | WARNING | Marcaje duplicado omitido -> Emp: 3 | Hora: 2026-09-17 11:36:19.161006
+2026-09-17 12:02:01,288 | WARNING | Marcaje duplicado omitido -> Emp: 2 | Hora: 2026-09-17 11:38:01.648173
+2026-09-17 12:02:01,317 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.325608
+2026-09-17 12:02:01,357 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.341237
+2026-09-17 12:02:01,385 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.336363
+2026-09-17 12:02:01,423 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.345377
+2026-09-17 12:02:01,452 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.342944
+2026-09-17 12:02:01,480 | WARNING | Marcaje duplicado omitido -> Emp: 5 | Hora: 2026-09-17 11:49:00.415098
+2026-09-17 12:02:31,533 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.617189
+2026-09-17 12:02:31,592 | WARNING | Marcaje duplicado omitido -> Emp: EMP001 | Hora: 2026-09-17 11:35:35.694605
+2026-09-17 12:02:31,613 | WARNING | Marcaje duplicado omitido -> Emp: EMP002 | Hora: 2026-09-16 10:30:00
+2026-09-17 12:02:31,631 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:00:00
+2026-09-17 12:02:31,653 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:20:30
+2026-09-17 12:02:31,671 | WARNING | Marcaje duplicado omitido -> Emp: 3 | Hora: 2026-09-17 11:36:19.161006
+2026-09-17 12:02:31,698 | WARNING | Marcaje duplicado omitido -> Emp: 2 | Hora: 2026-09-17 11:38:01.648173
+2026-09-17 12:02:31,715 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.325608
+2026-09-17 12:02:31,737 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.341237
+2026-09-17 12:02:31,765 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.336363
+2026-09-17 12:02:31,783 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.345377
+2026-09-17 12:02:31,807 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.342944
+2026-09-17 12:02:31,830 | WARNING | Marcaje duplicado omitido -> Emp: 5 | Hora: 2026-09-17 11:49:00.415098
+2026-09-17 12:03:01,980 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.617189
+2026-09-17 12:03:02,355 | WARNING | Marcaje duplicado omitido -> Emp: EMP001 | Hora: 2026-09-17 11:35:35.694605
+2026-09-17 12:03:03,337 | WARNING | Marcaje duplicado omitido -> Emp: EMP002 | Hora: 2026-09-16 10:30:00
+2026-09-17 12:03:03,467 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:00:00
+2026-09-17 12:03:03,637 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:20:30
+2026-09-17 12:03:03,660 | WARNING | Marcaje duplicado omitido -> Emp: 3 | Hora: 2026-09-17 11:36:19.161006
+2026-09-17 12:03:03,732 | WARNING | Marcaje duplicado omitido -> Emp: 2 | Hora: 2026-09-17 11:38:01.648173
+2026-09-17 12:03:03,922 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.325608
+2026-09-17 12:03:04,057 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.341237
+2026-09-17 12:03:04,117 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.336363
+2026-09-17 12:03:04,187 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.345377
+2026-09-17 12:03:04,258 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.342944
+2026-09-17 12:03:04,335 | WARNING | Marcaje duplicado omitido -> Emp: 5 | Hora: 2026-09-17 11:49:00.415098
+2026-09-17 12:03:34,393 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.617189
+2026-09-17 12:03:34,445 | WARNING | Marcaje duplicado omitido -> Emp: EMP001 | Hora: 2026-09-17 11:35:35.694605
+2026-09-17 12:03:34,486 | WARNING | Marcaje duplicado omitido -> Emp: EMP002 | Hora: 2026-09-16 10:30:00
+2026-09-17 12:03:34,533 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:00:00
+2026-09-17 12:03:34,578 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:20:30
+2026-09-17 12:03:34,646 | WARNING | Marcaje duplicado omitido -> Emp: 3 | Hora: 2026-09-17 11:36:19.161006
+2026-09-17 12:03:34,706 | WARNING | Marcaje duplicado omitido -> Emp: 2 | Hora: 2026-09-17 11:38:01.648173
+2026-09-17 12:03:34,778 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.325608
+2026-09-17 12:03:34,838 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.341237
+2026-09-17 12:03:34,858 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.336363
+2026-09-17 12:03:34,887 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.345377
+2026-09-17 12:03:34,911 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.342944
+2026-09-17 12:03:34,936 | WARNING | Marcaje duplicado omitido -> Emp: 5 | Hora: 2026-09-17 11:49:00.415098
+2026-09-17 12:04:04,991 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.617189
+2026-09-17 12:04:05,011 | WARNING | Marcaje duplicado omitido -> Emp: EMP001 | Hora: 2026-09-17 11:35:35.694605
+2026-09-17 12:04:05,044 | WARNING | Marcaje duplicado omitido -> Emp: EMP002 | Hora: 2026-09-16 10:30:00
+2026-09-17 12:04:05,066 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:00:00
+2026-09-17 12:04:05,096 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:20:30
+2026-09-17 12:04:05,133 | WARNING | Marcaje duplicado omitido -> Emp: 3 | Hora: 2026-09-17 11:36:19.161006
+2026-09-17 12:04:05,153 | WARNING | Marcaje duplicado omitido -> Emp: 2 | Hora: 2026-09-17 11:38:01.648173
+2026-09-17 12:04:05,181 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.325608
+2026-09-17 12:04:05,208 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.341237
+2026-09-17 12:04:05,241 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.336363
+2026-09-17 12:04:05,263 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.345377
+2026-09-17 12:04:05,291 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.342944
+2026-09-17 12:04:05,313 | WARNING | Marcaje duplicado omitido -> Emp: 5 | Hora: 2026-09-17 11:49:00.415098
+2026-09-17 12:04:35,356 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.617189
+2026-09-17 12:04:35,374 | WARNING | Marcaje duplicado omitido -> Emp: EMP001 | Hora: 2026-09-17 11:35:35.694605
+2026-09-17 12:04:35,392 | WARNING | Marcaje duplicado omitido -> Emp: EMP002 | Hora: 2026-09-16 10:30:00
+2026-09-17 12:04:35,409 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:00:00
+2026-09-17 12:04:35,425 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:20:30
+2026-09-17 12:04:35,456 | WARNING | Marcaje duplicado omitido -> Emp: 3 | Hora: 2026-09-17 11:36:19.161006
+2026-09-17 12:04:35,474 | WARNING | Marcaje duplicado omitido -> Emp: 2 | Hora: 2026-09-17 11:38:01.648173
+2026-09-17 12:04:35,531 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.325608
+2026-09-17 12:04:35,608 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.341237
+2026-09-17 12:04:35,683 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.336363
+2026-09-17 12:04:35,703 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.345377
+2026-09-17 12:04:35,743 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.342944
+2026-09-17 12:04:35,762 | WARNING | Marcaje duplicado omitido -> Emp: 5 | Hora: 2026-09-17 11:49:00.415098
+2026-09-17 12:04:50,961 | INFO | Marcaje registrado en PostgreSQL -> Emp: 25632094 | Tienda: 1 | 2026-09-17 12:04:50 | Origen: STREAM
+2026-09-17 12:04:50,966 | INFO | Respaldo TXT guardado para 25632094 (Tienda: 1)
+2026-09-17 12:05:05,833 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.617189
+2026-09-17 12:05:05,876 | WARNING | Marcaje duplicado omitido -> Emp: EMP001 | Hora: 2026-09-17 11:35:35.694605
+2026-09-17 12:05:05,912 | WARNING | Marcaje duplicado omitido -> Emp: EMP002 | Hora: 2026-09-16 10:30:00
+2026-09-17 12:05:05,941 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:00:00
+2026-09-17 12:05:05,970 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:20:30
+2026-09-17 12:05:05,996 | WARNING | Marcaje duplicado omitido -> Emp: 3 | Hora: 2026-09-17 11:36:19.161006
+2026-09-17 12:05:06,021 | WARNING | Marcaje duplicado omitido -> Emp: 2 | Hora: 2026-09-17 11:38:01.648173
+2026-09-17 12:05:06,044 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.325608
+2026-09-17 12:05:06,078 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.341237
+2026-09-17 12:05:06,107 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.336363
+2026-09-17 12:05:06,151 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.345377
+2026-09-17 12:05:06,174 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.342944
+2026-09-17 12:05:06,194 | WARNING | Marcaje duplicado omitido -> Emp: 5 | Hora: 2026-09-17 11:49:00.415098
+2026-09-17 12:05:06,224 | WARNING | Marcaje duplicado omitido -> Emp: 25632094 | Hora: 2026-09-17 12:04:50.913405
+2026-09-17 12:05:36,260 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.617189
+2026-09-17 12:05:36,287 | WARNING | Marcaje duplicado omitido -> Emp: EMP001 | Hora: 2026-09-17 11:35:35.694605
+2026-09-17 12:05:36,310 | WARNING | Marcaje duplicado omitido -> Emp: EMP002 | Hora: 2026-09-16 10:30:00
+2026-09-17 12:05:36,338 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:00:00
+2026-09-17 12:05:36,368 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:20:30
+2026-09-17 12:05:36,404 | WARNING | Marcaje duplicado omitido -> Emp: 3 | Hora: 2026-09-17 11:36:19.161006
+2026-09-17 12:05:36,522 | WARNING | Marcaje duplicado omitido -> Emp: 2 | Hora: 2026-09-17 11:38:01.648173
+2026-09-17 12:05:36,600 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.325608
+2026-09-17 12:05:36,661 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.341237
+2026-09-17 12:05:36,732 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.336363
+2026-09-17 12:05:36,755 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.345377
+2026-09-17 12:05:36,773 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.342944
+2026-09-17 12:05:36,795 | WARNING | Marcaje duplicado omitido -> Emp: 5 | Hora: 2026-09-17 11:49:00.415098
+2026-09-17 12:05:36,827 | WARNING | Marcaje duplicado omitido -> Emp: 25632094 | Hora: 2026-09-17 12:04:50.913405
+2026-09-17 12:06:06,911 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:35:17.617189
+2026-09-17 12:06:06,977 | WARNING | Marcaje duplicado omitido -> Emp: EMP001 | Hora: 2026-09-17 11:35:35.694605
+2026-09-17 12:06:07,052 | WARNING | Marcaje duplicado omitido -> Emp: EMP002 | Hora: 2026-09-16 10:30:00
+2026-09-17 12:06:07,198 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:00:00
+2026-09-17 12:06:07,319 | WARNING | Marcaje duplicado omitido -> Emp: EMP_TEST_96 | Hora: 2026-09-16 12:20:30
+2026-09-17 12:06:07,496 | WARNING | Marcaje duplicado omitido -> Emp: 3 | Hora: 2026-09-17 11:36:19.161006
+2026-09-17 12:06:07,629 | WARNING | Marcaje duplicado omitido -> Emp: 2 | Hora: 2026-09-17 11:38:01.648173
+2026-09-17 12:06:07,711 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.325608
+2026-09-17 12:06:07,801 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.341237
+2026-09-17 12:06:07,887 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.336363
+2026-09-17 12:06:07,979 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.345377
+2026-09-17 12:06:08,059 | WARNING | Marcaje duplicado omitido -> Emp: TEST | Hora: 2026-09-17 11:40:43.342944
+2026-09-17 12:06:08,121 | WARNING | Marcaje duplicado omitido -> Emp: 5 | Hora: 2026-09-17 11:49:00.415098
+2026-09-17 12:06:08,203 | WARNING | Marcaje duplicado omitido -> Emp: 25632094 | Hora: 2026-09-17 12:04:50.913405
+2026-09-17 12:06:17,222 | INFO | Stream ISAPI detenido correctamente.
+2026-09-17 12:06:17,236 | INFO | Motor de base de datos liberado.

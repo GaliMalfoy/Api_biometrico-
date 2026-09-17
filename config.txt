@@ -1,10 +1,13 @@
 # ==========================================
 # CONFIGURACIÓN GENERAL DE LA API Y DISPOSITIVOS
 # ==========================================
+# ==========================================
+# CONFIGURACIÓN GENERAL DE LA API Y DISPOSITIVOS
+# ==========================================
 
 # Control de Hardware y Servidor Remoto
 # 0 = Modo offline (sin biométrico ni SQL), 1 = Modo online (con hardware conectado)
-ENABLE_HARDWARE=0
+ENABLE_HARDWARE=1
 
 # Configuración de tu API
 SERVER_IP=192.168.20.167
@@ -18,19 +21,18 @@ BIOMETRIC_PASS=BiHr2428
 
 # Configuración Base de Datos (PostgreSQL)
 DB_TYPE=postgres
-DB_HOST=192.168.50.19
+DB_HOST=192.168.125.17
 DB_PORT=5432
-DB_NAME=bihr
+DB_NAME=BIHR
 DB_USER=postgres
-DB_PASS=tu_contraseña_real_de_postgresql
+DB_PASS=Nozrag*2021
 TABLE_NAME=public.marcaje
 
 # Tiempos de control
 DUPLICATE_MINUTES=2
 POLL_INTERVAL_SECONDS=2
 
-# Identificadores de tienda
-IP=1
+# Identificador de Tienda
 ID_TIENDA=1
 
 # ==========================================

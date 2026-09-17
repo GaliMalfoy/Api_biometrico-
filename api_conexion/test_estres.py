@@ -1,39 +1,35 @@
 import asyncio
-import httpx
 import time
+import httpx
 
-# URL de tu API (ajustada al endpoint de simulación)
-URL = "http://localhost:8000/api/v1/hikvision/simular-marcaje?id_empleado=999"
+URL = "http://127.0.0.1:8000/api/v1/hikvision/simular-marcaje?id_empleado=TEST"
+HEADERS = {"X-API-Key": "12345"}  # Ajusta a tu API_SECRET_KEY
 
-# Headers asegurando que todos los valores sean estrictamente strings (str)
-HEADERS = {
-    "X-API-Key": str("12345")
-}
-
-TOTAL_PETICIONES = 1000  # Cantidad total de peticiones a enviar
-CONCURRENCIA = 100     # Peticiones simultáneas
-
-async def hacer_peticion(client, semaphore, idx):
-    async with semaphore:
-        inicio = time.time()
+async def hacer_peticion(client, i, sem):
+    async with sem:
         try:
-            response = await client.post(URL, headers=HEADERS, timeout=10.0)
-            duracion = time.time() - inicio
-            print(f"[{idx}] Estado: {response.status_code} | Tiempo: {duracion:.2f}s")
+            r = await client.post(URL, headers=HEADERS, timeout=10.0)
+            if r.status_code == 200:
+                print(f"[{i}] OK: {r.json()}")
+            else:
+                print(f"[{i}] HTTP {r.status_code}: {r.text}")
         except Exception as e:
-            print(f"[{idx}] Error: {e}")
+            print(f"[{i}] Error: {e}")
 
 async def main():
-    semaphore = asyncio.Semaphore(CONCURRENCIA)
-    async with httpx.AsyncClient() as client:
-        print(f"Iniciando prueba de estrés: {TOTAL_PETICIONES} peticiones (Concurrencia: {CONCURRENCIA})...")
-        tiempo_inicio_total = time.time()
-        
-        tareas = [hacer_peticion(client, semaphore, i) for i in range(TOTAL_PETICIONES)]
+    print("Iniciando prueba de estrés...")
+    inicio = time.time()
+    
+    # Control de concurrencia explícito
+    sem = asyncio.Semaphore(50) 
+    
+    limits = httpx.Limits(max_keepalive_connections=100, max_connections=200)
+    async with httpx.AsyncClient(limits=limits) as client:
+        tareas = [hacer_peticion(client, i, sem) for i in range(50)]
         await asyncio.gather(*tareas)
         
-        tiempo_total = time.time() - tiempo_inicio_total
-        print(f"\nPrueba finalizada en {tiempo_total:.2f} segundos.")
+    fin = time.time()
+    print(f"Prueba finalizada en {fin - inicio:.2f} segundos.")
 
 if __name__ == "__main__":
     asyncio.run(main())
