@@ -1,6 +1,6 @@
 # API Biométrico - Integración Hikvision
 
-Backend desarrollado en **FastAPI** para la recepción, procesamiento y almacenamiento en tiempo real de eventos de dispositivos de control de acceso biométrico **Hikvision** (compatible con modelos como la serie DS-K1T8003) mediante **ISAPI** y escuchas HTTP (*HTTP Listeners*).
+Backend desarrollado en **FastAPI** para la recepción, procesamiento y almacenamiento en tiempo real de eventos de dispositivos de control de acceso biométrico **Hikvision** (compatible con modelos como la serie DS-K1T8003 mediante **ISAPI** y escuchas HTTP (*HTTP Listeners*).
 
 ## 🚀 Características Principales
 
