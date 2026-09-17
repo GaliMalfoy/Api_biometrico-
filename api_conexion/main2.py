@@ -82,6 +82,9 @@ else:
 SERVER_PORT = int(CFG.get("SERVER_PORT", "8000"))
 ENABLE_HARDWARE = CFG.get("ENABLE_HARDWARE", "0") == "1"
 
+# Identificador de Tienda (Soporta ID_TIENDA o STORE_ID en config.txt)
+STORE_ID = CFG.get("STORE_ID", CFG.get("ID_TIENDA", "GENERAL"))
+
 BIOMETRIC_IP = CFG.get("BIOMETRIC_IP", "192.168.20.215")
 BIOMETRIC_USER = CFG.get("BIOMETRIC_USER", "admin")
 BIOMETRIC_PASS = CFG.get("BIOMETRIC_PASS", "admin123")
@@ -109,19 +112,16 @@ def _escribir_archivo(ruta: str, linea: str):
     with open(ruta, "a", encoding="utf-8") as f:
         f.write(linea)
 
-async def guardar_respaldo_local_txt(id_empleado: str, fecha_hora: datetime, ip_dispositivo: str, origen: str):
+async def guardar_respaldo_local_txt(id_empleado: str, fecha_hora: datetime, ip_dispositivo: str, origen: str, id_tienda: str = STORE_ID):
     archivo_respaldo = obtener_ruta_respaldo()
-    
     timestamp = datetime.now().isoformat()
-    id_tienda = CFG.get("ID_TIENDA", "GENERAL")
-    ip = ip_dispositivo
     
-    linea_respaldo = f"{timestamp} | EMP: {id_empleado} | TIENDA: {id_tienda} | FECHA_HORA: {fecha_hora} | IP: {ip} | ORIGEN: {origen}\n"
+    linea_respaldo = f"{timestamp} | EMP: {id_empleado} | TIENDA: {id_tienda} | FECHA_HORA: {fecha_hora} | IP: {ip_dispositivo} | ORIGEN: {origen}\n"
 
     async with file_lock:
         try:
             await asyncio.to_thread(_escribir_archivo, archivo_respaldo, linea_respaldo)
-            logger.info(f"Respaldo TXT guardado para {id_empleado}")
+            logger.info(f"Respaldo TXT guardado para {id_empleado} (Tienda: {id_tienda})")
         except Exception as e:
             logger.error(f"Error escribiendo respaldo TXT: {e}")
 
@@ -133,9 +133,8 @@ async def tarea_sincronizar_respaldos_pendientes():
     archivo_respaldo = obtener_ruta_respaldo()
     
     while True:
-        await asyncio.sleep(30)  # Revisa cada 30 segundos
+        await asyncio.sleep(30)
         
-        # Si la base de datos no está disponible, esperamos a la siguiente iteración
         if not DB_ENGINE:
             continue
             
@@ -167,10 +166,13 @@ async def tarea_sincronizar_respaldos_pendientes():
                         fecha_hora_str = None
                         ip_disp = BIOMETRIC_IP
                         origen_evt = "RESYNC"
+                        tienda_evt = STORE_ID
 
                         for p in partes:
                             if p.startswith("EMP:"):
                                 emp_id = p.replace("EMP:", "").strip()
+                            elif p.startswith("TIENDA:"):
+                                tienda_evt = p.replace("TIENDA:", "").strip()
                             elif p.startswith("FECHA_HORA:"):
                                 fecha_hora_str = p.replace("FECHA_HORA:", "").strip()
                             elif p.startswith("IP:"):
@@ -180,9 +182,7 @@ async def tarea_sincronizar_respaldos_pendientes():
 
                         if emp_id and fecha_hora_str:
                             fh = datetime.fromisoformat(fecha_hora_str)
-                            
-                            # Intentamos insertar directamente usando la lógica síncrona de BD
-                            exito = _operacion_db_sync(emp_id, fh, ip_disp, f"SYNC_{origen_evt}")
+                            exito = _operacion_db_sync(emp_id, fh, ip_disp, f"SYNC_{origen_evt}", tienda_evt)
                             if exito:
                                 sincronizados_count += 1
                         else:
@@ -234,12 +234,10 @@ def parsear_fecha_hora(valor: Any) -> Optional[datetime]:
 # ============================================================
 # LÓGICA DE BASE DE DATOS POSTGRESQL Y MODO OFFLINE
 # ============================================================
-def _operacion_db_sync(id_empleado: str, fecha_hora: datetime, ip_dispositivo: str, origen: str) -> bool:
+def _operacion_db_sync(id_empleado: str, fecha_hora: datetime, ip_dispositivo: str, origen: str, id_tienda: str = STORE_ID) -> bool:
     limite_tiempo = fecha_hora - timedelta(minutes=DUPLICATE_MINUTES)
     
-    # ==========================================
-    # 1. MODO OFFLINE (Verificación en archivo TXT)
-    # ==========================================
+    # MODO OFFLINE
     if not DB_ENGINE:
         archivo_respaldo = obtener_ruta_respaldo()
         if os.path.exists(archivo_respaldo):
@@ -266,9 +264,7 @@ def _operacion_db_sync(id_empleado: str, fecha_hora: datetime, ip_dispositivo: s
         logger.info(f"Modo Offline: Procesando nuevo marcaje para emp: {id_empleado}")
         return True
 
-    # ==========================================
-    # 2. MODO ONLINE (Verificación en PostgreSQL)
-    # ==========================================
+    # MODO ONLINE
     fecha_solo = fecha_hora.date()
     hora_solo = fecha_hora.strftime("%H:%M:%S")
 
@@ -297,8 +293,8 @@ def _operacion_db_sync(id_empleado: str, fecha_hora: datetime, ip_dispositivo: s
                 return False
 
             query_insert = text(f"""
-                INSERT INTO {TABLE_NAME} (id_empleado, fecha_hora, fecha, hora, ip_dispositivo, origen, dia_anterior)
-                VALUES (:id_empleado, :fecha_hora, :fecha, :hora, :ip_dispositivo, :origen, :dia_anterior)
+                INSERT INTO {TABLE_NAME} (id_empleado, fecha_hora, fecha, hora, ip_dispositivo, origen, dia_anterior, id_tienda)
+                VALUES (:id_empleado, :fecha_hora, :fecha, :hora, :ip_dispositivo, :origen, :dia_anterior, :id_tienda)
             """)
             conn.execute(query_insert, {
                 "id_empleado": id_empleado,
@@ -307,10 +303,11 @@ def _operacion_db_sync(id_empleado: str, fecha_hora: datetime, ip_dispositivo: s
                 "hora": hora_solo,
                 "ip_dispositivo": ip_dispositivo,
                 "origen": origen,
-                "dia_anterior": dia_anterior_valor
+                "dia_anterior": dia_anterior_valor,
+                "id_tienda": id_tienda
             })
 
-        logger.info(f"Marcaje registrado en PostgreSQL -> Emp: {id_empleado} | {fecha_solo} {hora_solo} | Origen: {origen}")
+        logger.info(f"Marcaje registrado en PostgreSQL -> Emp: {id_empleado} | Tienda: {id_tienda} | {fecha_solo} {hora_solo} | Origen: {origen}")
         return True
     except Exception as e:
         logger.error(f"Error procesando transacción en PostgreSQL: {e}. Se mantendrá respaldo local.")
@@ -323,11 +320,13 @@ async def procesar_y_guardar_evento(body_data: dict, origen="PULL") -> bool:
 
     fecha_hora = parsear_fecha_hora(buscar_en_datos(body_data, ["dateTime", "time"])) or datetime.now()
     ip_dispositivo = body_data.get("ipAddress") or BIOMETRIC_IP
+    
+    id_tienda = body_data.get("id_tienda") or STORE_ID
 
-    procesado = await asyncio.to_thread(_operacion_db_sync, id_empleado, fecha_hora, ip_dispositivo, origen)
+    procesado = await asyncio.to_thread(_operacion_db_sync, id_empleado, fecha_hora, ip_dispositivo, origen, id_tienda)
 
     if procesado:
-        await guardar_respaldo_local_txt(id_empleado, fecha_hora, ip_dispositivo, origen)
+        await guardar_respaldo_local_txt(id_empleado, fecha_hora, ip_dispositivo, origen, id_tienda)
 
     return procesado
 
