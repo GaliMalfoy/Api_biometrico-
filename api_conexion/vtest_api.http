@@ -5,14 +5,14 @@ GET {{baseUrl}}/
 Accept: application/json
 
 ### 2. Simular Marcaje
-POST {{baseUrl}}/api/v1/hikvision/simular-marcaje?id_empleado=101
+POST {{baseUrl}}/api/v1/hikvision/simular-marcaje?id_empleado=101&id_tienda=1
 X-API-Key: 12345
 
 ### 3. Simular Marcaje Duplicado
-POST {{baseUrl}}/api/v1/hikvision/simular-marcaje?id_empleado=101
+POST {{baseUrl}}/api/v1/hikvision/simular-marcaje?id_empleado=101&id_tienda=1
 X-API-Key: 12345
 
-### 4. Webhook
+### 4. Webhook Hikvision (ISAPI Event Notification)
 POST {{baseUrl}}/api/v1/hikvision/webhook
 X-API-Key: 12345
 Content-Type: application/json
@@ -25,10 +25,10 @@ Content-Type: application/json
   }
 }
 
-### 5. Reporte TXT
+### 5. Reporte TXT Respaldo
 GET {{baseUrl}}/api/v1/hikvision/reporte-respaldo
 X-API-Key: 12345
 
-### 6. Prueba de Seguridad (Debe dar 403)
+### 6. Prueba de Seguridad (Debe dar 403 Forbidden)
 GET {{baseUrl}}/api/v1/hikvision/reporte-respaldo
 X-API-Key: clave_incorrecta

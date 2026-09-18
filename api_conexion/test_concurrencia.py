@@ -1,25 +1,40 @@
-import httpx
 import asyncio
+import httpx
 
-url = "http://localhost:8000/api/v1/hikvision/webhook"
-headers = {"X-API-Key": "12345"}
-payload = {
-    "AccessControllerEvent": {
-        "employeeNoString": "EMP_CONCURRENTE_99",
-        "dateTime": "2026-09-16T13:00:00",
-        "ipAddress": "192.168.20.215"
-    }
-}
+# Configuración de prueba
+BASE_URL = "http://127.0.0.1:8000"
+API_KEY = "12345"  # Debe coincidir con la clave configurada en la API
 
-async def enviar_peticion(client):
-    response = await client.post(url, json=payload, headers=headers)
-    return response.status_code
+
+async def enviar_marcaje(client: httpx.AsyncClient, idx: int) -> int:
+    headers = {"X-API-Key": API_KEY}
+    url = f"{BASE_URL}/api/v1/hikvision/simular-marcaje?id_empleado={1000 + idx}&id_tienda=1"
+    try:
+        resp = await client.post(url, headers=headers)
+        return resp.status_code
+    except httpx.RequestError as exc:
+        print(f"Error de red en la petición {idx}: {exc}")
+        return 0
+
 
 async def main():
-    async with httpx.AsyncClient() as client:
-        # Disparar 50 peticiones exactamente IDÉNTICAS al mismo milisegundo
-        tareas = [enviar_peticion(client) for _ in range(50)]
-        resultados = await asyncio.gather(*tareas)
-        print("Resultados de las 50 peticiones concurrentes:", resultados)
+    # Límite de conexiones para la prueba de carga
+    limits = httpx.Limits(max_keepalive_connections=20, max_connections=50)
 
-asyncio.run(main())
+    async with httpx.AsyncClient(limits=limits, timeout=10.0) as client:
+        # Dispara 30 peticiones concurrentes con distintos IDs de empleado
+        tareas = [enviar_marcaje(client, i) for i in range(30)]
+        resultados = await asyncio.gather(*tareas)
+
+        exitosas = resultados.count(200)
+        fallidas = len(resultados) - exitosas
+
+        print("=" * 40)
+        print(f"Peticiones completadas: {len(resultados)}")
+        print(f"Respuestas HTTP 200 (OK): {exitosas}")
+        print(f"Respuestas con error/403/500: {fallidas}")
+        print("=" * 40)
+
+
+if __name__ == "__main__":
+    asyncio.run(main())
